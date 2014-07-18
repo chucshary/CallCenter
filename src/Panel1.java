@@ -49,6 +49,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boton11p1.png"))); // NOI18N
+        boton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -61,9 +62,10 @@ public class Panel1 extends javax.swing.JInternalFrame {
                 boton1MouseExited(evt);
             }
         });
-        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 180, -1));
+        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 170, -1));
 
         boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boton12p1.png"))); // NOI18N
+        boton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -76,9 +78,10 @@ public class Panel1 extends javax.swing.JInternalFrame {
                 boton2MouseExited(evt);
             }
         });
-        getContentPane().add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        getContentPane().add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 80, 170, -1));
 
         boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boton13p1.png"))); // NOI18N
+        boton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -91,9 +94,10 @@ public class Panel1 extends javax.swing.JInternalFrame {
                 boton3MouseExited(evt);
             }
         });
-        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 170, -1));
 
         boton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/43.png"))); // NOI18N
+        boton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -106,7 +110,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
                 boton4MouseExited(evt);
             }
         });
-        getContentPane().add(boton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        getContentPane().add(boton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 200, 170, -1));
 
         PanelContenido.setMaximumSize(new java.awt.Dimension(630, 430));
         PanelContenido.setMinimumSize(new java.awt.Dimension(630, 430));
@@ -119,7 +123,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 400));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 640, 410));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo paneles.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondopaneles.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 200, 440));
 
         pack();
