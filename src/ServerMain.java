@@ -71,6 +71,7 @@ public class ServerMain extends javax.swing.JFrame {
 
         Pestana1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P1.png"))); // NOI18N
         Pestana1.setToolTipText("");
+        Pestana1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Pestana1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,6 +87,7 @@ public class ServerMain extends javax.swing.JFrame {
         getContentPane().add(Pestana1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 160, 43));
 
         Pestana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P2.png"))); // NOI18N
+        Pestana2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Pestana2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -101,6 +103,7 @@ public class ServerMain extends javax.swing.JFrame {
         getContentPane().add(Pestana2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 180, -1));
 
         Pestana3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P3.png"))); // NOI18N
+        Pestana3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Pestana3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,6 +119,7 @@ public class ServerMain extends javax.swing.JFrame {
         getContentPane().add(Pestana3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 180, -1));
 
         Pestana5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P5.png"))); // NOI18N
+        Pestana5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Pestana5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
