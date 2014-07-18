@@ -3,29 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package SuperUsuario;
 
 import java.awt.Dimension;
-import java.sql.*;
-import java.sql.SQLException;
-import EstructuraBD.conexion;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Lee
  */
 public class Serial extends javax.swing.JFrame {
-
-    public String serial = "";
-    private conexion con = new conexion();
-    conexion vBD = new conexion();
-
+    public Base_de_datos_metodos metodo=new Base_de_datos_metodos();
     /**
      * Creates new form Serial
      */
     public Serial() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -66,14 +61,9 @@ public class Serial extends javax.swing.JFrame {
         });
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
-            }
-        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
             }
         });
 
@@ -81,50 +71,30 @@ public class Serial extends javax.swing.JFrame {
         jLabel1.setText("Serial");
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField2MouseClicked(evt);
-            }
-        });
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField2KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
             }
         });
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField3MouseClicked(evt);
-            }
-        });
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField3KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField3KeyReleased(evt);
             }
         });
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField4MouseClicked(evt);
-            }
-        });
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField4KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
             }
         });
 
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField5MouseClicked(evt);
-            }
-        });
         jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField5KeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField5KeyReleased(evt);
             }
         });
 
@@ -209,15 +179,13 @@ public class Serial extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(162, 162, 162)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1)
-                    .addComponent(jPasswordField2))
+                    .addComponent(jTextField7)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPasswordField1)
+                        .addComponent(jPasswordField2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(40, 40, 40))
@@ -238,9 +206,9 @@ public class Serial extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(64, 64, 64)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,125 +230,112 @@ public class Serial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        if (jTextField1.getText().length() == 4) {
-            evt.consume();
-            jTextField2.grabFocus();
-        }
-    }//GEN-LAST:event_jTextField1KeyPressed
-
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-
-    }//GEN-LAST:event_jTextField1MouseClicked
-
-    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
-
-    }//GEN-LAST:event_jTextField2MouseClicked
-
-    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
-        if (jTextField2.getText().length() == 4) {
-            evt.consume();
-            jTextField3.grabFocus();
-        }
-    }//GEN-LAST:event_jTextField2KeyPressed
-
-    private void jTextField3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3MouseClicked
-
-    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
-        if (jTextField3.getText().length() == 4) {
-            evt.consume();
-            jTextField4.grabFocus();
-        }
-    }//GEN-LAST:event_jTextField3KeyPressed
-
-    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4MouseClicked
-
-    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
-        if (jTextField4.getText().length() == 4) {
-            evt.consume();
-            jTextField5.grabFocus();
-        }
-    }//GEN-LAST:event_jTextField4KeyPressed
-
-    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5MouseClicked
-
-    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
-        if (jTextField5.getText().length() == 4) {
-            evt.consume();
-            jButton1.grabFocus();
-        }
-    }//GEN-LAST:event_jTextField5KeyPressed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        Conector conexion = new Conector();
-//        try{
-//           PreparedStatement pstm = (PreparedStatement)conexion.getConnection().prepareStatement("SELECT " + " serial_code " + " FROM superusuario");
-//           ResultSet res = pstm.executeQuery();
-//           res.next();
-//           serial = res.getString("serial_code");
-//           res.close();
-//       }
-//       catch(SQLException e)
-//       {
-//           System.out.println(e);
-//       }
-        try {
-            con.busqueda_serial();
-            String serialprueba = "" + jTextField1 + jTextField2 + jTextField3 + jTextField4 + jTextField5;
-            serialprueba = "" + serialprueba.hashCode();
-            serial = "" + Variables_globales.getSerialBD().hashCode();
-
-            if (serial.equals(serialprueba)) {
-                this.resize(new Dimension(438, 360));
-            }
-
-        } catch (Exception e) {
+        String serial=""+metodo.serial_code();
+        String serialprueba =""+ jTextField1 + jTextField2 + jTextField3 + jTextField4 + jTextField5;
+        serialprueba=""+serialprueba.hashCode();
+        serial=""+serial.hashCode();
+        if(serial.equals(serialprueba)){
+            this.resize(new Dimension(438, 360));
+            jButton1.setEnabled(false);
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(false);
+            jTextField3.setEnabled(false);
+            jTextField4.setEnabled(false);
+            jTextField5.setEnabled(false);
+            jButton2.setVisible(true);
+            jLabel6.setVisible(true);
+            jLabel7.setVisible(true);
+            jLabel8.setVisible(true);
+            jLabel9.setVisible(true);
+            jTextField7.setVisible(true);
+            jPasswordField1.setVisible(true);
+            jPasswordField2.setVisible(true);
         }
-
-//        
-//       
-//        con.agregar("usuarios", "nombre,password,permisos", "rocks,rufu,2");
-//        con.actualizar("usuarios", "nombre,password", "Ces,rumble", "id=2");
+        else{
+            JOptionPane.showMessageDialog(null,"Por favor se revisar el serial ingresado","Serial Incorrecto",JOptionPane.ERROR_MESSAGE); 
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String contra1, contra2;
-        contra1 = "" + jPasswordField1.hashCode();
-        contra2 = "" + jPasswordField2.hashCode();
-        if (contra1.equals(contra2)) {
+        String contra1,contra2;
+        contra1=""+jPasswordField1.hashCode();
+        contra2=""+jPasswordField2.hashCode();
+        if(contra1.equals(contra2)){
             this.dispose();
             Variables_globales.ventana.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden","Contraseña",JOptionPane.WARNING_MESSAGE); 
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-//        Conector conexion = new Conector();
-//        int serial2=0;
-//        try{
-//           PreparedStatement pstm = (PreparedStatement)conexion.getConnection().prepareStatement("SELECT " + " serial " + " FROM superusuario");
-//           ResultSet res = pstm.executeQuery();
-//           res.next();
-//           serial2 = res.getInt("serial");
-//           res.close();
-//       }
-//       catch(SQLException e)
-//       {
-//           System.out.println(e);
-//       }
-//        if(serial2==0){
-//            this.resize(new Dimension(438, 150));
-//        }
-//        else{
-//            this.dispose();
-//            Variables_globales.ventana.setVisible(true);
-//        }
+        int serial2=metodo.serial();
+        if(serial2==0){
+            this.resize(new Dimension(438, 150));
+            jButton2.setVisible(false);
+            jLabel6.setVisible(false);
+            jLabel7.setVisible(false);
+            jLabel8.setVisible(false);
+            jLabel9.setVisible(false);
+            jTextField7.setVisible(false);
+            jPasswordField1.setVisible(false);
+            jPasswordField2.setVisible(false);
+        }
+        else{
+            this.dispose();
+            Variables_globales.ventana.setVisible(true);
+        }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        jTextField1.setText(jTextField1.getText().toUpperCase());
+        if (jTextField1.getText().length()>= 5){
+            evt.consume();
+            jTextField2.grabFocus();
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        jTextField2.setText(jTextField2.getText().toUpperCase());
+        if (jTextField2.getText().length()>= 5){
+            evt.consume();
+            jTextField3.grabFocus();
+        }else if(jTextField2.getText().length()== 0){
+            jTextField1.grabFocus();
+        }
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        jTextField3.setText(jTextField3.getText().toUpperCase());
+        if (jTextField3.getText().length()>= 5){
+            evt.consume();
+            jTextField4.grabFocus();
+        }else if(jTextField3.getText().length()== 0){
+            jTextField2.grabFocus();
+        }
+    }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        jTextField4.setText(jTextField4.getText().toUpperCase());
+        if (jTextField4.getText().length()>= 5){
+            evt.consume();
+            jTextField5.grabFocus();
+        }else if(jTextField4.getText().length()== 0){
+            jTextField3.grabFocus();
+        }
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+        jTextField5.setText(jTextField5.getText().toUpperCase());
+        if (jTextField5.getText().length()>= 5){
+            evt.consume();
+            jButton1.grabFocus();
+        }else if(jTextField5.getText().length()== 0){
+            jTextField4.grabFocus();
+        }
+    }//GEN-LAST:event_jTextField5KeyReleased
 
     /**
      * @param args the command line arguments

@@ -27,24 +27,4 @@ public class Variables_globales {
         ventana = aVentana;
     }
     
-    private static String serialBD;
-
-    /**
-     * @return the serialBD
-     */
-    public static String getSerialBD() {
-        return serialBD;
-    }
-
-    /**
-     * @param aSerialBD the serialBD to set
-     */
-    public static void setSerialBD(String aSerialBD) {
-        serialBD = aSerialBD;
-    }
-
-    public static void getSerialBD(String registro_busqueda) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
