@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package Reportes;
-
-import EstructuraBD.conexion;
 import javax.swing.JFrame;
 
 /**
@@ -65,8 +63,8 @@ public class principal extends JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            conexion c = new conexion();
-            c.mostrarReporte_ejemplo();
+            Reporte c = new Reporte();
+            c.mostrarReporte();
         } catch (Exception e) {
         }
 
