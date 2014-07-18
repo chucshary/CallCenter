@@ -42,20 +42,20 @@ public class conexion {
     public void desconectar() {
         con = null;
     }
-    
-     public void mostrarReporte_ejemplo() {
-        try {
-            JasperReport reporte;
-            reporte = JasperCompileManager.compileReport("primerReporte.jrxml");
-            JasperPrint p = JasperFillManager.fillReport(reporte, null, con);
-            JasperViewer view = new JasperViewer(p, false);
-            view.setTitle("Primer Reporte");
-            view.setExtendedState(Frame.MAXIMIZED_BOTH);
-            view.setVisible(true);
-        } catch (JRException e) {
-        }
-        
-    }
+//    
+//     public void mostrarReporte_ejemplo() {
+//        try {
+//            JasperReport reporte;
+//            reporte = JasperCompileManager.compileReport("primerReporte.jrxml");
+//            JasperPrint p = JasperFillManager.fillReport(reporte, null, con);
+//            JasperViewer view = new JasperViewer(p, false);
+//            view.setTitle("Primer Reporte");
+//            view.setExtendedState(Frame.MAXIMIZED_BOTH);
+//            view.setVisible(true);
+//        } catch (JRException e) {
+//        }
+//        
+//    }
 
     public void busqueda_serial() {
         try {
