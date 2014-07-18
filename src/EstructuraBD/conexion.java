@@ -1,7 +1,14 @@
 package EstructuraBD;
 
 import SuperUsuario.Variables_globales;
+import java.awt.Frame;
 import java.sql.*;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class conexion {
 
@@ -35,6 +42,20 @@ public class conexion {
     public void desconectar() {
         con = null;
     }
+    
+     public void mostrarReporte_ejemplo() {
+        try {
+            JasperReport reporte;
+            reporte = JasperCompileManager.compileReport("primerReporte.jrxml");
+            JasperPrint p = JasperFillManager.fillReport(reporte, null, con);
+            JasperViewer view = new JasperViewer(p, false);
+            view.setTitle("Primer Reporte");
+            view.setExtendedState(Frame.MAXIMIZED_BOTH);
+            view.setVisible(true);
+        } catch (JRException e) {
+        }
+        
+    }
 
     public void busqueda_serial() {
         try {
@@ -42,7 +63,7 @@ public class conexion {
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString("serial");
-            Variables_globales.getSerialBD(registro_busqueda);
+            //Variables_globales.getSerialBD(registro_busqueda);
             res.close();
         } catch (Exception e) {
         }
