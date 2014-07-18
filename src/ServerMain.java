@@ -46,13 +46,13 @@ public class ServerMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tapa = new javax.swing.JLabel();
         Pestana1 = new javax.swing.JLabel();
         Pestana2 = new javax.swing.JLabel();
         Pestana3 = new javax.swing.JLabel();
         Pestana5 = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
-        tapa = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         PanelBotones = new javax.swing.JDesktopPane();
         jLabel2 = new javax.swing.JLabel();
@@ -69,8 +69,13 @@ public class ServerMain extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tapa.png"))); // NOI18N
+        tapa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Menu", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM, new java.awt.Font("Courier New", 3, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        getContentPane().add(tapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 50));
+
         Pestana1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P1.png"))); // NOI18N
         Pestana1.setToolTipText("");
+        Pestana1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,9 +88,10 @@ public class ServerMain extends javax.swing.JFrame {
                 Pestana1MouseExited(evt);
             }
         });
-        getContentPane().add(Pestana1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 160, 43));
+        getContentPane().add(Pestana1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 160, 50));
 
         Pestana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P2.png"))); // NOI18N
+        Pestana2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -98,9 +104,10 @@ public class ServerMain extends javax.swing.JFrame {
                 Pestana2MouseExited(evt);
             }
         });
-        getContentPane().add(Pestana2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 180, -1));
+        getContentPane().add(Pestana2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 180, -1));
 
         Pestana3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P3.png"))); // NOI18N
+        Pestana3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,9 +120,10 @@ public class ServerMain extends javax.swing.JFrame {
                 Pestana3MouseExited(evt);
             }
         });
-        getContentPane().add(Pestana3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 180, -1));
+        getContentPane().add(Pestana3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 180, -1));
 
         Pestana5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P5.png"))); // NOI18N
+        Pestana5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,9 +136,10 @@ public class ServerMain extends javax.swing.JFrame {
                 Pestana5MouseExited(evt);
             }
         });
-        getContentPane().add(Pestana5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 180, -1));
+        getContentPane().add(Pestana5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 180, -1));
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x2.png"))); // NOI18N
+        close.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,9 +152,10 @@ public class ServerMain extends javax.swing.JFrame {
                 closeMouseExited(evt);
             }
         });
-        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 30));
+        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 40));
 
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/6.png"))); // NOI18N
+        logout.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -155,14 +165,10 @@ public class ServerMain extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
-        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 110, 30));
-
-        tapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo paneles.png"))); // NOI18N
-        tapa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Menu", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM, new java.awt.Font("Courier New", 3, 24), new java.awt.Color(255, 255, 255))); // NOI18N
-        getContentPane().add(tapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 50));
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 110, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tapa2.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 640, 50));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 640, 60));
 
         PanelBotones.setMaximumSize(new java.awt.Dimension(820, 400));
         PanelBotones.setMinimumSize(new java.awt.Dimension(820, 400));
