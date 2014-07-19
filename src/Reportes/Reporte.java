@@ -8,12 +8,12 @@ package Reportes;
 
 import java.awt.Frame;
 import java.sql.*;
-//import net.sf.jasperreports.engine.JRException;
-//import net.sf.jasperreports.engine.JasperCompileManager;
-//import net.sf.jasperreports.engine.JasperFillManager;
-//import net.sf.jasperreports.engine.JasperPrint;
-//import net.sf.jasperreports.engine.JasperReport;
-//import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -49,16 +49,16 @@ public class Reporte {
 //    }
     
     public void mostrarReporte() {
-//        try {
-//            JasperReport reporte;
-//            reporte = JasperCompileManager.compileReport("primerReporte.jrxml");
-//            JasperPrint p = JasperFillManager.fillReport(reporte, null, conn);
-//            JasperViewer view = new JasperViewer(p, false);
-//            view.setTitle("Primer Reporte");
-//            view.setExtendedState(Frame.MAXIMIZED_BOTH);
-//            view.setVisible(true);
-//        } catch (JRException e) {
-//        }
+        try {
+            JasperReport reporte;
+            reporte = JasperCompileManager.compileReport("primerReporte.jrxml");
+            JasperPrint p = JasperFillManager.fillReport(reporte, null, conn);
+            JasperViewer view = new JasperViewer(p, false);
+            view.setTitle("Primer Reporte");
+            view.setExtendedState(Frame.MAXIMIZED_BOTH);
+            view.setVisible(true);
+        } catch (JRException e) {
+        }
         
     }
     
