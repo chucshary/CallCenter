@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package Reportes;
+
 import javax.swing.JFrame;
 
 /**
  *
  * @author Shary
  */
+
+//EJEMPLO REPORTE
 public class principal extends JFrame {
 
     /**
