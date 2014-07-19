@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ejemplo;
+package Reportes;
 
 import javax.swing.JFrame;
 
