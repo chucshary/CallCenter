@@ -24,7 +24,7 @@ public class Server {
                  
                 }
         
-        ServerMain m= new ServerMain();
+        callcenter.ServerMain m= new callcenter.ServerMain();
         m.show();
         
     }
