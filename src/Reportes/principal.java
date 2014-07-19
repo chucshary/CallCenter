@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reportes;
+
+package ejemplo;
 
 import javax.swing.JFrame;
 
@@ -11,8 +12,6 @@ import javax.swing.JFrame;
  *
  * @author Shary
  */
-
-//EJEMPLO REPORTE
 public class principal extends JFrame {
 
     /**
@@ -66,11 +65,11 @@ public class principal extends JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            Reporte c = new Reporte();
-            c.mostrarReporte();
+            Reporte r=new Reporte();
+            r.mostrarReporte();
         } catch (Exception e) {
         }
-
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

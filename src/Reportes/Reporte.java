@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package ejemplo;
 
-package Reportes;
 
-import java.awt.Frame;
+import java.awt.HeadlessException;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -33,21 +34,9 @@ public class Reporte {
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);
         }
-        
+
     }
-    
-//    public Connection getConnection() {
-//        return conn;
-//    }
-//    
-//    public void desconectar() {
-//        conn = null;
-//    }
-//    
-//    Statement createStatement() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-    
+
     public void mostrarReporte() {
         try {
             JasperReport reporte;
@@ -55,11 +44,16 @@ public class Reporte {
             JasperPrint p = JasperFillManager.fillReport(reporte, null, conn);
             JasperViewer view = new JasperViewer(p, false);
             view.setTitle("Primer Reporte");
-            view.setExtendedState(Frame.MAXIMIZED_BOTH);
+            view.setSize(500, 500);
+            view.setLocationRelativeTo(null);
             view.setVisible(true);
-        } catch (JRException e) {
+
+            //            JasperPrint reporte_view;
+//            URL in = this.getClass().getResource("primerReporte.jasper");
+//            reporte = (JasperReport) JRLoader.loadObject(in);
+//            reporte_view = JasperFillManager.fillReport(reporte, new HashMap(), conn);
+//            JasperViewer.viewReport(reporte_view);
+        } catch (JRException | HeadlessException e) {
         }
-        
     }
-    
 }
