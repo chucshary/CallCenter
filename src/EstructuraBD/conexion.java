@@ -63,7 +63,7 @@ public class conexion {
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString("serial");
-            Variables_globales.getSerialBD(registro_busqueda);
+            //Variables_globales.getSerialBD(registro_busqueda);
             res.close();
         } catch (Exception e) {
         }
