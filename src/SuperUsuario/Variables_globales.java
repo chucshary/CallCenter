@@ -11,20 +11,5 @@ package SuperUsuario;
  * @author Lee
  */
 public class Variables_globales {
-    public static Case_base ventana;
-
-    /**
-     * @return the ventana
-     */
-    public static Case_base getVentana() {
-        return ventana;
-    }
-
-    /**
-     * @param aVentana the ventana to set
-     */
-    public static void setVentana(Case_base aVentana) {
-        ventana = aVentana;
-    }
     
 }

@@ -6,6 +6,7 @@
 
 package SuperUsuario;
 
+import Administrador.Alta_usuarios_administrador;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 
@@ -53,6 +54,7 @@ public class Serial extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 0, 255));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -182,10 +184,9 @@ public class Serial extends javax.swing.JFrame {
                 .addGap(162, 162, 162)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField7)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPasswordField1)
-                        .addComponent(jPasswordField2)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jPasswordField2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(40, 40, 40))
@@ -263,7 +264,7 @@ public class Serial extends javax.swing.JFrame {
         contra2=""+jPasswordField2.hashCode();
         if(contra1.equals(contra2)){
             this.dispose();
-            Variables_globales.ventana.setVisible(true);
+            
         }
         else{
             JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden","Contraseña",JOptionPane.WARNING_MESSAGE); 
@@ -285,7 +286,11 @@ public class Serial extends javax.swing.JFrame {
         }
         else{
             this.dispose();
-            Variables_globales.ventana.setVisible(true);
+            if(metodo.administradores()){
+                new Alta_usuarios_administrador().setVisible(true);
+            }else{
+                new Login().setVisible(true);
+            }
         }
     }//GEN-LAST:event_formWindowOpened
 

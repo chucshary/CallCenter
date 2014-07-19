@@ -72,17 +72,82 @@ public class Base_de_datos_metodos {
        }
    }
    
-   public boolean usuarioexiste(){
+   public boolean usuarioexiste(int tipo, String usu){
+        int row=0;
+        String tipo_usu="",usu_tipo="";
+        if(tipo==0){
+            tipo_usu="supervidores";
+            usu_tipo="nombre_supervisor";
+        }else{
+            tipo_usu="administradores";
+            usu_tipo="nombre_admin";
+        }
+        try{
+            PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? ");
+            pstm.setString(1, usu);
+            ResultSet res = pstm.executeQuery(); 
+            res.getRow();
+            res.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        if(row==0){
+           return true;
+       }
+       else{
+           return false;
+       }
+   }
+   public boolean administradores(){
+       int row=0;
        try{
-           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT  FROM superusuario");
+           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM administradores");
            ResultSet res = pstm.executeQuery();
-           res.next();
+           row=res.getRow();
            res.close();
        }
        catch(SQLException e)
        {
            System.out.println(e);
        }
-       return true;
+       if(row==0){
+           return true;
+       }
+       else{
+           return false;
+       }
+   }
+    public boolean log(int tipo, String usu, int pass){
+        int row=0;
+        String tipo_usu="",usu_tipo="",pass_tipo="";
+        if(tipo==0){
+            tipo_usu="supervidores";
+            usu_tipo="nombre_supervisor";
+            pass_tipo="password_supervisor";
+        }else{
+            tipo_usu="administradores";
+            usu_tipo="nombre_admin";
+            pass_tipo="password_admin";
+        }
+        try{
+            PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? AND " + pass_tipo + "=? ");
+            pstm.setString(1, usu);
+            pstm.setInt(2, pass);
+            ResultSet res = pstm.executeQuery(); 
+            res.getRow();
+            res.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        if(row==1){
+           return true;
+       }
+       else{
+           return false;
+       }
    }
 }
