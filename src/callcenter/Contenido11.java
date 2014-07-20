@@ -89,7 +89,8 @@ public class Contenido11 extends javax.swing.JInternalFrame {
         jPasswordField3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 190, 30));
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/actualizar1.png"))); // NOI18N
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/actualizar1.png"))); // NOI18N
+        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,9 +103,9 @@ public class Contenido11 extends javax.swing.JInternalFrame {
                 boton1MouseExited(evt);
             }
         });
-        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 180, -1));
+        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
         jLabel2.setMinimumSize(new java.awt.Dimension(630, 410));
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 410));
@@ -121,12 +122,12 @@ public class Contenido11 extends javax.swing.JInternalFrame {
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "actualizar2.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/actualizar2.png" )));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "actualizar1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/actualizar1.png" )));
     }//GEN-LAST:event_boton1MouseExited
 
 
