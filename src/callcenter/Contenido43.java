@@ -54,6 +54,7 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 290, 30));
 
         boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
+        boton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         boton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -66,7 +67,7 @@ public class Contenido43 extends javax.swing.JInternalFrame {
                 boton3MouseExited(evt);
             }
         });
-        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 180, -1));
+        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));

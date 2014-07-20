@@ -49,6 +49,7 @@ public class Contenido14 extends javax.swing.JInternalFrame {
         getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 300, 30));
 
         boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/baja1.png"))); // NOI18N
+        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -61,7 +62,7 @@ public class Contenido14 extends javax.swing.JInternalFrame {
                 boton1MouseExited(evt);
             }
         });
-        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 180, -1));
+        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));

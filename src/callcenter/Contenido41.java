@@ -56,6 +56,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
 
         boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
+        boton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         boton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -68,7 +69,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
                 boton3MouseExited(evt);
             }
         });
-        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 180, -1));
+        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
