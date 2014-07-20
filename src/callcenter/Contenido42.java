@@ -68,7 +68,7 @@ public class Contenido42 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 180, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
         jLabel2.setMinimumSize(new java.awt.Dimension(630, 410));
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 410));
@@ -83,12 +83,12 @@ public class Contenido42 extends javax.swing.JInternalFrame {
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "baja2.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja2.png" )));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "baja1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja1.png" )));
     }//GEN-LAST:event_boton1MouseExited
 
 

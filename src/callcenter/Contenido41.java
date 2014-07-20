@@ -55,7 +55,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
 
-        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/continuar1.png"))); // NOI18N
+        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
         boton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -80,7 +80,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 190, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
         jLabel2.setMinimumSize(new java.awt.Dimension(630, 410));
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 410));
@@ -98,12 +98,12 @@ public class Contenido41 extends javax.swing.JInternalFrame {
 
     private void boton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseEntered
         // TODO add your handling code here:
-        boton3.setIcon(new ImageIcon(getClass().getResource( "continuar2.png" )));
+        boton3.setIcon(new ImageIcon(getClass().getResource( "/recursos/continuar2.png" )));
     }//GEN-LAST:event_boton3MouseEntered
 
     private void boton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseExited
         // TODO add your handling code here:
-        boton3.setIcon(new ImageIcon(getClass().getResource( "continuar1.png" )));
+        boton3.setIcon(new ImageIcon(getClass().getResource( "/recursos/continuar1.png" )));
     }//GEN-LAST:event_boton3MouseExited
 
 

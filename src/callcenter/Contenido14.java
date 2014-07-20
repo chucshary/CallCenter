@@ -48,7 +48,7 @@ public class Contenido14 extends javax.swing.JInternalFrame {
         jPasswordField3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 300, 30));
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/baja1.png"))); // NOI18N
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/baja1.png"))); // NOI18N
         boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -68,7 +68,7 @@ public class Contenido14 extends javax.swing.JInternalFrame {
         jLabel6.setText("Clave super usuario:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 290, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
         jLabel2.setMinimumSize(new java.awt.Dimension(630, 410));
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 410));
@@ -83,12 +83,12 @@ public class Contenido14 extends javax.swing.JInternalFrame {
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "baja2.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja2.png" )));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "baja1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja1.png" )));
     }//GEN-LAST:event_boton1MouseExited
 
 

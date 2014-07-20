@@ -1,6 +1,5 @@
 
 package callcenter;
-
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -32,8 +31,8 @@ public class ServerMain extends javax.swing.JFrame {
      
         initComponents();
         setLocationRelativeTo(null);
-        Date dia = new Date(System.currentTimeMillis()); 
-        fecha.setText(dia.getDay() + "/" +dia.getMonth() + "/"+dia.getYear());
+        Date dia= new Date();
+        fecha.setText(Integer.toString(dia.getDate())+"/"+Integer.toString(dia.getMonth()+1)+"/"+Integer.toString(dia.getYear()+1900));
         hora.setVisible(false);
 }
 
@@ -62,18 +61,21 @@ public class ServerMain extends javax.swing.JFrame {
         hora = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(817, 519));
         setMinimumSize(new java.awt.Dimension(817, 519));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(817, 519));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tapa.png"))); // NOI18N
+        tapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/tapa.png"))); // NOI18N
         tapa.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Menu", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_BOTTOM, new java.awt.Font("Courier New", 3, 24), new java.awt.Color(255, 255, 255))); // NOI18N
         getContentPane().add(tapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 200, 50));
 
-        Pestana1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P1.png"))); // NOI18N
+        Pestana1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/P1.png"))); // NOI18N
         Pestana1.setToolTipText("");
         Pestana1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -90,7 +92,7 @@ public class ServerMain extends javax.swing.JFrame {
         });
         getContentPane().add(Pestana1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 160, 50));
 
-        Pestana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P2.png"))); // NOI18N
+        Pestana2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/P2.png"))); // NOI18N
         Pestana2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +108,7 @@ public class ServerMain extends javax.swing.JFrame {
         });
         getContentPane().add(Pestana2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 180, -1));
 
-        Pestana3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P3.png"))); // NOI18N
+        Pestana3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/P3.png"))); // NOI18N
         Pestana3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,7 +124,7 @@ public class ServerMain extends javax.swing.JFrame {
         });
         getContentPane().add(Pestana3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 180, -1));
 
-        Pestana5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/P5.png"))); // NOI18N
+        Pestana5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/P5.png"))); // NOI18N
         Pestana5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         Pestana5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Pestana5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,7 +140,7 @@ public class ServerMain extends javax.swing.JFrame {
         });
         getContentPane().add(Pestana5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 180, -1));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x2.png"))); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/x2.png"))); // NOI18N
         close.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         close.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,9 +154,9 @@ public class ServerMain extends javax.swing.JFrame {
                 closeMouseExited(evt);
             }
         });
-        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 40));
+        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 40, 40));
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/6.png"))); // NOI18N
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/6.png"))); // NOI18N
         logout.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,9 +167,9 @@ public class ServerMain extends javax.swing.JFrame {
                 logoutMouseExited(evt);
             }
         });
-        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 110, 30));
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 120, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tapa2.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/tapa2.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 640, 60));
 
         PanelBotones.setMaximumSize(new java.awt.Dimension(820, 400));
@@ -175,10 +177,10 @@ public class ServerMain extends javax.swing.JFrame {
         PanelBotones.setOpaque(false);
         getContentPane().add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 810, 400));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo2.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo2.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 832, 420));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logito.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/logito.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, -1));
 
         hora.setBackground(new java.awt.Color(255, 255, 255));
@@ -193,12 +195,14 @@ public class ServerMain extends javax.swing.JFrame {
         fecha.setText("\"\"");
         getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 100, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.setMaximumSize(new java.awt.Dimension(832, 520));
         jLabel1.setMinimumSize(new java.awt.Dimension(832, 520));
         jLabel1.setPreferredSize(new java.awt.Dimension(832, 520));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 520));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,53 +210,53 @@ public class ServerMain extends javax.swing.JFrame {
     private void Pestana1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseEntered
         // TODO add your handling code here:
         
-        Pestana1.setIcon(new ImageIcon(getClass().getResource( "pestaña1.png" )));
+        Pestana1.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña1.png" )));
     }//GEN-LAST:event_Pestana1MouseEntered
 
     private void Pestana1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseExited
         // TODO add your handling code here:
-        Pestana1.setIcon(new ImageIcon(getClass().getResource( "P1.png" )));
+        Pestana1.setIcon(new ImageIcon(getClass().getResource( "/recursos/P1.png" )));
     }//GEN-LAST:event_Pestana1MouseExited
 
     private void Pestana2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana2MouseEntered
         // TODO add your handling code here:
-        Pestana2.setIcon(new ImageIcon(getClass().getResource( "pestaña2.png" )));
+        Pestana2.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña2.png" )));
     }//GEN-LAST:event_Pestana2MouseEntered
 
     private void Pestana2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana2MouseExited
         // TODO add your handling code here:
-        Pestana2.setIcon(new ImageIcon(getClass().getResource( "P2.png" )));
+        Pestana2.setIcon(new ImageIcon(getClass().getResource( "/recursos/P2.png" )));
     }//GEN-LAST:event_Pestana2MouseExited
 
     private void Pestana3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana3MouseEntered
         // TODO add your handling code here:
-        Pestana3.setIcon(new ImageIcon(getClass().getResource( "pestaña3.png" )));
+        Pestana3.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña3.png" )));
     }//GEN-LAST:event_Pestana3MouseEntered
 
     private void Pestana3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana3MouseExited
         // TODO add your handling code here:
-        Pestana3.setIcon(new ImageIcon(getClass().getResource( "P3.png" )));
+        Pestana3.setIcon(new ImageIcon(getClass().getResource( "/recursos/P3.png" )));
     }//GEN-LAST:event_Pestana3MouseExited
 
     private void Pestana5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana5MouseEntered
         // TODO add your handling code here:
-        Pestana5.setIcon(new ImageIcon(getClass().getResource( "pestaña5.png" )));
+        Pestana5.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña5.png" )));
     }//GEN-LAST:event_Pestana5MouseEntered
 
     private void Pestana5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana5MouseExited
         // TODO add your handling code here:
-        Pestana5.setIcon(new ImageIcon(getClass().getResource( "P5.png" )));
+        Pestana5.setIcon(new ImageIcon(getClass().getResource( "/recursos/P5.png" )));
         
     }//GEN-LAST:event_Pestana5MouseExited
 
     private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
         // TODO add your handling code here:
-        close.setIcon(new ImageIcon(getClass().getResource( "x1.png" )));
+        close.setIcon(new ImageIcon(getClass().getResource( "/recursos/x1.png" )));
     }//GEN-LAST:event_closeMouseEntered
 
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
         // TODO add your handling code here:
-        close.setIcon(new ImageIcon(getClass().getResource( "x2.png" )));
+        close.setIcon(new ImageIcon(getClass().getResource( "/recursos/x2.png" )));
     }//GEN-LAST:event_closeMouseExited
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
@@ -262,12 +266,12 @@ public class ServerMain extends javax.swing.JFrame {
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
         // TODO add your handling code here:
-        logout.setIcon(new ImageIcon(getClass().getResource( "5.png" )));
+        logout.setIcon(new ImageIcon(getClass().getResource( "/recursos/5.png" )));
     }//GEN-LAST:event_logoutMouseEntered
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         // TODO add your handling code here:
-        logout.setIcon(new ImageIcon(getClass().getResource( "6.png" )));
+        logout.setIcon(new ImageIcon(getClass().getResource( "/recursos/6.png" )));
     }//GEN-LAST:event_logoutMouseExited
 
     private void Pestana1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseClicked
@@ -350,6 +354,7 @@ public class ServerMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel tapa;
     // End of variables declaration//GEN-END:variables
