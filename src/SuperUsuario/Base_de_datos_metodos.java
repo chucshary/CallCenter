@@ -10,6 +10,8 @@ import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 
 
@@ -122,21 +124,26 @@ public class Base_de_datos_metodos {
     public boolean log(int tipo, String usu, int pass){
         int row=0;
         String tipo_usu="",usu_tipo="",pass_tipo="";
-        if(tipo==0){
-            tipo_usu="supervidores";
-            usu_tipo="nombre_supervisor";
-            pass_tipo="password_supervisor";
-        }else{
-            tipo_usu="administradores";
-            usu_tipo="nombre_admin";
-            pass_tipo="password_admin";
+        switch(tipo){
+            case 2:tipo_usu="superusuarios";
+                usu_tipo="nombre_su";
+                pass_tipo="password_su";
+                break;
+            case 1:tipo_usu="administradores";
+                usu_tipo="nombre_admin";
+                pass_tipo="password_admin";
+                break;
+            case 0:tipo_usu="supervisores";
+                usu_tipo="nombre_supervisor";
+                pass_tipo="password_supervisor";
+                break;
         }
         try{
             PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? AND " + pass_tipo + "=? ");
             pstm.setString(1, usu);
             pstm.setInt(2, pass);
             ResultSet res = pstm.executeQuery(); 
-            res.getRow();
+            row=res.getRow();
             res.close();
         }
         catch(SQLException e)
@@ -150,4 +157,49 @@ public class Base_de_datos_metodos {
            return false;
        }
    }
+    public void administradores_lista(JList lista){
+        DefaultListModel modelo = new DefaultListModel();
+       try{
+           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM administradores");
+           ResultSet res = pstm.executeQuery();
+           while(res.next()){
+               modelo.addElement(res.getString(2));
+           }
+           lista.setModel(modelo);
+           res.close();
+       }
+       catch(SQLException e)
+       {
+           System.out.println(e);
+       }
+   }
+    public void join(String usu, int pass, int tipo){
+        String tipo_usu="",usu_tipo="",pass_tipo="";
+        switch(tipo){
+            case 1:tipo_usu="superusuarios";
+                usu_tipo="nombre_su";
+                pass_tipo="password_su";
+                break;
+            case 2:tipo_usu="administradores";
+                usu_tipo="nombre_admin";
+                pass_tipo="password_admin";
+                break;
+            case 3:tipo_usu="supervisores";
+                usu_tipo="nombre_supervisor";
+                pass_tipo="password_supervisor";
+                break;
+        }
+        try{
+            PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("INSERT INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
+            pstm.setString(1, usu);
+            pstm.setInt(2, pass);
+            pstm.executeQuery();
+            pstm.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        
+    }
 }
