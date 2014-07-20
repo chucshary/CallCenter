@@ -70,9 +70,11 @@ public class conexion {
             res.next();
             registro_busqueda = res.getString(campo);
             res.close();
+            
         } catch (Exception e) {
-
+            
         }
+        
     }
 
     public void agregar(String tabla, String campos, String valores) {
@@ -186,12 +188,14 @@ public class conexion {
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString(campo);
-            while (res.next()!=false)
+            
+            while (res.next())
             {
+                
                 registro_busqueda = res.getString(campo);
-                res.next();
             }
             res.close();
+            
         } catch (Exception e) {
 
         }

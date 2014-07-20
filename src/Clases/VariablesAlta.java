@@ -25,8 +25,8 @@ public class VariablesAlta {
         int id=1;
         EstructuraBD.conexion C= new EstructuraBD.conexion();
         C.registro_busqueda="";
-        C.busqueda_gral(tabla,"*");
-        if(C.registro_busqueda!=null)
+        C.busqueda_gral(tabla,"id_caso");
+        if(C.registro_busqueda.length()!=0)
         {
         C.registro_busqueda="";
         C.busquedaalta1(tabla,"id_caso");

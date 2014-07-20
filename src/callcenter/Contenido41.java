@@ -160,9 +160,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         // TODO add your handling code here:
         
-        //Checar que no este vacio
-        //JOptionPane.showConfirmDialog(rootPane, menusbase);
-        //Mandar a BD
+        
         UIManager UI=new UIManager();
         UI.put("OptionPane.background",new ColorUIResource(0,51,51));
         UI.put("Panel.background",new ColorUIResource(0,51,51));
@@ -210,6 +208,9 @@ public class Contenido41 extends javax.swing.JInternalFrame {
                 v.descripcion=descripcion.getText();
                 v.menuprincipal=Integer.parseInt(menusbase.getSelectedItem().toString());
                 v.altasbase();
+                nombrebase.setText("");
+                descripcion.setText("");
+                menusbase.setSelectedIndex(0);
                 AltaBases a= new AltaBases();
                 a.show();
             }
