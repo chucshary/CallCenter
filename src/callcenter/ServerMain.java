@@ -321,6 +321,7 @@ public class ServerMain extends javax.swing.JFrame {
             public void run() {
 
                 new ServerMain().setVisible(true);
+                
 
             }
         });

@@ -1,5 +1,7 @@
 package callcenter;
 
+import javax.swing.ImageIcon;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,9 +17,13 @@ public class AltaBases extends javax.swing.JFrame {
     /**
      * Creates new form AltaBases
      */
+    
+    
     public AltaBases() {
         initComponents();
+        setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,19 +34,66 @@ public class AltaBases extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel2 = new javax.swing.JLabel();
+        boton1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        setMaximumSize(new java.awt.Dimension(629, 442));
+        setMinimumSize(new java.awt.Dimension(629, 442));
+        setPreferredSize(new java.awt.Dimension(629, 442));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
+        jLabel2.setMinimumSize(new java.awt.Dimension(630, 410));
+        jLabel2.setPreferredSize(new java.awt.Dimension(630, 410));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 30));
+
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
+        boton1.setToolTipText("Presione aqui para continuar con el registro de la base de informacion");
+        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                boton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                boton1MouseExited(evt);
+            }
+        });
+        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(630, 410));
+        jLabel3.setMinimumSize(new java.awt.Dimension(630, 410));
+        jLabel3.setPreferredSize(new java.awt.Dimension(630, 410));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
+        // TODO add your handling code here:
+        
+        this.hide();
+        
+            
+
+
+    }//GEN-LAST:event_boton1MouseClicked
+
+    private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
+        // TODO add your handling code here:
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/continuar2.png" )));
+    }//GEN-LAST:event_boton1MouseEntered
+
+    private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
+        // TODO add your handling code here:
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/continuar1.png" )));
+    }//GEN-LAST:event_boton1MouseExited
 
     /**
      * @param args the command line arguments
@@ -73,10 +126,14 @@ public class AltaBases extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AltaBases().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel boton1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

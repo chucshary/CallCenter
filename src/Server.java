@@ -1,3 +1,6 @@
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,7 +26,6 @@ public class Server {
                 } catch (InterruptedException ex) {
                  
                 }
-        
         callcenter.ServerMain m= new callcenter.ServerMain();
         m.show();
         

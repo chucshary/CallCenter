@@ -49,8 +49,9 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         boton1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descripcion = new javax.swing.JTextArea();
         botonayuda = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -72,9 +73,9 @@ public class Contenido41 extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Descripcion de voz del menu:");
+        jLabel5.setText("Descripcion de voz del menu principal:");
         jLabel5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 410, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 560, 30));
 
         jLabel3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,11 +116,12 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         jScrollPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setOpaque(false);
 
-        jTextArea1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descripcion.setBackground(new java.awt.Color(0, 51, 51));
+        descripcion.setColumns(20);
+        descripcion.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        descripcion.setForeground(new java.awt.Color(255, 255, 255));
+        descripcion.setRows(5);
+        jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 360, 180));
 
@@ -138,8 +140,13 @@ public class Contenido41 extends javax.swing.JInternalFrame {
                 botonayudaMouseExited(evt);
             }
         });
-        getContentPane().add(botonayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, 30));
+        getContentPane().add(botonayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, 30));
         botonayuda.getAccessibleContext().setAccessibleDescription("¿Nececitas ayuda con esto?");
+
+        jLabel1.setFont(new java.awt.Font("Courier New", 3, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Ayuda");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -152,9 +159,61 @@ public class Contenido41 extends javax.swing.JInternalFrame {
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         // TODO add your handling code here:
-// AltaBases a= new AltaBases();
-        //a.show();
+        
+        //Checar que no este vacio
+        //JOptionPane.showConfirmDialog(rootPane, menusbase);
+        //Mandar a BD
+        UIManager UI=new UIManager();
+        UI.put("OptionPane.background",new ColorUIResource(0,51,51));
+        UI.put("Panel.background",new ColorUIResource(0,51,51));
+        
+        String titulo = "";
+        String mensaje="";
+        if(nombrebase.getText().length()==0)
+        {
+            if(descripcion.getText().length()==0)
+            {
+            titulo="Campos vacios!";
+            mensaje="<html><font color=#FFFFFF>Debe colocar el nombre de la base y la descripcion de la voz.";
+            nombrebase.setFocusable(true);
+            }
+            else
+            {
+            titulo="Campos vacios!";
+            mensaje="<html><font color=#FFFFFF>Debe colocar el nombre de la base.";
+            nombrebase.setFocusable(true);
+            }
+            JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(descripcion.getText().length()==0)
+        {
+            titulo="Campos vacios!";
+            mensaje="<html><font color=#FFFFFF>Debe colocar la descripcion de la voz.";
+            nombrebase.setFocusable(true);
+            JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+        
+        else
+        {
+        String mensaje1 = "<html><font color=#FFFFFF>Usted esta a punto de dar de alta la base "+nombrebase.getText()+" con "+menusbase.getSelectedItem()+" menu(s) principal(es)</font>";
+        String mensaje2 = "<html><font color=#FFFFFF>Recurde que el texto de descripcion sera referencia para grabar despues, incluyendo los numeros de marcacion.</font>";
+        String mensaje3="<html><font color=#FFFFFF>Si todo es correcto presione SI, de lo contrario presione NO para regresar y acuda al boton de ayuda.</font>";
+        titulo = "Mensaje de confirmacion!";
+        mensaje=mensaje1+"\n"+mensaje2+"\n"+mensaje3;
 
+            int respuesta = JOptionPane.showConfirmDialog(null, mensaje, titulo, JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE );
+            if (respuesta == JOptionPane.YES_OPTION)
+            {
+                Clases.VariablesAlta v= new Clases.VariablesAlta();
+                v.base=nombrebase.getText();
+                v.descripcion=descripcion.getText();
+                v.menuprincipal=Integer.parseInt(menusbase.getSelectedItem().toString());
+                v.altasbase();
+                AltaBases a= new AltaBases();
+                a.show();
+            }
+        } 
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
@@ -184,35 +243,38 @@ public class Contenido41 extends javax.swing.JInternalFrame {
  UIManager UI=new UIManager();
  UI.put("OptionPane.background",new ColorUIResource(0,51,51));
  UI.put("Panel.background",new ColorUIResource(0,51,51));
- 
+
 
         String aux="El nombre de la base se refiere a la manera en que se llamara al menu principal de algun tema de informacion.";
         String aux2="Los menus totales hacen referencia a la cantidad de opciones principales que tendra dicho tema de informacion";
-        String aux3="La descripcion de voz del menu se refiere al contenido en voz que tendran los menus totales.";
-        String aux4= "Ej. Base: Ayuda";
-        String aux5="Menus totales: 2";
+        String aux3="La descripcion de voz del menu principal se refiere al contenido en voz que tendran el menu principal.";
+        String aux31="Tome en cuenta que esto es una referencia que posteriormente se grabara.";
+        String aux4= "Ej. Base: *Ayuda*";
+        String aux5="Menus totales: *2*";
         String aux6="Descripcion de voz de menu:";
-        String aux7="Bienvenido al menu de Ayuda. Para obtener ayuda marque 1, para terminar marque 2";
+        String aux7="*Bienvenido al menu de Ayuda. Para obtener ayuda marque 1, para terminar marque 2*";
         String info = "<html><font color=#FFFFFF>"+aux+"</font>";
         String info1 = "<html><font color=#FFFFFF>"+aux2+"</font>";
         String info2 = "<html><font color=#FFFFFF>"+aux3+"</font>";
+        String info21 = "<html><font color=#FFFFFF>"+aux31+"</font>";
         String info3 = "<html><font color=#FFFFFF>"+aux4+"</font>";
         String info4 = "<html><font color=#FFFFFF>"+aux5+"</font>";
         String info5 = "<html><font color=#FFFFFF>"+aux6+"</font>";
         String info6 = "<html><font color=#FFFFFF>"+aux7+"</font>";
-        JOptionPane.showMessageDialog(null,info+"\n"+info1+"\n"+info2+"\n\n"+info3+"\n"+info4+"\n"+info5+"\n"+info6,"Informacion sobre la alta de bases",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,info+"\n"+info1+"\n"+info2+"\n"+info21+"\n\n"+info3+"\n"+info4+"\n"+info5+"\n"+info6,"Informacion sobre la alta de bases",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_botonayudaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel boton1;
     private javax.swing.JLabel botonayuda;
+    private javax.swing.JTextArea descripcion;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JComboBox menusbase;
     private javax.swing.JTextField nombrebase;
     // End of variables declaration//GEN-END:variables
