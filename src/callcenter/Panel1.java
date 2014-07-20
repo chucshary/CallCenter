@@ -2,8 +2,6 @@ package callcenter;
 
 
 import javax.swing.ImageIcon;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -50,7 +48,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(820, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boton11p1.png"))); // NOI18N
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton11p1.png"))); // NOI18N
         boton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,7 +64,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 170, -1));
 
-        boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boton12p1.png"))); // NOI18N
+        boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton12p1.png"))); // NOI18N
         boton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,7 +80,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 80, 170, -1));
 
-        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boton13p1.png"))); // NOI18N
+        boton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/boton13p1.png"))); // NOI18N
         boton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,7 +96,7 @@ public class Panel1 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 170, -1));
 
-        boton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/43.png"))); // NOI18N
+        boton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/43.png"))); // NOI18N
         boton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         boton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,13 +117,13 @@ public class Panel1 extends javax.swing.JInternalFrame {
         PanelContenido.setOpaque(false);
         getContentPane().add(PanelContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -30, 630, 430));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 400));
         jLabel2.setMinimumSize(new java.awt.Dimension(630, 400));
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 400));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 640, 410));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondopaneles.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondopaneles.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 200, 440));
 
         pack();
@@ -133,32 +131,32 @@ public class Panel1 extends javax.swing.JInternalFrame {
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "boton21p1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/boton21p1.png" )));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "boton11p1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/boton11p1.png" )));
     }//GEN-LAST:event_boton1MouseExited
 
     private void boton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseEntered
         // TODO add your handling code here:
-        boton2.setIcon(new ImageIcon(getClass().getResource( "boton22p1.png" )));
+        boton2.setIcon(new ImageIcon(getClass().getResource( "/recursos/boton22p1.png" )));
     }//GEN-LAST:event_boton2MouseEntered
 
     private void boton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseExited
         // TODO add your handling code here:
-        boton2.setIcon(new ImageIcon(getClass().getResource( "boton12p1.png" )));
+        boton2.setIcon(new ImageIcon(getClass().getResource( "/recursos/boton12p1.png" )));
     }//GEN-LAST:event_boton2MouseExited
 
     private void boton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseEntered
         // TODO add your handling code here:
-        boton3.setIcon(new ImageIcon(getClass().getResource( "boton23p1.png" )));
+        boton3.setIcon(new ImageIcon(getClass().getResource( "/recursos/boton23p1.png" )));
     }//GEN-LAST:event_boton3MouseEntered
 
     private void boton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseExited
         // TODO add your handling code here:
-        boton3.setIcon(new ImageIcon(getClass().getResource( "boton13p1.png" )));
+        boton3.setIcon(new ImageIcon(getClass().getResource( "/recursos/boton13p1.png" )));
     }//GEN-LAST:event_boton3MouseExited
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
@@ -193,12 +191,12 @@ public class Panel1 extends javax.swing.JInternalFrame {
 
     private void boton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseEntered
         // TODO add your handling code here:
-        boton4.setIcon(new ImageIcon(getClass().getResource( "432.png" )));
+        boton4.setIcon(new ImageIcon(getClass().getResource( "/recursos/432.png" )));
     }//GEN-LAST:event_boton4MouseEntered
 
     private void boton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton4MouseExited
         // TODO add your handling code here:
-        boton4.setIcon(new ImageIcon(getClass().getResource( "43.png" )));
+        boton4.setIcon(new ImageIcon(getClass().getResource( "/recursos/43.png" )));
     }//GEN-LAST:event_boton4MouseExited
 
 

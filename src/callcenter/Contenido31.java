@@ -42,7 +42,8 @@ public class Contenido31 extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(630, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/server1.png"))); // NOI18N
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/server1.png"))); // NOI18N
+        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -55,9 +56,10 @@ public class Contenido31 extends javax.swing.JInternalFrame {
                 boton1MouseExited(evt);
             }
         });
-        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 180, -1));
+        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
 
-        boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/servidor2.png"))); // NOI18N
+        boton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/servidor2.png"))); // NOI18N
+        boton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         boton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         boton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -70,9 +72,9 @@ public class Contenido31 extends javax.swing.JInternalFrame {
                 boton2MouseExited(evt);
             }
         });
-        getContentPane().add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 180, -1));
+        getContentPane().add(boton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo1v2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
         jLabel2.setMinimumSize(new java.awt.Dimension(630, 410));
         jLabel2.setPreferredSize(new java.awt.Dimension(630, 410));
@@ -88,12 +90,12 @@ public class Contenido31 extends javax.swing.JInternalFrame {
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "server12.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/server12.png" )));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "server1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/server1.png" )));
     }//GEN-LAST:event_boton1MouseExited
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
@@ -102,12 +104,12 @@ public class Contenido31 extends javax.swing.JInternalFrame {
 
     private void boton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseEntered
         // TODO add your handling code here:
-        boton2.setIcon(new ImageIcon(getClass().getResource( "servidor22.png" )));
+        boton2.setIcon(new ImageIcon(getClass().getResource( "/recursos/servidor22.png" )));
     }//GEN-LAST:event_boton2MouseEntered
 
     private void boton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseExited
         // TODO add your handling code here:
-        boton2.setIcon(new ImageIcon(getClass().getResource( "servidor2.png" )));
+        boton2.setIcon(new ImageIcon(getClass().getResource( "/recursos/servidor2.png" )));
     }//GEN-LAST:event_boton2MouseExited
 
 
