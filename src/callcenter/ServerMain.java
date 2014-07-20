@@ -197,8 +197,6 @@ public class ServerMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Pestana1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseEntered
-        // TODO add your handling code here:
-
         Pestana1.setIcon(new ImageIcon(getClass().getResource("/recursos/pestaña1.png")));
     }//GEN-LAST:event_Pestana1MouseEntered
 
@@ -323,6 +321,7 @@ public class ServerMain extends javax.swing.JFrame {
             public void run() {
 
                 new ServerMain().setVisible(true);
+                
 
             }
         });

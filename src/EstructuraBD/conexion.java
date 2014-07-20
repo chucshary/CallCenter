@@ -1,11 +1,14 @@
 package EstructuraBD;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 public class conexion {
 
     private int registros;
-    private String registro_busqueda;
+    public String registro_busqueda;
 
     Connection con = null;
     variablesBD vBD = new variablesBD();
@@ -68,9 +71,11 @@ public class conexion {
             res.next();
             registro_busqueda = res.getString(campo);
             res.close();
+            
         } catch (Exception e) {
-
+            
         }
+        
     }
 
     public void agregar(String tabla, String campos, String valores) {
@@ -176,4 +181,49 @@ public class conexion {
         str += ")";
         return str;
     }
+     public void busquedabaja1(String tabla, String campo, String clave) {
+        try {
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + " WHERE"+clave+";");
+            ResultSet res = pstm.executeQuery();
+            try
+            {
+            res.next();
+            registro_busqueda = res.getString(campo);            
+            res.close();
+            }
+            catch (Exception e) {
+                     UIManager UI=new UIManager();
+                    UI.put("OptionPane.background",new ColorUIResource(0,51,51));
+                    UI.put("Panel.background",new ColorUIResource(0,51,51));
+                    String titulo="Campo vacios!";
+                    String mensaje="<html><font color=#FFFFFF>La base indicada no existe!.";
+                    JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+                    }
+            
+            
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void busquedaalta1(String tabla, String campo) {
+        try {
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + ";");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registro_busqueda = res.getString(campo);
+            
+            while (res.next())
+            {
+                
+                registro_busqueda = res.getString(campo);
+            }
+            res.close();
+            
+        } catch (Exception e) {
+
+        }
+    }
+    
+   
 }
