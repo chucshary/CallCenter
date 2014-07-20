@@ -35,6 +35,7 @@ public class Reporte {
         }
 
     }
+    
 
     public void mostrarReporte() {
         try {
