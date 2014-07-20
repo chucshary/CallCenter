@@ -2,11 +2,12 @@ package EstructuraBD;
 
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class conexion {
 
     private int registros;
-    private String registro_busqueda;
+    public String registro_busqueda;
 
     Connection con = null;
     variablesBD vBD = new variablesBD();
@@ -178,6 +179,22 @@ public class conexion {
         return str;
     }
     
-    
+
+    public void busquedaalta1(String tabla, String campo) {
+        try {
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + ";");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registro_busqueda = res.getString(campo);
+            while (res.next()!=false)
+            {
+                registro_busqueda = res.getString(campo);
+                res.next();
+            }
+            res.close();
+        } catch (Exception e) {
+
+        }
+    }
     
 }

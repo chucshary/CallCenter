@@ -6,6 +6,8 @@
 
 package Clases;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mariana Valencia
@@ -18,18 +20,21 @@ public class VariablesAlta {
     
     public void altasbase()
     {
-        String campos="";
-        String valores="";
+        String campos="id_caso,nombre,numeromenus,descripcion";
         String tabla="casos";
-        
+        int id=1;
         EstructuraBD.conexion C= new EstructuraBD.conexion();
+        C.registro_busqueda="";
         C.busqueda_gral(tabla,"*");
+        if(C.registro_busqueda!=null)
+        {
+        C.registro_busqueda="";
+        C.busquedaalta1(tabla,"id_caso");
+        id=Integer.parseInt(C.registro_busqueda);
+        id=id+1;
+        }
         
-        String par2=")";
-        String par1="(";
-        String aux="MAX"+par1+"id_casos"+par2+"AS id_casos";
-        C.busqueda_gral(tabla,aux);
-            
-        
+        String valores=Integer.toString(id)+","+base+","+menuprincipal+","+descripcion;
+        C.agregar(tabla, campos, valores);
     }
 }
