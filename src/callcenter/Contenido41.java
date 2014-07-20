@@ -203,7 +203,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
             int respuesta = JOptionPane.showConfirmDialog(null, mensaje, titulo, JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE );
             if (respuesta == JOptionPane.YES_OPTION)
             {
-                Clases.VariablesAlta v= new Clases.VariablesAlta();
+                Clases.VariablesCasos v= new Clases.VariablesCasos();
                 v.base=nombrebase.getText();
                 v.descripcion=descripcion.getText();
                 v.menuprincipal=Integer.parseInt(menusbase.getSelectedItem().toString());

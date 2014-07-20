@@ -2,6 +2,9 @@ package callcenter;
 
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,7 +34,7 @@ public class Contenido42 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        base = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         boton1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -43,10 +46,10 @@ public class Contenido42 extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(630, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 190, 30));
+        base.setBackground(new java.awt.Color(0, 51, 51));
+        base.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        base.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(base, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,6 +83,27 @@ public class Contenido42 extends javax.swing.JInternalFrame {
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         // TODO add your handling code here:
+        
+        if(base.getText().length()!=0)
+        {
+            Clases.VariablesCasos a= new Clases.VariablesCasos();
+            a.base="";
+            a.base=base.getText();
+            a.bajabases();
+            base.setText("");
+            base.setFocusable(true);
+        }
+        else
+        {
+             UIManager UI=new UIManager();
+             UI.put("OptionPane.background",new ColorUIResource(0,51,51));
+             UI.put("Panel.background",new ColorUIResource(0,51,51));
+            String titulo="Campo vacios!";
+            String mensaje="<html><font color=#FFFFFF>Debe colocar el nombre de la base.";
+            base.setFocusable(true);
+            JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+            
+        }
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
@@ -94,9 +118,9 @@ public class Contenido42 extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField base;
     private javax.swing.JLabel boton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
