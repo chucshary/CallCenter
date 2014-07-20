@@ -1,14 +1,8 @@
-
 package callcenter;
-import java.awt.Component;
-import java.awt.event.ActionListener;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.Timer;
 
+import java.util.Date;
+import javax.swing.ImageIcon;
+import Clases.Reloj;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,20 +18,15 @@ public class ServerMain extends javax.swing.JFrame {
     /**
      * Creates new form ServerMain
      */
-   
-
-
     public ServerMain() {
-     
+
         initComponents();
         setLocationRelativeTo(null);
-        Date dia= new Date();
-        fecha.setText(Integer.toString(dia.getDate())+"/"+Integer.toString(dia.getMonth()+1)+"/"+Integer.toString(dia.getYear()+1900));
-        hora.setVisible(false);
-}
+        Date dia = new Date();
+        fecha.setText(Integer.toString(dia.getDate()) + "/" + Integer.toString(dia.getMonth() + 1) + "/" + Integer.toString(dia.getYear() + 1900));
+        Reloj r = new Reloj(hora);
+    }
 
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,54 +198,54 @@ public class ServerMain extends javax.swing.JFrame {
 
     private void Pestana1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseEntered
         // TODO add your handling code here:
-        
-        Pestana1.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña1.png" )));
+
+        Pestana1.setIcon(new ImageIcon(getClass().getResource("/recursos/pestaña1.png")));
     }//GEN-LAST:event_Pestana1MouseEntered
 
     private void Pestana1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseExited
         // TODO add your handling code here:
-        Pestana1.setIcon(new ImageIcon(getClass().getResource( "/recursos/P1.png" )));
+        Pestana1.setIcon(new ImageIcon(getClass().getResource("/recursos/P1.png")));
     }//GEN-LAST:event_Pestana1MouseExited
 
     private void Pestana2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana2MouseEntered
         // TODO add your handling code here:
-        Pestana2.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña2.png" )));
+        Pestana2.setIcon(new ImageIcon(getClass().getResource("/recursos/pestaña2.png")));
     }//GEN-LAST:event_Pestana2MouseEntered
 
     private void Pestana2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana2MouseExited
         // TODO add your handling code here:
-        Pestana2.setIcon(new ImageIcon(getClass().getResource( "/recursos/P2.png" )));
+        Pestana2.setIcon(new ImageIcon(getClass().getResource("/recursos/P2.png")));
     }//GEN-LAST:event_Pestana2MouseExited
 
     private void Pestana3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana3MouseEntered
         // TODO add your handling code here:
-        Pestana3.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña3.png" )));
+        Pestana3.setIcon(new ImageIcon(getClass().getResource("/recursos/pestaña3.png")));
     }//GEN-LAST:event_Pestana3MouseEntered
 
     private void Pestana3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana3MouseExited
         // TODO add your handling code here:
-        Pestana3.setIcon(new ImageIcon(getClass().getResource( "/recursos/P3.png" )));
+        Pestana3.setIcon(new ImageIcon(getClass().getResource("/recursos/P3.png")));
     }//GEN-LAST:event_Pestana3MouseExited
 
     private void Pestana5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana5MouseEntered
         // TODO add your handling code here:
-        Pestana5.setIcon(new ImageIcon(getClass().getResource( "/recursos/pestaña5.png" )));
+        Pestana5.setIcon(new ImageIcon(getClass().getResource("/recursos/pestaña5.png")));
     }//GEN-LAST:event_Pestana5MouseEntered
 
     private void Pestana5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana5MouseExited
         // TODO add your handling code here:
-        Pestana5.setIcon(new ImageIcon(getClass().getResource( "/recursos/P5.png" )));
-        
+        Pestana5.setIcon(new ImageIcon(getClass().getResource("/recursos/P5.png")));
+
     }//GEN-LAST:event_Pestana5MouseExited
 
     private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
         // TODO add your handling code here:
-        close.setIcon(new ImageIcon(getClass().getResource( "/recursos/x1.png" )));
+        close.setIcon(new ImageIcon(getClass().getResource("/recursos/x1.png")));
     }//GEN-LAST:event_closeMouseEntered
 
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
         // TODO add your handling code here:
-        close.setIcon(new ImageIcon(getClass().getResource( "/recursos/x2.png" )));
+        close.setIcon(new ImageIcon(getClass().getResource("/recursos/x2.png")));
     }//GEN-LAST:event_closeMouseExited
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
@@ -266,43 +255,42 @@ public class ServerMain extends javax.swing.JFrame {
 
     private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
         // TODO add your handling code here:
-        logout.setIcon(new ImageIcon(getClass().getResource( "/recursos/5.png" )));
+        logout.setIcon(new ImageIcon(getClass().getResource("/recursos/5.png")));
     }//GEN-LAST:event_logoutMouseEntered
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         // TODO add your handling code here:
-        logout.setIcon(new ImageIcon(getClass().getResource( "/recursos/6.png" )));
+        logout.setIcon(new ImageIcon(getClass().getResource("/recursos/6.png")));
     }//GEN-LAST:event_logoutMouseExited
 
     private void Pestana1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseClicked
         // TODO add your handling code here:
-        Panel1 p1= new Panel1();
+        Panel1 p1 = new Panel1();
         PanelBotones.add(p1);
         p1.setVisible(true);
     }//GEN-LAST:event_Pestana1MouseClicked
 
     private void Pestana2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana2MouseClicked
         // TODO add your handling code here:
-        Panel2 p2= new Panel2();
+        Panel2 p2 = new Panel2();
         PanelBotones.add(p2);
         p2.setVisible(true);
     }//GEN-LAST:event_Pestana2MouseClicked
 
     private void Pestana3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana3MouseClicked
         // TODO add your handling code here:
-         Panel3 p3= new Panel3();
+        Panel3 p3 = new Panel3();
         PanelBotones.add(p3);
         p3.setVisible(true);
     }//GEN-LAST:event_Pestana3MouseClicked
 
     private void Pestana5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana5MouseClicked
         // TODO add your handling code here:
-        Panel4 p4= new Panel4();
+        Panel4 p4 = new Panel4();
         PanelBotones.add(p4);
         p4.setVisible(true);
     }//GEN-LAST:event_Pestana5MouseClicked
 
-   
     /**
      * @param args the command line arguments
      */
@@ -333,14 +321,14 @@ public class ServerMain extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new ServerMain().setVisible(true);
-                
+
             }
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane PanelBotones;
     private javax.swing.JLabel Pestana1;

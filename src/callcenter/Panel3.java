@@ -2,8 +2,6 @@ package callcenter;
 
 
 import javax.swing.ImageIcon;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

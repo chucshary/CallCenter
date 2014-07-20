@@ -8,7 +8,6 @@ package Reportes;
 
 import java.awt.HeadlessException;
 import java.sql.*;
-import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
