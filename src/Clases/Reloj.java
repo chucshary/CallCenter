@@ -30,7 +30,7 @@ public class Reloj {
                 hora = calendario.get(Calendar.HOUR_OF_DAY);
                 minutos = calendario.get(Calendar.MINUTE);
                 segundos = calendario.get(Calendar.SECOND);
-                String hour = String.format("%02d : %02d : %02d", hora, minutos, segundos);
+                String hour = String.format("%02d:%02d:%02d", hora, minutos, segundos);
                 hr.setText(hour);
             }
         });
