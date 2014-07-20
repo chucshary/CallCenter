@@ -1,6 +1,5 @@
 package EstructuraBD;
 
-
 import java.sql.*;
 
 public class conexion {

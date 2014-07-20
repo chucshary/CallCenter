@@ -6,6 +6,8 @@
 
 package Servidor;
 
+import EstructuraBD.conexion;
+
 /**
  *
  * @author Shary
@@ -16,7 +18,7 @@ public class Actualizar extends javax.swing.JFrame {
      * Creates new form Actualizar
      */
     public Actualizar() {
-        initComponents();
+        initComponents(); 
     }
 
     /**
