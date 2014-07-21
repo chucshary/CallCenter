@@ -20,7 +20,7 @@ public class Conector {
     public Conector(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/call_center","root","control");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/call_center","root","");
         }catch(SQLException e){
             System.out.println(e);
         }catch(ClassNotFoundException e){
