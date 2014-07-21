@@ -163,7 +163,7 @@ public class AltaBases extends javax.swing.JFrame {
     
     
     
-        public void opciones(int opc)
+        public void opcion(int opc)
         {
             opciones=opc;
             menu1.setText("");menu2.setText("");menu3.setText("");menu4.setText("");menu5.setText("");menu6.setText("");menu7.setText("");menu8.setText("");menu9.setText("");menu10.setText("");
@@ -241,13 +241,13 @@ public class AltaBases extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        boton1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panel1 = new javax.swing.JPanel();
         menu1 = new javax.swing.JTextField();
         botonayuda = new javax.swing.JLabel();
         label9 = new javax.swing.JLabel();
         opc2 = new javax.swing.JComboBox();
         opc5 = new javax.swing.JComboBox();
+        boton1 = new javax.swing.JLabel();
         titulo8 = new javax.swing.JLabel();
         opc9 = new javax.swing.JComboBox();
         titulo4 = new javax.swing.JLabel();
@@ -282,39 +282,23 @@ public class AltaBases extends javax.swing.JFrame {
         titulo7 = new javax.swing.JLabel();
         opc8 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
+        panel2 = new javax.swing.JDesktopPane();
 
-        setMaximumSize(new java.awt.Dimension(678, 442));
-        setMinimumSize(new java.awt.Dimension(678, 442));
+        setMaximumSize(new java.awt.Dimension(680, 440));
+        setMinimumSize(new java.awt.Dimension(680, 440));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
-        boton1.setToolTipText("Presione aqui para continuar con el registro de la base de informacion");
-        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                boton1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                boton1MouseExited(evt);
-            }
-        });
-        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 180, 50));
-
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel1.setOpaque(false);
+        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menu1.setBackground(new java.awt.Color(0, 51, 51));
         menu1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu1.setForeground(new java.awt.Color(255, 255, 255));
         menu1.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, 30));
+        panel1.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, 30));
 
         botonayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/botonayuda1.png"))); // NOI18N
         botonayuda.setToolTipText("¿Nececitas ayuda?");
@@ -331,13 +315,13 @@ public class AltaBases extends javax.swing.JFrame {
                 botonayudaMouseExited(evt);
             }
         });
-        jPanel1.add(botonayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, 30));
+        panel1.add(botonayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, 30));
 
         label9.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label9.setForeground(new java.awt.Color(255, 255, 255));
         label9.setText("9.");
         label9.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 30, 30));
+        panel1.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 30, 30));
 
         opc2.setBackground(new java.awt.Color(0, 51, 51));
         opc2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -347,7 +331,7 @@ public class AltaBases extends javax.swing.JFrame {
         opc2.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc2.setBorder(null);
         opc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 50, 40));
+        panel1.add(opc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 50, 40));
 
         opc5.setBackground(new java.awt.Color(0, 51, 51));
         opc5.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -357,13 +341,30 @@ public class AltaBases extends javax.swing.JFrame {
         opc5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc5.setBorder(null);
         opc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 40));
+        panel1.add(opc5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 40));
+
+        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
+        boton1.setToolTipText("Presione aqui para continuar con el registro de la base de informacion");
+        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                boton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                boton1MouseExited(evt);
+            }
+        });
+        panel1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 180, 40));
 
         titulo8.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo8.setForeground(new java.awt.Color(255, 255, 255));
         titulo8.setText("Submenus");
         titulo8.setToolTipText("");
-        jPanel1.add(titulo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 60, 40));
+        panel1.add(titulo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 60, 40));
 
         opc9.setBackground(new java.awt.Color(0, 51, 51));
         opc9.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -373,58 +374,58 @@ public class AltaBases extends javax.swing.JFrame {
         opc9.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc9.setBorder(null);
         opc9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 50, 40));
+        panel1.add(opc9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 50, 40));
 
         titulo4.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo4.setForeground(new java.awt.Color(255, 255, 255));
         titulo4.setText("Descripcion de voz de menu");
         titulo4.setToolTipText("");
-        jPanel1.add(titulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, 20));
+        panel1.add(titulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, 20));
 
         label1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setText("1.");
         label1.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 30, 30));
+        panel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 30, 30));
 
         label6.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label6.setForeground(new java.awt.Color(255, 255, 255));
         label6.setText("6.");
         label6.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 30, 30));
+        panel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 30, 30));
 
         menu3.setBackground(new java.awt.Color(0, 51, 51));
         menu3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu3.setForeground(new java.awt.Color(255, 255, 255));
         menu3.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu3.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 180, 30));
+        panel1.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 180, 30));
 
         menu5.setBackground(new java.awt.Color(0, 51, 51));
         menu5.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu5.setForeground(new java.awt.Color(255, 255, 255));
         menu5.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu5.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 180, 30));
+        panel1.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 180, 30));
 
         label10.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label10.setForeground(new java.awt.Color(255, 255, 255));
         label10.setText("10.");
         label10.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 40, 30));
+        panel1.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 40, 30));
 
         menu6.setBackground(new java.awt.Color(0, 51, 51));
         menu6.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu6.setForeground(new java.awt.Color(255, 255, 255));
         menu6.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu6.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 180, 30));
+        panel1.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 180, 30));
 
         titulo6.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo6.setForeground(new java.awt.Color(255, 255, 255));
         titulo6.setText("Menu ");
         titulo6.setToolTipText("");
-        jPanel1.add(titulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 60, 20));
+        panel1.add(titulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 60, 20));
 
         opc7.setBackground(new java.awt.Color(0, 51, 51));
         opc7.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -434,7 +435,7 @@ public class AltaBases extends javax.swing.JFrame {
         opc7.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc7.setBorder(null);
         opc7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 50, 40));
+        panel1.add(opc7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 50, 40));
 
         opc3.setBackground(new java.awt.Color(0, 51, 51));
         opc3.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -444,40 +445,40 @@ public class AltaBases extends javax.swing.JFrame {
         opc3.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc3.setBorder(null);
         opc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 50, 40));
+        panel1.add(opc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 50, 40));
 
         menu7.setBackground(new java.awt.Color(0, 51, 51));
         menu7.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu7.setForeground(new java.awt.Color(255, 255, 255));
         menu7.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu7.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 180, 30));
+        panel1.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 180, 30));
 
         label3.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label3.setForeground(new java.awt.Color(255, 255, 255));
         label3.setText("3.");
         label3.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 30));
+        panel1.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 30));
 
         titulo3.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo3.setForeground(new java.awt.Color(255, 255, 255));
         titulo3.setText("Menu ");
         titulo3.setToolTipText("");
-        jPanel1.add(titulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 40, 20));
+        panel1.add(titulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 40, 20));
 
         menu4.setBackground(new java.awt.Color(0, 51, 51));
         menu4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu4.setForeground(new java.awt.Color(255, 255, 255));
         menu4.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu4.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 180, 30));
+        panel1.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 180, 30));
 
         menu2.setBackground(new java.awt.Color(0, 51, 51));
         menu2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu2.setForeground(new java.awt.Color(255, 255, 255));
         menu2.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu2.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 180, 30));
+        panel1.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 180, 30));
 
         opc1.setBackground(new java.awt.Color(0, 51, 51));
         opc1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -487,26 +488,26 @@ public class AltaBases extends javax.swing.JFrame {
         opc1.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc1.setBorder(null);
         opc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 40));
+        panel1.add(opc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 40));
 
         menu8.setBackground(new java.awt.Color(0, 51, 51));
         menu8.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu8.setForeground(new java.awt.Color(255, 255, 255));
         menu8.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu8.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 180, 30));
+        panel1.add(menu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 180, 30));
 
         label2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label2.setForeground(new java.awt.Color(255, 255, 255));
         label2.setText("2.");
         label2.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 30, 30));
+        panel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 30, 30));
 
         label5.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label5.setForeground(new java.awt.Color(255, 255, 255));
         label5.setText("5");
         label5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 30, 30));
+        panel1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 30, 30));
 
         opc6.setBackground(new java.awt.Color(0, 51, 51));
         opc6.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -516,20 +517,20 @@ public class AltaBases extends javax.swing.JFrame {
         opc6.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc6.setBorder(null);
         opc6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 50, 40));
+        panel1.add(opc6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 50, 40));
 
         menu10.setBackground(new java.awt.Color(0, 51, 51));
         menu10.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu10.setForeground(new java.awt.Color(255, 255, 255));
         menu10.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu10.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 180, 30));
+        panel1.add(menu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 180, 30));
 
         label7.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label7.setForeground(new java.awt.Color(255, 255, 255));
         label7.setText("7.");
         label7.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 30, 30));
+        panel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 30, 30));
 
         opc10.setBackground(new java.awt.Color(0, 51, 51));
         opc10.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -539,20 +540,20 @@ public class AltaBases extends javax.swing.JFrame {
         opc10.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc10.setBorder(null);
         opc10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 50, 40));
+        panel1.add(opc10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 50, 40));
 
         label4.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label4.setForeground(new java.awt.Color(255, 255, 255));
         label4.setText("4.");
         label4.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 30, 30));
+        panel1.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 30, 30));
 
         menu9.setBackground(new java.awt.Color(0, 51, 51));
         menu9.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu9.setForeground(new java.awt.Color(255, 255, 255));
         menu9.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu9.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(menu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 180, 30));
+        panel1.add(menu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 180, 30));
 
         opc4.setBackground(new java.awt.Color(0, 51, 51));
         opc4.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -562,31 +563,31 @@ public class AltaBases extends javax.swing.JFrame {
         opc4.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc4.setBorder(null);
         opc4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 50, 40));
+        panel1.add(opc4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 50, 40));
 
         label8.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         label8.setForeground(new java.awt.Color(255, 255, 255));
         label8.setText("8.");
         label8.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 30, 30));
+        panel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 30, 30));
 
         titulo5.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo5.setForeground(new java.awt.Color(255, 255, 255));
         titulo5.setText("Submenus");
         titulo5.setToolTipText("");
-        jPanel1.add(titulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 60, 40));
+        panel1.add(titulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 60, 40));
 
         titulo.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Opciones del menu");
         titulo.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        jPanel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 190, 30));
+        panel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 190, 30));
 
         titulo7.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo7.setForeground(new java.awt.Color(255, 255, 255));
         titulo7.setText("Descripcion de voz de menu");
         titulo7.setToolTipText("");
-        jPanel1.add(titulo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 200, 20));
+        panel1.add(titulo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 200, 20));
 
         opc8.setBackground(new java.awt.Color(0, 51, 51));
         opc8.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -596,9 +597,9 @@ public class AltaBases extends javax.swing.JFrame {
         opc8.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc8.setBorder(null);
         opc8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(opc8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 50, 40));
+        panel1.add(opc8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 50, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 370));
+        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 430));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -606,6 +607,10 @@ public class AltaBases extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(678, 442));
         jLabel3.setPreferredSize(new java.awt.Dimension(678, 442));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 680, 440));
+
+        panel2.setOpaque(false);
+        panel2.setPreferredSize(new java.awt.Dimension(660, 440));
+        getContentPane().add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -635,9 +640,13 @@ public class AltaBases extends javax.swing.JFrame {
             for(int i=0; i<opciones;i++)
             {
                 menu[i]=getcombo(i+1);
-                JOptionPane.showMessageDialog(null, menu[i]);
+                panel1.setVisible(false);
+                ContenedorAltaBases p= new ContenedorAltaBases();
+                panel2.add(p);
+                p.opciones=menu[i];
+                p.opcion(i+1);
+                p.setVisible(true);
             }
-            
             
         }
         
@@ -729,7 +738,6 @@ public class AltaBases extends javax.swing.JFrame {
     private javax.swing.JLabel boton1;
     private javax.swing.JLabel botonayuda;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label10;
     private javax.swing.JLabel label2;
@@ -760,6 +768,8 @@ public class AltaBases extends javax.swing.JFrame {
     private javax.swing.JComboBox opc7;
     private javax.swing.JComboBox opc8;
     private javax.swing.JComboBox opc9;
+    private javax.swing.JPanel panel1;
+    private javax.swing.JDesktopPane panel2;
     public javax.swing.JLabel titulo;
     public javax.swing.JLabel titulo3;
     public javax.swing.JLabel titulo4;

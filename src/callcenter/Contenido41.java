@@ -215,7 +215,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
                 descripcion.setText("");
                 menusbase.setSelectedIndex(0);
                 AltaBases a= new AltaBases();
-                a.opciones(v.menuprincipal);
+                a.opcion(v.menuprincipal);
                 a.titulo.setText("Opcionnes del menu "+v.base);
                 a.show();
                 
