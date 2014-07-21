@@ -233,11 +233,11 @@ public class Serial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String serial=""+metodo.serial_code();
-        String serialprueba =""+ jTextField1 + jTextField2 + jTextField3 + jTextField4 + jTextField5;
+        String serialprueba =""+ jTextField1.getText() + jTextField2.getText() + jTextField3.getText() + jTextField4.getText() + jTextField5.getText();
         serialprueba=""+serialprueba.hashCode();
         serial=""+serial.hashCode();
         if(serial.equals(serialprueba)){
-            this.resize(new Dimension(438, 360));
+            this.resize(new Dimension(455, 400));
             jButton1.setEnabled(false);
             jTextField1.setEnabled(false);
             jTextField2.setEnabled(false);
@@ -254,27 +254,32 @@ public class Serial extends javax.swing.JFrame {
             jPasswordField2.setVisible(true);
         }
         else{
-            JOptionPane.showMessageDialog(null,"Por favor se revisar el serial ingresado","Serial Incorrecto",JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null,"Por favor de revisar el serial ingresado","Serial Incorrecto",JOptionPane.ERROR_MESSAGE); 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String contra1,contra2;
-        contra1=""+jPasswordField1.hashCode();
-        contra2=""+jPasswordField2.hashCode();
-        if(contra1.equals(contra2)){
-            this.dispose();
+        if(jTextField7.getText().equals("")){
             
         }
         else{
-            JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden","Contraseña",JOptionPane.WARNING_MESSAGE); 
+            contra1=""+jPasswordField1.getText().hashCode();
+            contra2=""+jPasswordField2.getText().hashCode();
+            if(contra1.equals(contra2)){
+                this.dispose();
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden","Contraseña",JOptionPane.WARNING_MESSAGE); 
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         int serial2=metodo.serial();
         if(serial2==0){
-            this.resize(new Dimension(438, 150));
+            this.resize(new Dimension(455, 150));
             jButton2.setVisible(false);
             jLabel6.setVisible(false);
             jLabel7.setVisible(false);
