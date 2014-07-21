@@ -87,6 +87,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         nombrebase.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         nombrebase.setForeground(new java.awt.Color(255, 255, 255));
         nombrebase.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        nombrebase.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(nombrebase, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 190, 30));
 
         boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
@@ -121,6 +122,7 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         descripcion.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         descripcion.setForeground(new java.awt.Color(255, 255, 255));
         descripcion.setRows(5);
+        descripcion.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 360, 180));
@@ -195,10 +197,11 @@ public class Contenido41 extends javax.swing.JInternalFrame {
         else
         {
         String mensaje1 = "<html><font color=#FFFFFF>Usted esta a punto de dar de alta la base "+nombrebase.getText()+" con "+menusbase.getSelectedItem()+" menu(s) principal(es)</font>";
-        String mensaje2 = "<html><font color=#FFFFFF>Recurde que el texto de descripcion sera referencia para grabar despues, incluyendo los numeros de marcacion.</font>";
-        String mensaje3="<html><font color=#FFFFFF>Si todo es correcto presione SI, de lo contrario presione NO para regresar y acuda al boton de ayuda.</font>";
+        String mensaje2 = "<html><font color=#FFFFFF>Recurde que el texto de descripcion de voz sera referencia para grabar despues, incluyendo los numeros de marcacion.</font>";
+        String mensaje3="<html><font color=#FFFFFF>Una vez iniciando el proceso de registro se tendra que terminar.Si todo es correcto presione SI. ";
+        String mensaje4="<html><font color=#FFFFFF>De lo contrario presione NO para regresar y acuda al boton de ayuda.</font>";
         titulo = "Mensaje de confirmacion!";
-        mensaje=mensaje1+"\n"+mensaje2+"\n"+mensaje3;
+        mensaje=mensaje1+"\n"+mensaje2+"\n"+mensaje3+"\n"+mensaje4;
 
             int respuesta = JOptionPane.showConfirmDialog(null, mensaje, titulo, JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE );
             if (respuesta == JOptionPane.YES_OPTION)
@@ -212,7 +215,10 @@ public class Contenido41 extends javax.swing.JInternalFrame {
                 descripcion.setText("");
                 menusbase.setSelectedIndex(0);
                 AltaBases a= new AltaBases();
+                a.opciones(v.menuprincipal);
+                a.titulo.setText("Opcionnes del menu "+v.base);
                 a.show();
+                
             }
         } 
     }//GEN-LAST:event_boton1MouseClicked

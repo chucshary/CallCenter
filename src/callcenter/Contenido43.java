@@ -46,6 +46,7 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         jTextField1.setBackground(new java.awt.Color(0, 51, 51));
         jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
