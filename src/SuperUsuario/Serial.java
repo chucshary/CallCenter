@@ -260,15 +260,13 @@ public class Serial extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String contra1,contra2;
-        if(jTextField7.getText().equals("")){
-            
+        if(jTextField7.getText().equals("")){            
         }
         else{
             contra1=""+jPasswordField1.getText().hashCode();
             contra2=""+jPasswordField2.getText().hashCode();
             if(contra1.equals(contra2)){
                 this.dispose();
-                
             }
             else{
                 JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden","Contraseña",JOptionPane.WARNING_MESSAGE); 

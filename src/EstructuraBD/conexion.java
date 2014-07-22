@@ -9,6 +9,7 @@ public class conexion {
 
     private int registros;
     public String registro_busqueda;
+    public String registro_busqueda1;
 
     Connection con = null;
     variablesBD vBD = new variablesBD();
@@ -58,7 +59,7 @@ public class conexion {
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString("serial");
-            //Variables_globales.getSerialBD(registro_busqueda);
+//            Variables_globales.getSerialBD(registro_busqueda);
             res.close();
         } catch (Exception e) {
         }
@@ -66,12 +67,28 @@ public class conexion {
 
     public void busqueda_gral(String tabla, String campo) {
         try {
-            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + ";");
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla +";");
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString(campo);
+            JOptionPane.showMessageDialog(null, registro_busqueda);
             res.close();
+        } catch (Exception e) {
             
+        }
+        
+    }
+    
+        public void busqueda_supervisores(String tabla, String campo, String clausula) {
+        try {
+            registro_busqueda="";
+            registro_busqueda1="";
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " AS SP, password_supervisor AS PAS FROM " + tabla + " WHERE "+campo +"= '"+clausula+"';");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registro_busqueda = res.getString("SP");
+            registro_busqueda1=res.getString("PAS");
+            res.close();
         } catch (Exception e) {
             
         }

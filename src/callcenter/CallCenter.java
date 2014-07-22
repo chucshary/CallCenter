@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package callcenter;
 
 /**
@@ -16,8 +15,11 @@ public class CallCenter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+//        new callcenter.ServerMain().setLocationRelativeTo(null);
+//        new callcenter.ServerMain().setVisible(true);
+
         new SuperUsuario.Serial().setLocationRelativeTo(null);
         new SuperUsuario.Serial().setVisible(true);
     }
-    
+
 }

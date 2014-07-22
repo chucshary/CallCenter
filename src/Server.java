@@ -26,8 +26,8 @@ public class Server {
                 } catch (InterruptedException ex) {
                  
                 }
-        SuperUsuario.Serial m= new SuperUsuario.Serial();
-        //callcenter.ServerMain m= new callcenter.ServerMain();
+//        SuperUsuario.Serial m= new SuperUsuario.Serial();
+        callcenter.ServerMain m= new callcenter.ServerMain();
         m.setLocationRelativeTo(null);
         m.setVisible(true);
     }

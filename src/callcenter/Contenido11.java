@@ -1,19 +1,22 @@
 package callcenter;
 
-
+import EstructuraBD.conexion;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mariana Valencia
  */
 public class Contenido11 extends javax.swing.JInternalFrame {
+
+    private EstructuraBD.conexion con = new conexion();
 
     /**
      * Creates new form Contenido11
@@ -72,11 +75,21 @@ public class Contenido11 extends javax.swing.JInternalFrame {
         jTextField1.setBackground(new java.awt.Color(0, 51, 51));
         jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
 
         jPasswordField1.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 190, 30));
 
         jPasswordField2.setBackground(new java.awt.Color(0, 51, 51));
@@ -87,6 +100,11 @@ public class Contenido11 extends javax.swing.JInternalFrame {
         jPasswordField3.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jPasswordField3.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField3KeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 190, 30));
 
         boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/actualizar1.png"))); // NOI18N
@@ -116,19 +134,70 @@ public class Contenido11 extends javax.swing.JInternalFrame {
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         // TODO add your handling code here:
-        
+
 
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/actualizar2.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource("/recursos/actualizar2.png")));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/actualizar1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource("/recursos/actualizar1.png")));
     }//GEN-LAST:event_boton1MouseExited
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String user = "";
+            try {
+                user = jTextField1.getText().toUpperCase();
+                if ("".equals(user)) {
+                    JOptionPane.showMessageDialog(this, "Nombre invalido...");
+                } else {
+                    con.busqueda_supervisores("supervisores", "nombre_supervisor", user);
+                }
+//            JOptionPane.showMessageDialog(null, con.registro_busqueda);
+                if ("".equals(con.registro_busqueda)) {
+                    JOptionPane.showMessageDialog(null, "Usuario invalido...");
+                    jTextField1.setText("");
+                    jTextField1.requestFocus();
+                } else {
+//                JOptionPane.showMessageDialog(null, "Bienvenido");
+                    jPasswordField2.setText(con.registro_busqueda1);
+                    jPasswordField2.setEditable(false);
+                    jPasswordField3.requestFocus();
+                }
+            } catch (Exception e) {
+            }
+
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField3KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jPasswordField1.requestFocus();
+            } catch (Exception e) {
+            }
+        
+        }
+    }//GEN-LAST:event_jPasswordField3KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+               boton1.requestFocus();
+            } catch (Exception e) {
+            }
+        
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
