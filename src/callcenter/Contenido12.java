@@ -5,6 +5,8 @@ import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,13 +21,16 @@ public class Contenido12 extends javax.swing.JInternalFrame {
     
     private String usuario = "";
     private EstructuraBD.conexion con = new conexion();
-    private String pass1 = "", pass2 = "";
+    private String pass1 = "", pass2 = "", mensaje = "", titulo = "";
+    public UIManager UI = new UIManager();
 
     /**
      * Creates new form Contenido11
      */
     public Contenido12() {
         initComponents();
+        UI.put("OptionPane.background", new ColorUIResource(0, 51, 51));
+        UI.put("Panel.background", new ColorUIResource(0, 51, 51));
     }
 
     /**
@@ -58,6 +63,8 @@ public class Contenido12 extends javax.swing.JInternalFrame {
         jTextField1.setBackground(new java.awt.Color(0, 51, 51));
         jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -65,9 +72,12 @@ public class Contenido12 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 190, 30));
 
+        jPasswordField3.setEditable(false);
         jPasswordField3.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jPasswordField3.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField3.setCaretColor(new java.awt.Color(255, 255, 255));
         jPasswordField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPasswordField3KeyPressed(evt);
@@ -75,9 +85,12 @@ public class Contenido12 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 190, 30));
 
+        jPasswordField1.setEditable(false);
         jPasswordField1.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPasswordField1KeyPressed(evt);
@@ -121,9 +134,12 @@ public class Contenido12 extends javax.swing.JInternalFrame {
         jLabel3.setText("Usuario: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 140, 30));
 
+        jTextField2.setEditable(false);
         jTextField2.setBackground(new java.awt.Color(0, 51, 51));
         jTextField2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 190, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
@@ -157,7 +173,7 @@ public class Contenido12 extends javax.swing.JInternalFrame {
         }
 //                JOptionPane.showMessageDialog(null, user);
         jTextField2.setText(user);
-        jTextField2.setEditable(false);
+        jPasswordField3.setEditable(true);
         jPasswordField3.requestFocus();
         
     }
@@ -166,12 +182,17 @@ public class Contenido12 extends javax.swing.JInternalFrame {
     private void altasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_altasMouseClicked
         // TODO add your handling code here:
         try {
+            mensaje = "<html><font color=#FFFFFF>Insercion completada";
             con.agregar("supervisores", "nombre_supervisor,password_supervisor", jTextField2.getText() + "," + pass2);
-            JOptionPane.showMessageDialog(null, "Insercion completada", "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, mensaje, "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
             jTextField1.setText("");
             jTextField2.setText("");
             jPasswordField1.setText("");
             jPasswordField3.setText("");
+            jTextField1.requestFocus();;
+            jTextField2.setEditable(false);
+            jPasswordField1.setEditable(false);
+            jPasswordField3.setEditable(false);
         } catch (HeadlessException e) {
         }
         
@@ -189,8 +210,8 @@ public class Contenido12 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_altasMouseExited
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+
         // TODO add your handling code here:
-        
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 user_supervisor();
@@ -205,7 +226,13 @@ public class Contenido12 extends javax.swing.JInternalFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 pass1 = jPasswordField3.getText();
-                jPasswordField1.requestFocus();
+                if ("".equals(pass1)) {
+                    jPasswordField3.requestFocus();
+                } else {
+                    jTextField1.setEditable(true);
+                    jPasswordField1.setEditable(true);
+                    jPasswordField1.requestFocus();
+                }
             } catch (Exception e) {
             }
         }
@@ -213,6 +240,7 @@ public class Contenido12 extends javax.swing.JInternalFrame {
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
+        mensaje = "<html><font color=#FFFFFF>Difiere campo contraseña";
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 pass2 = jPasswordField1.getText();
@@ -221,7 +249,7 @@ public class Contenido12 extends javax.swing.JInternalFrame {
                 } else {
                     jPasswordField1.setText("");
                     jPasswordField1.requestFocus();
-                    JOptionPane.showMessageDialog(null, "Difiere campo contraseña", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, mensaje, "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (HeadlessException e) {
             }

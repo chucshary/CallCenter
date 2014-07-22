@@ -5,6 +5,8 @@ import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,15 +18,18 @@ import javax.swing.JOptionPane;
  * @author Mariana Valencia
  */
 public class Contenido13 extends javax.swing.JInternalFrame {
-
+    
     private EstructuraBD.conexion con = new conexion();
-    private String id = "";
+    private String id = "", mensaje = "";
+    public UIManager UI = new UIManager();
 
     /**
      * Creates new form Contenido11
      */
     public Contenido13() {
         initComponents();
+        UI.put("OptionPane.background", new ColorUIResource(0, 51, 51));
+        UI.put("Panel.background", new ColorUIResource(0, 51, 51));
     }
 
     /**
@@ -53,6 +58,8 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         jTextField2.setBackground(new java.awt.Color(0, 51, 51));
         jTextField2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
@@ -60,10 +67,13 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 190, 30));
 
+        jPasswordField3.setEditable(false);
         jPasswordField3.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jPasswordField3.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 190, 30));
+        jPasswordField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField3.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 190, 30));
 
         jLabel5.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,25 +122,29 @@ public class Contenido13 extends javax.swing.JInternalFrame {
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         // TODO add your handling code here:
+        mensaje = "<html><font color=#FFFFFF>Nombre invalido...";
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String user = "";
             try {
                 user = jTextField2.getText().toUpperCase();
                 if ("".equals(user)) {
-                    JOptionPane.showMessageDialog(this, "Nombre invalido...");
+                    JOptionPane.showMessageDialog(this, mensaje);
                 } else {
                     con.busqueda_supervisores("supervisores", "nombre_supervisor", user);
                     id = con.registro_busqueda2;
+                    jPasswordField3.setEditable(true);
                     jPasswordField3.requestFocus();
+                    if ("".equals(con.registro_busqueda)) {
+                        mensaje = "<html><font color=#FFFFFF>Usuario invalido...";
+                        JOptionPane.showMessageDialog(null, mensaje);
+                        jTextField2.setText("");
+                        jTextField2.requestFocus();
+                    } else {
+                        jPasswordField3.setEditable(true);
+                        jPasswordField3.requestFocus();
+                    }
                 }
 //            JOptionPane.showMessageDialog(null, con.registro_busqueda);
-                if ("".equals(con.registro_busqueda)) {
-                    JOptionPane.showMessageDialog(null, "Usuario invalido...");
-                    jTextField2.setText("");
-                    jTextField2.requestFocus();
-                } else {
-                    jPasswordField3.requestFocus();
-                }
             } catch (HeadlessException e) {
             }
         }
@@ -140,15 +154,18 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try {
             String pass = "";
+            mensaje = "<html><font color=#FFFFFF>Eliminacion completada";
             pass = jPasswordField3.getText();
             con.busqueda_gral("administrador", "password_admin");
             if (pass.equals(con.registro_busqueda)) {
                 con.eliminar("supervisores", "id_supervisor='" + id + "';");
-                JOptionPane.showMessageDialog(null, "Eliminacion completada", "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, mensaje, "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
                 jTextField2.setText("");
                 jPasswordField3.setText("");
+                jPasswordField3.setEditable(false);
             } else {
-                JOptionPane.showMessageDialog(null, "Contraseña invalida", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                mensaje = "<html><font color=#FFFFFF>Contraseña invalida";
+                JOptionPane.showMessageDialog(null, mensaje, "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
                 jPasswordField3.setText("");
                 jPasswordField3.requestFocus();
             }
