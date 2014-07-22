@@ -1,19 +1,21 @@
 package callcenter;
 
-
+import EstructuraBD.conexion;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mariana Valencia
  */
 public class Contenido14 extends javax.swing.JInternalFrame {
+
+    private EstructuraBD.conexion con = new conexion();
 
     /**
      * Creates new form Contenido11
@@ -80,16 +82,32 @@ public class Contenido14 extends javax.swing.JInternalFrame {
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
         // TODO add your handling code here:
+        try {
+            String pass = "";
+            pass = jPasswordField3.getText();
+            con.busqueda_gral("superusuario", "password_su");
+            if (pass.equals(con.registro_busqueda)) {
+                con.eliminar_registros("administrador");
+                JOptionPane.showMessageDialog(null, "Eliminacion Total completada", "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
+                jPasswordField3.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Contraseña invalida", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                jPasswordField3.setText("");
+                jPasswordField3.requestFocus();
+            }
+        } catch (Exception e) {
+        }
+
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja2.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource("/recursos/baja2.png")));
     }//GEN-LAST:event_boton1MouseEntered
 
     private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja1.png" )));
+        boton1.setIcon(new ImageIcon(getClass().getResource("/recursos/baja1.png")));
     }//GEN-LAST:event_boton1MouseExited
 
 

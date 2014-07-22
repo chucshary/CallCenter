@@ -1,6 +1,7 @@
 package callcenter;
 
 import EstructuraBD.conexion;
+import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 public class Contenido11 extends javax.swing.JInternalFrame {
 
     private EstructuraBD.conexion con = new conexion();
+    private String pass1 = "", pass2 = "";
 
     /**
      * Creates new form Contenido11
@@ -132,12 +134,6 @@ public class Contenido11 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_boton1MouseClicked
-
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
         // TODO add your handling code here:
         boton1.setIcon(new ImageIcon(getClass().getResource("/recursos/actualizar2.png")));
@@ -171,7 +167,7 @@ public class Contenido11 extends javax.swing.JInternalFrame {
                     jPasswordField2.setEditable(false);
                     jPasswordField3.requestFocus();
                 }
-            } catch (Exception e) {
+            } catch (HeadlessException e) {
             }
 
         }
@@ -181,23 +177,45 @@ public class Contenido11 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
+                pass1 = jPasswordField3.getText();
                 jPasswordField1.requestFocus();
             } catch (Exception e) {
             }
-        
+
         }
     }//GEN-LAST:event_jPasswordField3KeyPressed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
-               boton1.requestFocus();
-            } catch (Exception e) {
+                pass2 = jPasswordField1.getText();
+                if (pass2.equals(pass1)) {
+                    boton1.requestFocus();
+                } else {
+                    jPasswordField1.setText("");
+                    jPasswordField1.requestFocus();
+                    JOptionPane.showMessageDialog(null, "Difiere campo contraseña", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (HeadlessException e) {
             }
-        
+
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
+        // TODO add your handling code here:
+        try {
+            con.actualizar("supervisores", "password_supervisor", pass2, "nombre_supervisor='" + jTextField1.getText() + "';");
+            JOptionPane.showMessageDialog(null, "Actualizacion completada", "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
+            jTextField1.setText("");
+            jPasswordField1.setText("");
+            jPasswordField2.setText("");
+            jPasswordField3.setText("");
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_boton1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

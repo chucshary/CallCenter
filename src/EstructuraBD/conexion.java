@@ -10,12 +10,13 @@ public class conexion {
     private int registros;
     public String registro_busqueda;
     public String registro_busqueda1;
+    public String registro_busqueda2;
 
     Connection con = null;
     variablesBD vBD = new variablesBD();
 
     public conexion() {
-        String bd, user, pass,ax;
+        String bd, user, pass, ax;
         bd = vBD.baseDeDatos;
         user = vBD.usuarioMysql;
         pass = vBD.passMysql;
@@ -67,32 +68,35 @@ public class conexion {
 
     public void busqueda_gral(String tabla, String campo) {
         try {
-            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla +";");
+            registro_busqueda="";
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + ";");
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString(campo);
-            JOptionPane.showMessageDialog(null, registro_busqueda);
+//            JOptionPane.showMessageDialog(null, registro_busqueda);
             res.close();
         } catch (Exception e) {
-            
+
         }
-        
+
     }
-    
-        public void busqueda_supervisores(String tabla, String campo, String clausula) {
+
+    public void busqueda_supervisores(String tabla, String campo, String clausula) {
         try {
-            registro_busqueda="";
-            registro_busqueda1="";
-            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " AS SP, password_supervisor AS PAS FROM " + tabla + " WHERE "+campo +"= '"+clausula+"';");
+            registro_busqueda = "";
+            registro_busqueda1 = "";
+            registro_busqueda2="";
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " AS SP, password_supervisor AS PAS, id_supervisor AS ID FROM " + tabla + " WHERE " + campo + "= '" + clausula + "';");
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString("SP");
-            registro_busqueda1=res.getString("PAS");
+            registro_busqueda1 = res.getString("PAS");
+            registro_busqueda2 = res.getString("ID");
             res.close();
         } catch (Exception e) {
-            
+
         }
-        
+
     }
 
     public void agregar(String tabla, String campos, String valores) {
@@ -137,6 +141,15 @@ public class conexion {
 
     public void eliminar(String tabla, String clausula) {
         String query = "DELETE FROM " + tabla + " WHERE " + clausula;
+        if (prepararEstados(query, null)) {
+            System.out.println("False");
+        } else {
+            System.out.println("True");
+        }
+    }
+    
+     public void eliminar_registros(String tabla) {
+        String query = "DELETE FROM " + tabla;
         if (prepararEstados(query, null)) {
             System.out.println("False");
         } else {
@@ -198,26 +211,24 @@ public class conexion {
         str += ")";
         return str;
     }
-     public void busquedabaja1(String tabla, String campo, String clave) {
+
+    public void busquedabaja1(String tabla, String campo, String clave) {
         try {
-            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + " WHERE"+clave+";");
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + " WHERE" + clave + ";");
             ResultSet res = pstm.executeQuery();
-            try
-            {
-            res.next();
-            registro_busqueda = res.getString(campo);            
-            res.close();
+            try {
+                res.next();
+                registro_busqueda = res.getString(campo);
+                res.close();
+            } catch (Exception e) {
+                UIManager UI = new UIManager();
+                UI.put("OptionPane.background", new ColorUIResource(0, 51, 51));
+                UI.put("Panel.background", new ColorUIResource(0, 51, 51));
+                String titulo = "Campo vacios!";
+                String mensaje = "<html><font color=#FFFFFF>La base indicada no existe!.";
+                JOptionPane.showMessageDialog(null, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
             }
-            catch (Exception e) {
-                     UIManager UI=new UIManager();
-                    UI.put("OptionPane.background",new ColorUIResource(0,51,51));
-                    UI.put("Panel.background",new ColorUIResource(0,51,51));
-                    String titulo="Campo vacios!";
-                    String mensaje="<html><font color=#FFFFFF>La base indicada no existe!.";
-                    JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
-                    }
-            
-            
+
         } catch (Exception e) {
 
         }
@@ -229,18 +240,16 @@ public class conexion {
             ResultSet res = pstm.executeQuery();
             res.next();
             registro_busqueda = res.getString(campo);
-            
-            while (res.next())
-            {
-                
+
+            while (res.next()) {
+
                 registro_busqueda = res.getString(campo);
             }
             res.close();
-            
+
         } catch (Exception e) {
 
         }
     }
-    
-   
+
 }

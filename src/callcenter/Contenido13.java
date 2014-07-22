@@ -1,19 +1,24 @@
 package callcenter;
 
-
+import EstructuraBD.conexion;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mariana Valencia
  */
 public class Contenido13 extends javax.swing.JInternalFrame {
+
+    private EstructuraBD.conexion con = new conexion();
+    private String id = "";
 
     /**
      * Creates new form Contenido11
@@ -35,7 +40,7 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         jPasswordField3 = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        boton1 = new javax.swing.JLabel();
+        bajas = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -48,6 +53,11 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         jTextField2.setBackground(new java.awt.Color(0, 51, 51));
         jTextField2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 190, 30));
 
         jPasswordField3.setBackground(new java.awt.Color(0, 51, 51));
@@ -65,21 +75,21 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         jLabel3.setText("Usuario: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 140, 30));
 
-        boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/baja1.png"))); // NOI18N
-        boton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        boton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        boton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        bajas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/baja1.png"))); // NOI18N
+        bajas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        bajas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bajas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boton1MouseClicked(evt);
+                bajasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                boton1MouseEntered(evt);
+                bajasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                boton1MouseExited(evt);
+                bajasMouseExited(evt);
             }
         });
-        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+        getContentPane().add(bajas, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -90,23 +100,66 @@ public class Contenido13 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
+    private void bajasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bajasMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_boton1MouseClicked
+        bajas.setIcon(new ImageIcon(getClass().getResource("/recursos/baja2.png")));
+    }//GEN-LAST:event_bajasMouseEntered
 
-    private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
+    private void bajasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bajasMouseExited
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja2.png" )));
-    }//GEN-LAST:event_boton1MouseEntered
+        bajas.setIcon(new ImageIcon(getClass().getResource("/recursos/baja1.png")));
+    }//GEN-LAST:event_bajasMouseExited
 
-    private void boton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseExited
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         // TODO add your handling code here:
-        boton1.setIcon(new ImageIcon(getClass().getResource( "/recursos/baja1.png" )));
-    }//GEN-LAST:event_boton1MouseExited
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String user = "";
+            try {
+                user = jTextField2.getText().toUpperCase();
+                if ("".equals(user)) {
+                    JOptionPane.showMessageDialog(this, "Nombre invalido...");
+                } else {
+                    con.busqueda_supervisores("supervisores", "nombre_supervisor", user);
+                    id = con.registro_busqueda2;
+                    jPasswordField3.requestFocus();
+                }
+//            JOptionPane.showMessageDialog(null, con.registro_busqueda);
+                if ("".equals(con.registro_busqueda)) {
+                    JOptionPane.showMessageDialog(null, "Usuario invalido...");
+                    jTextField2.setText("");
+                    jTextField2.requestFocus();
+                } else {
+                    jPasswordField3.requestFocus();
+                }
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void bajasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bajasMouseClicked
+        // TODO add your handling code here:
+        try {
+            String pass = "";
+            pass = jPasswordField3.getText();
+            con.busqueda_gral("administrador", "password_admin");
+            if (pass.equals(con.registro_busqueda)) {
+                con.eliminar("supervisores", "id_supervisor='" + id + "';");
+                JOptionPane.showMessageDialog(null, "Eliminacion completada", "Mensaje Informacion", JOptionPane.INFORMATION_MESSAGE);
+                jTextField2.setText("");
+                jPasswordField3.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "Contraseña invalida", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                jPasswordField3.setText("");
+                jPasswordField3.requestFocus();
+            }
+        } catch (HeadlessException e) {
+        }
+
+    }//GEN-LAST:event_bajasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel boton1;
+    private javax.swing.JLabel bajas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
