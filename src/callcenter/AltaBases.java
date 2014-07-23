@@ -1,5 +1,6 @@
 package callcenter;
 
+import Clases.VariablesCasos;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -25,6 +26,7 @@ public class AltaBases extends javax.swing.JFrame {
     public AltaBases() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
     
 
@@ -36,50 +38,71 @@ public class AltaBases extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     public int opciones=0;
+    public  String caso;
     
-    public int getcombo(int i)
+
+    public int getcomboandalta(int i)
     {
+    
+        
+        
         int aux=0;
+        VariablesCasos v= new VariablesCasos();
+        String menu="",voz="";
+        menu= caso+Integer.toString(i);
         if (i==1)
-        { aux=Integer.parseInt(opc1.getSelectedItem().toString());
+        { 
+                aux=Integer.parseInt(opc1.getSelectedItem().toString());
+                voz=menu1.getText();
         }
         
         if (i==2)
         {
             aux=Integer.parseInt(opc2.getSelectedItem().toString());
+            voz=menu2.getText();
         }
         if (i==3)
         {
             aux=Integer.parseInt(opc3.getSelectedItem().toString());
+            voz=menu3.getText();
         }
         if (i==4)
         {
             aux=Integer.parseInt(opc4.getSelectedItem().toString());
+            voz=menu4.getText();
         }
         if (i==5)
         {
             aux=Integer.parseInt(opc5.getSelectedItem().toString());
+            voz=menu5.getText();
         }
         if (i==6)
         {
             aux=Integer.parseInt(opc6.getSelectedItem().toString());
+            voz=menu6.getText();
         }
         if (i==7)
         {
             aux=Integer.parseInt(opc7.getSelectedItem().toString());
+            voz=menu7.getText();
         }
         if (i==8)
         {
             aux=Integer.parseInt(opc8.getSelectedItem().toString());
+            voz=menu8.getText();
         }
         if (i==9)
         {
             aux=Integer.parseInt(opc9.getSelectedItem().toString());
+            voz=menu9.getText();
         }
         if (i==10)
         {
             aux=Integer.parseInt(opc10.getSelectedItem().toString());
+            voz=menu10.getText();
         }
+
+        v.altamenu(menu, caso, aux, voz );
         return aux;
     }
     
@@ -163,9 +186,10 @@ public class AltaBases extends javax.swing.JFrame {
     
     
     
-        public void opcion(int opc)
+        public void opcion(int opc, int casoint)
         {
             opciones=opc;
+            caso=Integer.toString(casoint);
             menu1.setText("");menu2.setText("");menu3.setText("");menu4.setText("");menu5.setText("");menu6.setText("");menu7.setText("");menu8.setText("");menu9.setText("");menu10.setText("");
             if(opc<=5)
             {
@@ -241,107 +265,54 @@ public class AltaBases extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel1 = new javax.swing.JPanel();
-        menu1 = new javax.swing.JTextField();
-        botonayuda = new javax.swing.JLabel();
-        label9 = new javax.swing.JLabel();
-        opc2 = new javax.swing.JComboBox();
-        opc5 = new javax.swing.JComboBox();
         boton1 = new javax.swing.JLabel();
-        titulo8 = new javax.swing.JLabel();
-        opc9 = new javax.swing.JComboBox();
-        titulo4 = new javax.swing.JLabel();
-        label1 = new javax.swing.JLabel();
-        label6 = new javax.swing.JLabel();
-        menu3 = new javax.swing.JTextField();
-        menu5 = new javax.swing.JTextField();
-        label10 = new javax.swing.JLabel();
-        menu6 = new javax.swing.JTextField();
-        titulo6 = new javax.swing.JLabel();
-        opc7 = new javax.swing.JComboBox();
-        opc3 = new javax.swing.JComboBox();
-        menu7 = new javax.swing.JTextField();
-        label3 = new javax.swing.JLabel();
-        titulo3 = new javax.swing.JLabel();
-        menu4 = new javax.swing.JTextField();
-        menu2 = new javax.swing.JTextField();
-        opc1 = new javax.swing.JComboBox();
-        menu8 = new javax.swing.JTextField();
-        label2 = new javax.swing.JLabel();
-        label5 = new javax.swing.JLabel();
-        opc6 = new javax.swing.JComboBox();
-        menu10 = new javax.swing.JTextField();
-        label7 = new javax.swing.JLabel();
-        opc10 = new javax.swing.JComboBox();
-        label4 = new javax.swing.JLabel();
-        menu9 = new javax.swing.JTextField();
-        opc4 = new javax.swing.JComboBox();
-        label8 = new javax.swing.JLabel();
-        titulo5 = new javax.swing.JLabel();
+        botonayuda = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
+        titulo3 = new javax.swing.JLabel();
+        titulo4 = new javax.swing.JLabel();
+        titulo5 = new javax.swing.JLabel();
+        titulo6 = new javax.swing.JLabel();
         titulo7 = new javax.swing.JLabel();
+        titulo8 = new javax.swing.JLabel();
+        menu1 = new javax.swing.JTextField();
+        menu2 = new javax.swing.JTextField();
+        menu3 = new javax.swing.JTextField();
+        menu4 = new javax.swing.JTextField();
+        menu5 = new javax.swing.JTextField();
+        menu6 = new javax.swing.JTextField();
+        menu7 = new javax.swing.JTextField();
+        menu8 = new javax.swing.JTextField();
+        menu9 = new javax.swing.JTextField();
+        menu10 = new javax.swing.JTextField();
+        opc1 = new javax.swing.JComboBox();
+        opc2 = new javax.swing.JComboBox();
+        opc3 = new javax.swing.JComboBox();
+        opc4 = new javax.swing.JComboBox();
+        opc5 = new javax.swing.JComboBox();
+        opc6 = new javax.swing.JComboBox();
+        opc7 = new javax.swing.JComboBox();
         opc8 = new javax.swing.JComboBox();
+        opc9 = new javax.swing.JComboBox();
+        opc10 = new javax.swing.JComboBox();
+        label1 = new javax.swing.JLabel();
+        label2 = new javax.swing.JLabel();
+        label3 = new javax.swing.JLabel();
+        label4 = new javax.swing.JLabel();
+        label5 = new javax.swing.JLabel();
+        label11 = new javax.swing.JLabel();
+        label12 = new javax.swing.JLabel();
+        label6 = new javax.swing.JLabel();
+        label7 = new javax.swing.JLabel();
+        label8 = new javax.swing.JLabel();
+        label9 = new javax.swing.JLabel();
+        label10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        panel2 = new javax.swing.JDesktopPane();
 
         setMaximumSize(new java.awt.Dimension(680, 440));
         setMinimumSize(new java.awt.Dimension(680, 440));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panel1.setOpaque(false);
-        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        menu1.setBackground(new java.awt.Color(0, 51, 51));
-        menu1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu1.setForeground(new java.awt.Color(255, 255, 255));
-        menu1.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu1.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, 30));
-
-        botonayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/botonayuda1.png"))); // NOI18N
-        botonayuda.setToolTipText("¿Nececitas ayuda?");
-        botonayuda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        botonayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        botonayuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                botonayudaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                botonayudaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                botonayudaMouseExited(evt);
-            }
-        });
-        panel1.add(botonayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, 30));
-
-        label9.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label9.setForeground(new java.awt.Color(255, 255, 255));
-        label9.setText("9.");
-        label9.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 30, 30));
-
-        opc2.setBackground(new java.awt.Color(0, 51, 51));
-        opc2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc2.setForeground(new java.awt.Color(255, 255, 255));
-        opc2.setMaximumRowCount(10);
-        opc2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc2.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc2.setBorder(null);
-        opc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 50, 40));
-
-        opc5.setBackground(new java.awt.Color(0, 51, 51));
-        opc5.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc5.setForeground(new java.awt.Color(255, 255, 255));
-        opc5.setMaximumRowCount(10);
-        opc5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc5.setBorder(null);
-        opc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 40));
 
         boton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/continuar1.png"))); // NOI18N
         boton1.setToolTipText("Presione aqui para continuar con el registro de la base de informacion");
@@ -358,127 +329,136 @@ public class AltaBases extends javax.swing.JFrame {
                 boton1MouseExited(evt);
             }
         });
-        panel1.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 180, 40));
+        getContentPane().add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 180, 40));
 
-        titulo8.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
-        titulo8.setForeground(new java.awt.Color(255, 255, 255));
-        titulo8.setText("Submenus");
-        titulo8.setToolTipText("");
-        panel1.add(titulo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 60, 40));
+        botonayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/botonayuda1.png"))); // NOI18N
+        botonayuda.setToolTipText("¿Nececitas ayuda?");
+        botonayuda.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonayuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonayuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonayudaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonayudaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonayudaMouseExited(evt);
+            }
+        });
+        getContentPane().add(botonayuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, 30));
 
-        opc9.setBackground(new java.awt.Color(0, 51, 51));
-        opc9.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc9.setForeground(new java.awt.Color(255, 255, 255));
-        opc9.setMaximumRowCount(10);
-        opc9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc9.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc9.setBorder(null);
-        opc9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 50, 40));
-
-        titulo4.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
-        titulo4.setForeground(new java.awt.Color(255, 255, 255));
-        titulo4.setText("Descripcion de voz de menu");
-        titulo4.setToolTipText("");
-        panel1.add(titulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, 20));
-
-        label1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label1.setForeground(new java.awt.Color(255, 255, 255));
-        label1.setText("1.");
-        label1.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 30, 30));
-
-        label6.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label6.setForeground(new java.awt.Color(255, 255, 255));
-        label6.setText("6.");
-        label6.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 30, 30));
-
-        menu3.setBackground(new java.awt.Color(0, 51, 51));
-        menu3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu3.setForeground(new java.awt.Color(255, 255, 255));
-        menu3.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu3.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 180, 30));
-
-        menu5.setBackground(new java.awt.Color(0, 51, 51));
-        menu5.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu5.setForeground(new java.awt.Color(255, 255, 255));
-        menu5.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu5.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 180, 30));
-
-        label10.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label10.setForeground(new java.awt.Color(255, 255, 255));
-        label10.setText("10.");
-        label10.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 40, 30));
-
-        menu6.setBackground(new java.awt.Color(0, 51, 51));
-        menu6.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu6.setForeground(new java.awt.Color(255, 255, 255));
-        menu6.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu6.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 180, 30));
-
-        titulo6.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
-        titulo6.setForeground(new java.awt.Color(255, 255, 255));
-        titulo6.setText("Menu ");
-        titulo6.setToolTipText("");
-        panel1.add(titulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 60, 20));
-
-        opc7.setBackground(new java.awt.Color(0, 51, 51));
-        opc7.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc7.setForeground(new java.awt.Color(255, 255, 255));
-        opc7.setMaximumRowCount(10);
-        opc7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc7.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc7.setBorder(null);
-        opc7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 50, 40));
-
-        opc3.setBackground(new java.awt.Color(0, 51, 51));
-        opc3.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc3.setForeground(new java.awt.Color(255, 255, 255));
-        opc3.setMaximumRowCount(10);
-        opc3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc3.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc3.setBorder(null);
-        opc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 50, 40));
-
-        menu7.setBackground(new java.awt.Color(0, 51, 51));
-        menu7.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu7.setForeground(new java.awt.Color(255, 255, 255));
-        menu7.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu7.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 180, 30));
-
-        label3.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label3.setForeground(new java.awt.Color(255, 255, 255));
-        label3.setText("3.");
-        label3.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 30));
+        titulo.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 255));
+        titulo.setText("Opciones del menu");
+        titulo.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 190, 30));
 
         titulo3.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
         titulo3.setForeground(new java.awt.Color(255, 255, 255));
         titulo3.setText("Menu ");
         titulo3.setToolTipText("");
-        panel1.add(titulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 40, 20));
+        getContentPane().add(titulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 40, 20));
 
-        menu4.setBackground(new java.awt.Color(0, 51, 51));
-        menu4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu4.setForeground(new java.awt.Color(255, 255, 255));
-        menu4.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu4.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 180, 30));
+        titulo4.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
+        titulo4.setForeground(new java.awt.Color(255, 255, 255));
+        titulo4.setText("Descripcion de voz de menu");
+        titulo4.setToolTipText("");
+        getContentPane().add(titulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 190, 20));
+
+        titulo5.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
+        titulo5.setForeground(new java.awt.Color(255, 255, 255));
+        titulo5.setText("Submenus");
+        titulo5.setToolTipText("");
+        getContentPane().add(titulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 60, 40));
+
+        titulo6.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
+        titulo6.setForeground(new java.awt.Color(255, 255, 255));
+        titulo6.setText("Menu ");
+        titulo6.setToolTipText("");
+        getContentPane().add(titulo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 60, 20));
+
+        titulo7.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
+        titulo7.setForeground(new java.awt.Color(255, 255, 255));
+        titulo7.setText("Descripcion de voz de menu");
+        titulo7.setToolTipText("");
+        getContentPane().add(titulo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 200, 20));
+
+        titulo8.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
+        titulo8.setForeground(new java.awt.Color(255, 255, 255));
+        titulo8.setText("Submenus");
+        titulo8.setToolTipText("");
+        getContentPane().add(titulo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 60, 40));
+
+        menu1.setBackground(new java.awt.Color(0, 51, 51));
+        menu1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu1.setForeground(new java.awt.Color(255, 255, 255));
+        menu1.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu1.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 180, 30));
 
         menu2.setBackground(new java.awt.Color(0, 51, 51));
         menu2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         menu2.setForeground(new java.awt.Color(255, 255, 255));
         menu2.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
         menu2.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 180, 30));
+        getContentPane().add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 180, 30));
+
+        menu3.setBackground(new java.awt.Color(0, 51, 51));
+        menu3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu3.setForeground(new java.awt.Color(255, 255, 255));
+        menu3.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu3.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 180, 30));
+
+        menu4.setBackground(new java.awt.Color(0, 51, 51));
+        menu4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu4.setForeground(new java.awt.Color(255, 255, 255));
+        menu4.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu4.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 180, 30));
+
+        menu5.setBackground(new java.awt.Color(0, 51, 51));
+        menu5.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu5.setForeground(new java.awt.Color(255, 255, 255));
+        menu5.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu5.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 180, 30));
+
+        menu6.setBackground(new java.awt.Color(0, 51, 51));
+        menu6.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu6.setForeground(new java.awt.Color(255, 255, 255));
+        menu6.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu6.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 180, 30));
+
+        menu7.setBackground(new java.awt.Color(0, 51, 51));
+        menu7.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu7.setForeground(new java.awt.Color(255, 255, 255));
+        menu7.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu7.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 180, 30));
+
+        menu8.setBackground(new java.awt.Color(0, 51, 51));
+        menu8.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu8.setForeground(new java.awt.Color(255, 255, 255));
+        menu8.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu8.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 180, 30));
+
+        menu9.setBackground(new java.awt.Color(0, 51, 51));
+        menu9.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu9.setForeground(new java.awt.Color(255, 255, 255));
+        menu9.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu9.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 180, 30));
+
+        menu10.setBackground(new java.awt.Color(0, 51, 51));
+        menu10.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        menu10.setForeground(new java.awt.Color(255, 255, 255));
+        menu10.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
+        menu10.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(menu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 180, 30));
 
         opc1.setBackground(new java.awt.Color(0, 51, 51));
         opc1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -488,72 +468,27 @@ public class AltaBases extends javax.swing.JFrame {
         opc1.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc1.setBorder(null);
         opc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 40));
+        getContentPane().add(opc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 50, 40));
 
-        menu8.setBackground(new java.awt.Color(0, 51, 51));
-        menu8.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu8.setForeground(new java.awt.Color(255, 255, 255));
-        menu8.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu8.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 180, 30));
+        opc2.setBackground(new java.awt.Color(0, 51, 51));
+        opc2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc2.setForeground(new java.awt.Color(255, 255, 255));
+        opc2.setMaximumRowCount(10);
+        opc2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc2.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc2.setBorder(null);
+        opc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 50, 40));
 
-        label2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label2.setForeground(new java.awt.Color(255, 255, 255));
-        label2.setText("2.");
-        label2.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 30, 30));
-
-        label5.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label5.setForeground(new java.awt.Color(255, 255, 255));
-        label5.setText("5");
-        label5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 30, 30));
-
-        opc6.setBackground(new java.awt.Color(0, 51, 51));
-        opc6.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc6.setForeground(new java.awt.Color(255, 255, 255));
-        opc6.setMaximumRowCount(10);
-        opc6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc6.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc6.setBorder(null);
-        opc6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 50, 40));
-
-        menu10.setBackground(new java.awt.Color(0, 51, 51));
-        menu10.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu10.setForeground(new java.awt.Color(255, 255, 255));
-        menu10.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu10.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 180, 30));
-
-        label7.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label7.setForeground(new java.awt.Color(255, 255, 255));
-        label7.setText("7.");
-        label7.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 30, 30));
-
-        opc10.setBackground(new java.awt.Color(0, 51, 51));
-        opc10.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        opc10.setForeground(new java.awt.Color(255, 255, 255));
-        opc10.setMaximumRowCount(10);
-        opc10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        opc10.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        opc10.setBorder(null);
-        opc10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 50, 40));
-
-        label4.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label4.setForeground(new java.awt.Color(255, 255, 255));
-        label4.setText("4.");
-        label4.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 30, 30));
-
-        menu9.setBackground(new java.awt.Color(0, 51, 51));
-        menu9.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        menu9.setForeground(new java.awt.Color(255, 255, 255));
-        menu9.setToolTipText("Inserte aqui el nombre asignado para la base de informacion");
-        menu9.setCaretColor(new java.awt.Color(255, 255, 255));
-        panel1.add(menu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 180, 30));
+        opc3.setBackground(new java.awt.Color(0, 51, 51));
+        opc3.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc3.setForeground(new java.awt.Color(255, 255, 255));
+        opc3.setMaximumRowCount(10);
+        opc3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc3.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc3.setBorder(null);
+        opc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 50, 40));
 
         opc4.setBackground(new java.awt.Color(0, 51, 51));
         opc4.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -563,31 +498,37 @@ public class AltaBases extends javax.swing.JFrame {
         opc4.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc4.setBorder(null);
         opc4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 50, 40));
+        getContentPane().add(opc4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 50, 40));
 
-        label8.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
-        label8.setForeground(new java.awt.Color(255, 255, 255));
-        label8.setText("8.");
-        label8.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 30, 30));
+        opc5.setBackground(new java.awt.Color(0, 51, 51));
+        opc5.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc5.setForeground(new java.awt.Color(255, 255, 255));
+        opc5.setMaximumRowCount(10);
+        opc5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc5.setBorder(null);
+        opc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 40));
 
-        titulo5.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
-        titulo5.setForeground(new java.awt.Color(255, 255, 255));
-        titulo5.setText("Submenus");
-        titulo5.setToolTipText("");
-        panel1.add(titulo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 60, 40));
+        opc6.setBackground(new java.awt.Color(0, 51, 51));
+        opc6.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc6.setForeground(new java.awt.Color(255, 255, 255));
+        opc6.setMaximumRowCount(10);
+        opc6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc6.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc6.setBorder(null);
+        opc6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 50, 40));
 
-        titulo.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
-        titulo.setForeground(new java.awt.Color(255, 255, 255));
-        titulo.setText("Opciones del menu");
-        titulo.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
-        panel1.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 190, 30));
-
-        titulo7.setFont(new java.awt.Font("Courier New", 3, 12)); // NOI18N
-        titulo7.setForeground(new java.awt.Color(255, 255, 255));
-        titulo7.setText("Descripcion de voz de menu");
-        titulo7.setToolTipText("");
-        panel1.add(titulo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 200, 20));
+        opc7.setBackground(new java.awt.Color(0, 51, 51));
+        opc7.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc7.setForeground(new java.awt.Color(255, 255, 255));
+        opc7.setMaximumRowCount(10);
+        opc7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc7.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc7.setBorder(null);
+        opc7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 50, 40));
 
         opc8.setBackground(new java.awt.Color(0, 51, 51));
         opc8.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
@@ -597,9 +538,99 @@ public class AltaBases extends javax.swing.JFrame {
         opc8.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
         opc8.setBorder(null);
         opc8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel1.add(opc8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 50, 40));
+        getContentPane().add(opc8, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, 50, 40));
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 430));
+        opc9.setBackground(new java.awt.Color(0, 51, 51));
+        opc9.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc9.setForeground(new java.awt.Color(255, 255, 255));
+        opc9.setMaximumRowCount(10);
+        opc9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc9.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc9.setBorder(null);
+        opc9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 50, 40));
+
+        opc10.setBackground(new java.awt.Color(0, 51, 51));
+        opc10.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        opc10.setForeground(new java.awt.Color(255, 255, 255));
+        opc10.setMaximumRowCount(10);
+        opc10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        opc10.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        opc10.setBorder(null);
+        opc10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(opc10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 50, 40));
+
+        label1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label1.setForeground(new java.awt.Color(255, 255, 255));
+        label1.setText("1.");
+        label1.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 30, 30));
+
+        label2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label2.setForeground(new java.awt.Color(255, 255, 255));
+        label2.setText("2.");
+        label2.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 30, 30));
+
+        label3.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label3.setForeground(new java.awt.Color(255, 255, 255));
+        label3.setText("3.");
+        label3.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 30));
+
+        label4.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label4.setForeground(new java.awt.Color(255, 255, 255));
+        label4.setText("4.");
+        label4.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 30, 30));
+
+        label5.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label5.setForeground(new java.awt.Color(255, 255, 255));
+        label5.setText("5");
+        label5.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 30, 30));
+
+        label11.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label11.setForeground(new java.awt.Color(255, 255, 255));
+        label11.setText("5");
+        label11.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 30, 30));
+
+        label12.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label12.setForeground(new java.awt.Color(255, 255, 255));
+        label12.setText("3.");
+        label12.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 30, 30));
+
+        label6.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label6.setForeground(new java.awt.Color(255, 255, 255));
+        label6.setText("6.");
+        label6.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 30, 30));
+
+        label7.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label7.setForeground(new java.awt.Color(255, 255, 255));
+        label7.setText("7.");
+        label7.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 30, 30));
+
+        label8.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label8.setForeground(new java.awt.Color(255, 255, 255));
+        label8.setText("8.");
+        label8.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 30, 30));
+
+        label9.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label9.setForeground(new java.awt.Color(255, 255, 255));
+        label9.setText("9.");
+        label9.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 30, 30));
+
+        label10.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        label10.setForeground(new java.awt.Color(255, 255, 255));
+        label10.setText("10.");
+        label10.setToolTipText("Numero de opciones en el menu que tendra la base de informacion");
+        getContentPane().add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 40, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -607,10 +638,6 @@ public class AltaBases extends javax.swing.JFrame {
         jLabel3.setMinimumSize(new java.awt.Dimension(678, 442));
         jLabel3.setPreferredSize(new java.awt.Dimension(678, 442));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 680, 440));
-
-        panel2.setOpaque(false);
-        panel2.setPreferredSize(new java.awt.Dimension(660, 440));
-        getContentPane().add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -639,15 +666,15 @@ public class AltaBases extends javax.swing.JFrame {
             
             for(int i=0; i<opciones;i++)
             {
-                menu[i]=getcombo(i+1);
-                panel1.setVisible(false);
-                ContenedorAltaBases p= new ContenedorAltaBases();
-                panel2.add(p);
-                p.opciones=menu[i];
-                p.opcion(i+1);
-                p.setVisible(true);
+                menu[i]=getcomboandalta(i+1);
             }
-            
+            Clases.AltaMenus a= new Clases.AltaMenus();
+            Clases.VariablesCasos v= new Clases.VariablesCasos();
+            a.altamenus(opciones, menu, Integer.parseInt(caso));
+            String aux="Base de informacion registrada con exito!";
+            String info = "<html><font color=#FFFFFF>"+aux+"</font>";
+            JOptionPane.showMessageDialog(null,info,"Registro terminado!",JOptionPane.INFORMATION_MESSAGE); 
+            this.hide();
         }
         
         
@@ -740,6 +767,8 @@ public class AltaBases extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label10;
+    private javax.swing.JLabel label11;
+    private javax.swing.JLabel label12;
     private javax.swing.JLabel label2;
     private javax.swing.JLabel label3;
     private javax.swing.JLabel label4;
@@ -768,8 +797,6 @@ public class AltaBases extends javax.swing.JFrame {
     private javax.swing.JComboBox opc7;
     private javax.swing.JComboBox opc8;
     private javax.swing.JComboBox opc9;
-    private javax.swing.JPanel panel1;
-    private javax.swing.JDesktopPane panel2;
     public javax.swing.JLabel titulo;
     public javax.swing.JLabel titulo3;
     public javax.swing.JLabel titulo4;

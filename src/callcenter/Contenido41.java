@@ -210,12 +210,12 @@ public class Contenido41 extends javax.swing.JInternalFrame {
                 v.base=nombrebase.getText();
                 v.descripcion=descripcion.getText();
                 v.menuprincipal=Integer.parseInt(menusbase.getSelectedItem().toString());
-                v.altasbase();
+                int caso=v.altasbase();
                 nombrebase.setText("");
                 descripcion.setText("");
                 menusbase.setSelectedIndex(0);
                 AltaBases a= new AltaBases();
-                a.opcion(v.menuprincipal);
+                a.opcion(v.menuprincipal,caso);
                 a.titulo.setText("Opcionnes del menu "+v.base);
                 a.show();
                 
