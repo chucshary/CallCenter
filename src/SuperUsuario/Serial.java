@@ -6,6 +6,7 @@
 
 package SuperUsuario;
 
+import Supervisor.Login;
 import Administrador.Alta_usuarios_administrador;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
@@ -130,6 +131,12 @@ public class Serial extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Repetir contraseña");
+
+        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField7FocusLost(evt);
+            }
+        });
 
         jButton2.setText("Entrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -259,18 +266,18 @@ public class Serial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String contra1,contra2;
-        if(jTextField7.getText().equals("")){            
-        }
-        else{
-            contra1=""+jPasswordField1.getText().hashCode();
-            contra2=""+jPasswordField2.getText().hashCode();
-            if(contra1.equals(contra2)){
-                this.dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Las contraseñas no coinciden","Contraseña",JOptionPane.WARNING_MESSAGE); 
-            }
+
+        int contra1, contra2;
+        contra1 = String.valueOf(jPasswordField1.getPassword()).hashCode();
+        contra2 = String.valueOf(jPasswordField2.getPassword()).hashCode();
+        if (contra1 == contra2) {
+            this.dispose();
+            metodo.join(jTextField7.getText(), contra1, 1);
+            Administrador.Alta_usuarios_administrador m = new Administrador.Alta_usuarios_administrador();
+            m.setLocationRelativeTo(null);
+            m.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Contraseña", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -290,9 +297,13 @@ public class Serial extends javax.swing.JFrame {
         else{
             this.dispose();
             if(metodo.administradores()){
-                new Alta_usuarios_administrador().setVisible(true);
+                login_superusu m= new login_superusu();
+                m.setLocationRelativeTo(null);
+                m.setVisible(true);
             }else{
-                new Login().setVisible(true);
+                Supervisor.Login m=new Supervisor.Login();
+                m.setLocationRelativeTo(null);
+                m.setVisible(true);
             }
         }
     }//GEN-LAST:event_formWindowOpened
@@ -344,6 +355,14 @@ public class Serial extends javax.swing.JFrame {
             jTextField4.grabFocus();
         }
     }//GEN-LAST:event_jTextField5KeyReleased
+
+    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
+        jTextField7.setText(jTextField7.getText().trim());
+        if (jTextField7.getText().equals("")) {
+            jTextField7.grabFocus();
+            JOptionPane.showMessageDialog(null, "Ingresa un nombre", "Usuario", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jTextField7FocusLost
 
     /**
      * @param args the command line arguments
