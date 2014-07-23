@@ -20,32 +20,34 @@ import javax.swing.JList;
  * @author Lee
  */
 public class Base_de_datos_metodos {
-   Conector con;
+   EstructuraBD.conexion con;
    public Base_de_datos_metodos(){
-   con = new Conector();
+   con = new EstructuraBD.conexion();
    }
    
    
    public int serial(){
        int serial2=0;
         try{
-           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT " + " serial " + " FROM superusuario");
-           ResultSet res = pstm.executeQuery();
-           res.next();
-           serial2 = res.getInt("serial");
-           res.close();
-       }
-       catch(SQLException e)
-       {
-           System.out.println(e);
-       }
-       return serial2;
+            PreparedStatement pstm = null;
+            pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT " + " serial " + " FROM superusuario");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            serial2 = res.getInt("serial");
+            res.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        return serial2;
    }
    
    public String serial_code(){
        String serial="";
        try{
-           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT " + " serial_code " + " FROM superusuario");
+           PreparedStatement pstm = null;
+           pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT " + " serial_code " + " FROM superusuario");
            ResultSet res = pstm.executeQuery();
            res.next();
            serial = res.getString("serial_code");
@@ -61,11 +63,12 @@ public class Base_de_datos_metodos {
    public void superusuario(String name, String password){
        String serial_codigo=serial_code();
        try{
-           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("UPDATE superusuario SET nombre_su=?, password_su=? WHERE serial_code=? ");
+           PreparedStatement pstm = null;
+           pstm = (PreparedStatement)con.conectar().prepareStatement("UPDATE superusuario SET nombre_su=?, password_su=? WHERE serial_code=? ");
            pstm.setString(1, name);
            pstm.setString(2, password);
            pstm.setString(3, serial_codigo);
-           pstm.executeQuery();
+           pstm.executeUpdate();
            pstm.close();
        }
        catch(SQLException e)
@@ -85,10 +88,12 @@ public class Base_de_datos_metodos {
             usu_tipo="nombre_admin";
         }
         try{
-            PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? ");
+            PreparedStatement pstm = null;
+            pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? ");
             pstm.setString(1, usu);
-            ResultSet res = pstm.executeQuery(); 
-            res.getRow();
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            row=res.getRow();
             res.close();
         }
         catch(SQLException e)
@@ -105,8 +110,10 @@ public class Base_de_datos_metodos {
    public boolean administradores(){
        int row=0;
        try{
-           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM administradores");
+           PreparedStatement pstm = null;
+           pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT * FROM administradores");
            ResultSet res = pstm.executeQuery();
+           res.next();
            row=res.getRow();
            res.close();
        }
@@ -139,10 +146,12 @@ public class Base_de_datos_metodos {
                 break;
         }
         try{
-            PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? AND " + pass_tipo + "=? ");
+            PreparedStatement pstm = null;
+            pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT * FROM " + tipo_usu + " WHERE " + usu_tipo + "=? AND " + pass_tipo + "=? ");
             pstm.setString(1, usu);
             pstm.setInt(2, pass);
             ResultSet res = pstm.executeQuery(); 
+            res.next();
             row=res.getRow();
             res.close();
         }
@@ -155,22 +164,6 @@ public class Base_de_datos_metodos {
        }
        else{
            return false;
-       }
-   }
-    public void administradores_lista(JList lista){
-        DefaultListModel modelo = new DefaultListModel();
-       try{
-           PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("SELECT * FROM administradores");
-           ResultSet res = pstm.executeQuery();
-           while(res.next()){
-               modelo.addElement(res.getString(2));
-           }
-           lista.setModel(modelo);
-           res.close();
-       }
-       catch(SQLException e)
-       {
-           System.out.println(e);
        }
    }
     public void join(String usu, int pass, int tipo){
@@ -190,10 +183,11 @@ public class Base_de_datos_metodos {
                 break;
         }
         try{
-            PreparedStatement pstm = (PreparedStatement)con.getConnection().prepareStatement("INSERT INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
+            PreparedStatement pstm = null;
+            pstm = (PreparedStatement)con.conectar().prepareStatement("INSERT INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
             pstm.setString(1, usu);
             pstm.setInt(2, pass);
-            pstm.executeQuery();
+            pstm.executeUpdate();
             pstm.close();
         }
         catch(SQLException e)
