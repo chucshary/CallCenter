@@ -17,13 +17,6 @@ public class Server {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        try {
-            Clases.Music m = new Music();
-            m.reproduccion();
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-
-        }
 //        SuperUsuario.Serial m= new SuperUsuario.Serial();
         callcenter.ServerMain m = new callcenter.ServerMain();
         m.setLocationRelativeTo(null);

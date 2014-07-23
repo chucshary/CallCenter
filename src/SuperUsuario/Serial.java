@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package SuperUsuario;
 
 import Supervisor.Login;
 import Administrador.Alta_usuarios_administrador;
+import Clases.Music;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
-
 
 /**
  *
  * @author Lee
  */
 public class Serial extends javax.swing.JFrame {
-    public Base_de_datos_metodos metodo=new Base_de_datos_metodos();
+
+    public Base_de_datos_metodos metodo = new Base_de_datos_metodos();
+
     /**
      * Creates new form Serial
      */
@@ -240,11 +241,11 @@ public class Serial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String serial=""+metodo.serial_code();
-        String serialprueba =""+ jTextField1.getText() + jTextField2.getText() + jTextField3.getText() + jTextField4.getText() + jTextField5.getText();
-        serialprueba=""+serialprueba.hashCode();
-        serial=""+serial.hashCode();
-        if(serial.equals(serialprueba)){
+        String serial = "" + metodo.serial_code();
+        String serialprueba = "" + jTextField1.getText() + jTextField2.getText() + jTextField3.getText() + jTextField4.getText() + jTextField5.getText();
+        serialprueba = "" + serialprueba.hashCode();
+        serial = "" + serial.hashCode();
+        if (serial.equals(serialprueba)) {
             this.resize(new Dimension(455, 400));
             jButton1.setEnabled(false);
             jTextField1.setEnabled(false);
@@ -260,9 +261,8 @@ public class Serial extends javax.swing.JFrame {
             jTextField7.setVisible(true);
             jPasswordField1.setVisible(true);
             jPasswordField2.setVisible(true);
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Por favor de revisar el serial ingresado","Serial Incorrecto",JOptionPane.ERROR_MESSAGE); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor de revisar el serial ingresado", "Serial Incorrecto", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -283,8 +283,8 @@ public class Serial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        int serial2=metodo.serial();
-        if(serial2==0){
+        int serial2 = metodo.serial();
+        if (serial2 == 0) {
             this.resize(new Dimension(455, 150));
             jButton2.setVisible(false);
             jLabel6.setVisible(false);
@@ -294,15 +294,14 @@ public class Serial extends javax.swing.JFrame {
             jTextField7.setVisible(false);
             jPasswordField1.setVisible(false);
             jPasswordField2.setVisible(false);
-        }
-        else{
+        } else {
             this.dispose();
-            if(metodo.administradores()){
-                login_superusu m= new login_superusu();
+            if (metodo.administradores()) {
+                login_superusu m = new login_superusu();
                 m.setLocationRelativeTo(null);
                 m.setVisible(true);
-            }else{
-                Supervisor.Login m=new Supervisor.Login();
+            } else {
+                Supervisor.Login m = new Supervisor.Login();
                 m.setLocationRelativeTo(null);
                 m.setVisible(true);
             }
@@ -311,7 +310,7 @@ public class Serial extends javax.swing.JFrame {
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         jTextField1.setText(jTextField1.getText().toUpperCase());
-        if (jTextField1.getText().length()>= 5){
+        if (jTextField1.getText().length() >= 5) {
             evt.consume();
             jTextField2.grabFocus();
         }
@@ -319,40 +318,40 @@ public class Serial extends javax.swing.JFrame {
 
     private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
         jTextField2.setText(jTextField2.getText().toUpperCase());
-        if (jTextField2.getText().length()>= 5){
+        if (jTextField2.getText().length() >= 5) {
             evt.consume();
             jTextField3.grabFocus();
-        }else if(jTextField2.getText().length()== 0){
+        } else if (jTextField2.getText().length() == 0) {
             jTextField1.grabFocus();
         }
     }//GEN-LAST:event_jTextField2KeyReleased
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         jTextField3.setText(jTextField3.getText().toUpperCase());
-        if (jTextField3.getText().length()>= 5){
+        if (jTextField3.getText().length() >= 5) {
             evt.consume();
             jTextField4.grabFocus();
-        }else if(jTextField3.getText().length()== 0){
+        } else if (jTextField3.getText().length() == 0) {
             jTextField2.grabFocus();
         }
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
         jTextField4.setText(jTextField4.getText().toUpperCase());
-        if (jTextField4.getText().length()>= 5){
+        if (jTextField4.getText().length() >= 5) {
             evt.consume();
             jTextField5.grabFocus();
-        }else if(jTextField4.getText().length()== 0){
+        } else if (jTextField4.getText().length() == 0) {
             jTextField3.grabFocus();
         }
     }//GEN-LAST:event_jTextField4KeyReleased
 
     private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
         jTextField5.setText(jTextField5.getText().toUpperCase());
-        if (jTextField5.getText().length()>= 5){
+        if (jTextField5.getText().length() >= 5) {
             evt.consume();
             jButton1.grabFocus();
-        }else if(jTextField5.getText().length()== 0){
+        } else if (jTextField5.getText().length() == 0) {
             jTextField4.grabFocus();
         }
     }//GEN-LAST:event_jTextField5KeyReleased
@@ -395,6 +394,13 @@ public class Serial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try {
+                    Clases.Music m = new Music();
+                    m.reproduccion();
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+
+                }
                 new Serial().setVisible(true);
             }
         });
