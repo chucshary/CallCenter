@@ -273,8 +273,7 @@ public class Serial extends javax.swing.JFrame {
         contra2 = String.valueOf(jPasswordField2.getPassword()).hashCode();
         if (contra1 == contra2) {
             this.dispose();
-            metodo.join(jTextField7.getText(), contra1, 1);
-            metodo.seriains();
+            metodo.superusuario(jTextField7.getText(), contra1);
             Administrador.Alta_usuarios_administrador m = new Administrador.Alta_usuarios_administrador();
             m.setLocationRelativeTo(null);
             m.setVisible(true);

@@ -56,13 +56,14 @@ public class Base_de_datos_metodos {
        return serial;
    }
    
-   public void superusuario(String name, String password){
+   public void superusuario(String name, int password){
        String serial_codigo=serial_code();
        try{
            PreparedStatement pstm = null;
-           pstm = (PreparedStatement)con.conectar().prepareStatement("UPDATE superusuario SET nombre_su=?, password_su=? WHERE serial_code=? ");
+           pstm = (PreparedStatement)con.conectar().prepareStatement("UPDATE superusuario SET nombre_su=?, password_su=?, serial=? WHERE serial_code=? ");
            pstm.setString(1, name);
-           pstm.setString(2, password);
+           pstm.setInt(2, password);
+           pstm.setInt(3,1);
            pstm.setString(3, serial_codigo);
            pstm.executeUpdate();
            pstm.close();
@@ -183,19 +184,6 @@ public class Base_de_datos_metodos {
             pstm = (PreparedStatement)con.conectar().prepareStatement("UPDATE INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
             pstm.setString(1, usu);
             pstm.setInt(2, pass);
-            pstm.executeUpdate();
-            pstm.close();
-        }
-        catch(SQLException e)
-        {
-            System.out.println(e);
-        }
-    }
-    public void seriains(){
-        try{
-            PreparedStatement pstm = null;
-            pstm = (PreparedStatement)con.conectar().prepareStatement("INSERT INTO superusuario (serial) values (?)");
-            pstm.setString(1, "1");
             pstm.executeUpdate();
             pstm.close();
         }
