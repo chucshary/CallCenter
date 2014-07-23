@@ -6,13 +6,9 @@
 
 package SuperUsuario;
 
-import com.mysql.jdbc.PreparedStatement;
 import java.sql.SQLException;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-
 
 
 /**
@@ -81,10 +77,10 @@ public class Base_de_datos_metodos {
         int row=0;
         String tipo_usu="",usu_tipo="";
         if(tipo==0){
-            tipo_usu="supervidores";
+            tipo_usu="supervisores";
             usu_tipo="nombre_supervisor";
         }else{
-            tipo_usu="administradores";
+            tipo_usu="administrador";
             usu_tipo="nombre_admin";
         }
         try{
@@ -111,7 +107,7 @@ public class Base_de_datos_metodos {
        int row=0;
        try{
            PreparedStatement pstm = null;
-           pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT * FROM administradores");
+           pstm = (PreparedStatement)con.conectar().prepareStatement("SELECT * FROM administrador");
            ResultSet res = pstm.executeQuery();
            res.next();
            row=res.getRow();
@@ -132,11 +128,11 @@ public class Base_de_datos_metodos {
         int row=0;
         String tipo_usu="",usu_tipo="",pass_tipo="";
         switch(tipo){
-            case 2:tipo_usu="superusuarios";
+            case 2:tipo_usu="superusuario";
                 usu_tipo="nombre_su";
                 pass_tipo="password_su";
                 break;
-            case 1:tipo_usu="administradores";
+            case 1:tipo_usu="administrador";
                 usu_tipo="nombre_admin";
                 pass_tipo="password_admin";
                 break;
@@ -169,11 +165,11 @@ public class Base_de_datos_metodos {
     public void join(String usu, int pass, int tipo){
         String tipo_usu="",usu_tipo="",pass_tipo="";
         switch(tipo){
-            case 1:tipo_usu="superusuarios";
+            case 1:tipo_usu="superusuario";
                 usu_tipo="nombre_su";
                 pass_tipo="password_su";
                 break;
-            case 2:tipo_usu="administradores";
+            case 2:tipo_usu="administrador";
                 usu_tipo="nombre_admin";
                 pass_tipo="password_admin";
                 break;
@@ -184,7 +180,7 @@ public class Base_de_datos_metodos {
         }
         try{
             PreparedStatement pstm = null;
-            pstm = (PreparedStatement)con.conectar().prepareStatement("INSERT INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
+            pstm = (PreparedStatement)con.conectar().prepareStatement("UPDATE INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
             pstm.setString(1, usu);
             pstm.setInt(2, pass);
             pstm.executeUpdate();
@@ -194,6 +190,18 @@ public class Base_de_datos_metodos {
         {
             System.out.println(e);
         }
-        
+    }
+    public void seriains(){
+        try{
+            PreparedStatement pstm = null;
+            pstm = (PreparedStatement)con.conectar().prepareStatement("INSERT INTO superusuario (serial) values (?)");
+            pstm.setString(1, "1");
+            pstm.executeUpdate();
+            pstm.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
     }
 }

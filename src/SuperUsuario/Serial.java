@@ -23,6 +23,7 @@ public class Serial extends javax.swing.JFrame {
      */
     public Serial() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -273,6 +274,7 @@ public class Serial extends javax.swing.JFrame {
         if (contra1 == contra2) {
             this.dispose();
             metodo.join(jTextField7.getText(), contra1, 1);
+            metodo.seriains();
             Administrador.Alta_usuarios_administrador m = new Administrador.Alta_usuarios_administrador();
             m.setLocationRelativeTo(null);
             m.setVisible(true);
