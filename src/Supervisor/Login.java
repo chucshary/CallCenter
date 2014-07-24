@@ -7,6 +7,9 @@
 package Supervisor;
 
 import SuperUsuario.Base_de_datos_metodos;
+import callcenter.Server;
+import callcenter.ServerMain;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -125,7 +128,10 @@ public class Login extends javax.swing.JFrame {
             SuperUsuario.Variables_globales.setSesion(true);
             SuperUsuario.Variables_globales.setSesion_usuario(jTextField1.getText());
             SuperUsuario.Variables_globales.setSession_tipo(jComboBox1.getSelectedIndex());
-            new callcenter.ServerMain();
+            this.dispose();
+            callcenter.Server s = new Server();
+            
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

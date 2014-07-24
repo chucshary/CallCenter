@@ -64,7 +64,7 @@ public class Base_de_datos_metodos {
            pstm.setString(1, name);
            pstm.setInt(2, password);
            pstm.setInt(3,1);
-           pstm.setString(3, serial_codigo);
+           pstm.setString(4, serial_codigo);
            pstm.executeUpdate();
            pstm.close();
        }
@@ -181,7 +181,7 @@ public class Base_de_datos_metodos {
         }
         try{
             PreparedStatement pstm = null;
-            pstm = (PreparedStatement)con.conectar().prepareStatement("UPDATE INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
+            pstm = (PreparedStatement)con.conectar().prepareStatement("INSERT INTO " + tipo_usu + " ("+usu_tipo+","+pass_tipo+") values (?,?)");
             pstm.setString(1, usu);
             pstm.setInt(2, pass);
             pstm.executeUpdate();

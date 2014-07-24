@@ -19,14 +19,14 @@ public class VariablesCasos {
     
    public String base="", descripcion="";
     public int menuprincipal=0;
+    public int caso=0;
+    public int id=1;
     
-    
-    
-    public void altasbase()
+    public int altasbase()
     {
         String campos="id_caso,nombre,numeromenus,descripcion";
         String tabla="casos";
-        int id=1;
+        
         EstructuraBD.conexion C= new EstructuraBD.conexion();    
         C.registro_busqueda="";
         C.busqueda_gral(tabla,"id_caso");
@@ -40,7 +40,20 @@ public class VariablesCasos {
         
         String valores=Integer.toString(id)+","+base+","+menuprincipal+","+descripcion;
         C.agregar(tabla, campos, valores);
+        AltaBases a= new AltaBases();
+        return id;
     }
+    
+    public void altamenu(String menu, String casos, int opciones, String vozdescripcion)
+    {
+        String campos="idmenu,id_caso,numero_opciones,descripcion";
+        String tabla="menu";
+        EstructuraBD.conexion C= new EstructuraBD.conexion();    
+        
+        String valores=menu+","+casos+","+Integer.toString(opciones)+","+vozdescripcion;
+        C.agregar(tabla, campos, valores);
+    }
+    
     
     public void bajabases()
     {
