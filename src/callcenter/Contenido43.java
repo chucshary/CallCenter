@@ -34,6 +34,8 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         boton3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -68,7 +70,19 @@ public class Contenido43 extends javax.swing.JInternalFrame {
                 boton3MouseExited(evt);
             }
         });
-        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, -1, -1));
+        getContentPane().add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Submenu a modificar:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 290, 30));
+
+        jTextField2.setBackground(new java.awt.Color(0, 51, 51));
+        jTextField2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setToolTipText("Submenu a modificar sin puntos. Ejemplo Menu 122 (base 1, menu 2, submenu 3)");
+        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 180, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -81,8 +95,13 @@ public class Contenido43 extends javax.swing.JInternalFrame {
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         // TODO add your handling code here:
+        
+        //Si la base existe y el submenu
         ModificarBase m= new ModificarBase();
         m.show();
+        
+        //si no
+        //mandar mensaje de que no existe x cosa
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseEntered
@@ -101,6 +120,8 @@ public class Contenido43 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel boton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
