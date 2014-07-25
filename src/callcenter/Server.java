@@ -20,9 +20,10 @@ public class Server {
     public static void main(String[] args) {
         // TODO code application logic here
 //        SuperUsuario.Serial m= new SuperUsuario.Serial();
-        callcenter.ServerMain m = new callcenter.ServerMain();
-        m.setLocationRelativeTo(null);
+        ServerMain m = new ServerMain();
         m.setVisible(true);
+        m.setLocationRelativeTo(null);
+        
     }
 
 }

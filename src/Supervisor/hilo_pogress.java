@@ -45,6 +45,7 @@ public class hilo_pogress implements Runnable{
             catch (InterruptedException e){ System.err.println( e.getMessage() ); }            
             //si el trabajo en paralelo a terminado        
         }
+        jProgressBar.setValue(0);
     }
 
 }

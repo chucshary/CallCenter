@@ -51,11 +51,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setToolTipText("");
 
         jTextField1.setFont(new java.awt.Font("Shonar Bangla", 0, 24)); // NOI18N
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField1FocusLost(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 19)); // NOI18N
         jLabel2.setText("Ingrese su nombre de usuario");
@@ -72,6 +67,8 @@ public class Login extends javax.swing.JFrame {
 
         jComboBox1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supervisor", "Administrador" }));
+        jComboBox1.setSelectedIndex(1);
+        jComboBox1.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,32 +120,28 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Thread(new hilo_pogress(this.jProgressBar1 , 100 ) ).start();
-        if(metodo.log(jComboBox1.getSelectedIndex(), jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()).hashCode())){
-            SuperUsuario.Variables_globales.setSesion(true);
-            SuperUsuario.Variables_globales.setSesion_usuario(jTextField1.getText());
-            SuperUsuario.Variables_globales.setSession_tipo(jComboBox1.getSelectedIndex());
-            this.dispose();
-            callcenter.Server s = new Server();
-            
-            
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
         jTextField1.setText(jTextField1.getText().trim());
         if (!jTextField1.getText().equals("")) {
             new Thread(new hilo_pogress(this.jProgressBar1, 5)).start();
             if (metodo.usuarioexiste(jComboBox1.getSelectedIndex(), jTextField1.getText())) {
                 JOptionPane.showMessageDialog(null, "Nombre de usuario no encontrado", "Usuario Incorrecto", JOptionPane.WARNING_MESSAGE);
                 jTextField1.grabFocus();
+            } else {
+                new Thread(new hilo_pogress(this.jProgressBar1, 100)).start();
+                if (metodo.log(jComboBox1.getSelectedIndex(), jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()).hashCode())) {
+                    SuperUsuario.Variables_globales.setSesion(true);
+                    SuperUsuario.Variables_globales.setSesion_usuario(jTextField1.getText());
+                    SuperUsuario.Variables_globales.setSession_tipo(jComboBox1.getSelectedIndex());
+//                    this.dispose();
+                    callcenter.Server ser = new Server();
+                    this.hide();
+                }
             }
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ingresa un usuarios", "Usuario Incorrecto", JOptionPane.WARNING_MESSAGE);
             jTextField1.grabFocus();
         }
-    }//GEN-LAST:event_jTextField1FocusLost
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
