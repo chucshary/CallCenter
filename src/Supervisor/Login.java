@@ -1,15 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties. * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
 package Supervisor;
 
 import SuperUsuario.Base_de_datos_metodos;
-import callcenter.Server;
-import callcenter.ServerMain;
-import java.util.Locale;
+import  callcenter.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +21,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -132,9 +130,15 @@ public class Login extends javax.swing.JFrame {
                     SuperUsuario.Variables_globales.setSesion(true);
                     SuperUsuario.Variables_globales.setSesion_usuario(jTextField1.getText());
                     SuperUsuario.Variables_globales.setSession_tipo(jComboBox1.getSelectedIndex());
-//                    this.dispose();
-                    callcenter.Server ser = new Server();
+//                 callcenter.Server.main();
+                    Server server;
+                    server = new callcenter.Server();
+          
+//                    Server s= new Server();
+//                    s.getClass().getMethods();
                     this.hide();
+                    
+                    
                 }
             }
         } else {

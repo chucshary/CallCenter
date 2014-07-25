@@ -18,8 +18,12 @@ public class CallCenter {
 //        new callcenter.ServerMain().setLocationRelativeTo(null);
 //        new callcenter.ServerMain().setVisible(true);
 
-        new SuperUsuario.Serial().setLocationRelativeTo(null);
-        new SuperUsuario.Serial().setVisible(true);
+//        new SuperUsuario.Serial().setLocationRelativeTo(null);
+//        new SuperUsuario.Serial().setVisible(true);
+        
+        ServerMain m = new ServerMain();
+        m.setLocationRelativeTo(null);
+        m.setVisible(true);
     }
 
 }

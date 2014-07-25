@@ -122,7 +122,9 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Thread(new hilo_pogress(this.jProgressBar1 , 100 ) ).start();
         if(metodo.log(jComboBox1.getSelectedIndex(), jTextField1.getText(), jPasswordField1.getText().hashCode())){
-            new callcenter.ServerMain();
+//            new callcenter.ServerMain();
+            new callcenter.Server();
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

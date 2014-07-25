@@ -1,6 +1,5 @@
 package callcenter;
 
-
 import Clases.Music;
 
 /*
@@ -18,12 +17,15 @@ public class Server {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         // TODO code application logic here
-//        SuperUsuario.Serial m= new SuperUsuario.Serial();
-        ServerMain m = new ServerMain();
-        m.setVisible(true);
-        m.setLocationRelativeTo(null);
-        
+    }
+
+    public Server() {
+//        ServerMain m = new ServerMain();
+       
+//        m.setVisible(true);
+         new ServerMain().setVisible(true);
     }
 
 }
