@@ -17,15 +17,16 @@ public class Server {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+//         ServerMain m = new ServerMain();
+//        m.setLocationRelativeTo(null);
+//        m.setVisible(true);
 
-        // TODO code application logic here
     }
 
-    public Server() {
-//        ServerMain m = new ServerMain();
-       
-//        m.setVisible(true);
-         new ServerMain().setVisible(true);
+    public void iniciar() {
+        ServerMain m = new ServerMain();
+        m.setLocationRelativeTo(null);
+        m.setVisible(true);
     }
 
 }

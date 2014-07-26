@@ -21,7 +21,6 @@ public class Panel1 extends javax.swing.JInternalFrame {
     public Panel1() {
         initComponents();
         
-        
     }
 
     /**

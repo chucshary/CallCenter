@@ -76,10 +76,10 @@ public class Serial extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, 68, 28));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 3, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Serial");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 4, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
         jTextField2.setBackground(new java.awt.Color(0, 51, 51));
         jTextField2.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N

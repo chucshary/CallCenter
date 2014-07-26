@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package SuperUsuario;
 
 import javax.swing.JOptionPane;
+import callcenter.Server;
 
 /**
  *
  * @author Lee
  */
 public class Login extends javax.swing.JFrame {
-    public Base_de_datos_metodos metodo=new Base_de_datos_metodos();
+
+    public Base_de_datos_metodos metodo = new Base_de_datos_metodos();
 
     /**
      * Creates new form Login
@@ -64,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese su nombre de usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, 44));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 230, 44));
 
         jPasswordField1.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField1.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
@@ -80,14 +81,14 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 285, 200, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 130, 40));
         getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 220, 23));
 
         jComboBox1.setBackground(new java.awt.Color(0, 51, 51));
         jComboBox1.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supervisor", "Administrador" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 190, 40));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 190, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -100,21 +101,22 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Thread(new hilo_pogress(this.jProgressBar1 , 100 ) ).start();
-        if(metodo.log(jComboBox1.getSelectedIndex(), jTextField1.getText(), jPasswordField1.getText().hashCode())){
+        new Thread(new hilo_pogress(this.jProgressBar1, 100)).start();
+        if (metodo.log(jComboBox1.getSelectedIndex(), jTextField1.getText(), jPasswordField1.getText().hashCode())) {
 //            new callcenter.ServerMain();
-            new callcenter.Server();
-            
+            Server s = new Server();
+            s.iniciar();
+            this.hide();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-        if(!jTextField1.getText().equals("")){
-            if(!metodo.usuarioexiste(jComboBox1.getSelectedIndex(),jTextField1.getText())){
-                JOptionPane.showMessageDialog(null,"Nombre de usuario no encontrado","Usuario Incorrecto",JOptionPane.WARNING_MESSAGE);
+        if (!jTextField1.getText().equals("")) {
+            if (!metodo.usuarioexiste(jComboBox1.getSelectedIndex(), jTextField1.getText())) {
+                JOptionPane.showMessageDialog(null, "Nombre de usuario no encontrado", "Usuario Incorrecto", JOptionPane.WARNING_MESSAGE);
             }
         }
-        new Thread(new hilo_pogress(this.jProgressBar1 , 100 ) ).start();
+        new Thread(new hilo_pogress(this.jProgressBar1, 100)).start();
     }//GEN-LAST:event_jTextField1FocusLost
 
     /**

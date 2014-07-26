@@ -13,15 +13,20 @@ import Clases.Reloj;
  *
  * @author Mariana Valencia
  */
-public class ServerMain extends javax.swing.JFrame {
+public final class ServerMain extends javax.swing.JFrame {
 
     /**
      * Creates new form ServerMain
      */
     public ServerMain() {
-
         initComponents();
+//        setUndecorated(true);
         setLocationRelativeTo(null);
+        fecha_hora();
+        
+    }
+    public void fecha_hora()
+    {
         Date dia = new Date();
         fecha.setText(Integer.toString(dia.getDate()) + "/" + Integer.toString(dia.getMonth() + 1) + "/" + Integer.toString(dia.getYear() + 1900));
         Reloj r = new Reloj(hora);
@@ -198,6 +203,7 @@ public class ServerMain extends javax.swing.JFrame {
 
     private void Pestana1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseEntered
         Pestana1.setIcon(new ImageIcon(getClass().getResource("/recursos/pestaña1.png")));
+//        Pestana1.setIcon(new ImageIcon(getClass().getResource("/recursos/")));
     }//GEN-LAST:event_Pestana1MouseEntered
 
     private void Pestana1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Pestana1MouseExited
@@ -324,6 +330,7 @@ public class ServerMain extends javax.swing.JFrame {
         });
     }
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane PanelBotones;
