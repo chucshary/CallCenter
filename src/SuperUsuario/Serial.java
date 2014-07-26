@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * @author Lee
  */
 public class Serial extends javax.swing.JFrame {
-
     public Base_de_datos_metodos metodo = new Base_de_datos_metodos();
     /**
      * Creates new form Serial
@@ -253,8 +252,7 @@ public class Serial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        int serial2 = metodo.serial();
-        if (serial2 == 0) {
+
             this.resize(new Dimension(455, 150));
             jButton2.setVisible(false);
             jLabel6.setVisible(false);
@@ -264,18 +262,6 @@ public class Serial extends javax.swing.JFrame {
             jTextField7.setVisible(false);
             jPasswordField1.setVisible(false);
             jPasswordField2.setVisible(false);
-        } else {
-            this.dispose();
-            if (metodo.administradores()) {
-                login_superusu m = new login_superusu();
-                m.setLocationRelativeTo(null);
-                m.setVisible(true);
-            } else {
-                Supervisor.Login m = new Supervisor.Login();
-                m.setLocationRelativeTo(null);
-                m.setVisible(true);
-            }
-        }
     }//GEN-LAST:event_formWindowOpened
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
