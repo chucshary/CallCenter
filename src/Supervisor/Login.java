@@ -39,6 +39,7 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jComboBox1 = new javax.swing.JComboBox();
+
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -50,6 +51,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Contraseña");
         jLabel1.setToolTipText("");
+
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 240, 44));
 
         jTextField1.setBackground(new java.awt.Color(0, 73, 73));
@@ -66,6 +68,7 @@ public class Login extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
+
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +76,7 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 140, 50));
 
         jProgressBar1.setBackground(new java.awt.Color(0, 51, 51));
@@ -81,10 +85,13 @@ public class Login extends javax.swing.JFrame {
 
         jComboBox1.setBackground(new java.awt.Color(0, 51, 51));
         jComboBox1.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
+
+
         jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supervisor", "Administrador" }));
         jComboBox1.setSelectedIndex(1);
         jComboBox1.setToolTipText("");
+
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 230, 30));
 
         jLabel4.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
@@ -93,12 +100,15 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Ingrese su nombre de usuario");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 44));
 
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setMaximumSize(new java.awt.Dimension(678, 442));
         jLabel3.setMinimumSize(new java.awt.Dimension(678, 442));
         jLabel3.setPreferredSize(new java.awt.Dimension(678, 442));
+
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 300, 430));
+
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

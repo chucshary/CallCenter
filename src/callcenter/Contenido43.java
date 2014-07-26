@@ -49,6 +49,12 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField1.setMaximumSize(new java.awt.Dimension(360, 80));
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
@@ -82,6 +88,11 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setToolTipText("Submenu a modificar sin puntos. Ejemplo Menu 122 (base 1, menu 2, submenu 3)");
         jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 180, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
@@ -114,6 +125,27 @@ public class Contenido43 extends javax.swing.JInternalFrame {
 
         boton3.setIcon(new ImageIcon(getClass().getResource( "/recursos/continuar1.png" )));
     }//GEN-LAST:event_boton3MouseExited
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        // TODO add your handling code here:
+        char c; 
+
+            c=evt.getKeyChar(); 
+                if(c<'0'|| c>'9') 
+                { 
+                    evt.consume();//ignora el caracter digitado 
+                } 
+        
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        char c; 
+        c=evt.getKeyChar(); 
+            if(!(c<'0'||c>'9')) 
+                evt.consume(); 
+
+    }//GEN-LAST:event_jTextField1KeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
