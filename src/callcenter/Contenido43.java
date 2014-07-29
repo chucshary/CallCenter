@@ -1,7 +1,11 @@
 package callcenter;
 
 
+import java.sql.ResultSet;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,11 +35,11 @@ public class Contenido43 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        base = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         boton3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        submenu = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -45,17 +49,17 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(630, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField1.setMaximumSize(new java.awt.Dimension(360, 80));
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        base.setBackground(new java.awt.Color(0, 51, 51));
+        base.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        base.setForeground(new java.awt.Color(255, 255, 255));
+        base.setCaretColor(new java.awt.Color(255, 255, 255));
+        base.setMaximumSize(new java.awt.Dimension(360, 80));
+        base.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                baseKeyPressed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
+        getContentPane().add(base, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 190, 30));
 
         jLabel3.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,17 +87,17 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         jLabel4.setText("Submenu a modificar:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 290, 30));
 
-        jTextField2.setBackground(new java.awt.Color(0, 51, 51));
-        jTextField2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setToolTipText("Submenu a modificar sin puntos. Ejemplo Menu 122 (base 1, menu 2, submenu 3)");
-        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        submenu.setBackground(new java.awt.Color(0, 51, 51));
+        submenu.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        submenu.setForeground(new java.awt.Color(255, 255, 255));
+        submenu.setToolTipText("Submenu a modificar sin puntos. Ejemplo Menu 122 (base 1, menu 2, submenu 3)");
+        submenu.setCaretColor(new java.awt.Color(255, 255, 255));
+        submenu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField2KeyPressed(evt);
+                submenuKeyPressed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 180, 30));
+        getContentPane().add(submenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 180, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -106,10 +110,46 @@ public class Contenido43 extends javax.swing.JInternalFrame {
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         // TODO add your handling code here:
+        UIManager UI=new UIManager();
+        UI.put("OptionPane.background",new ColorUIResource(0,51,51));
+        UI.put("Panel.background",new ColorUIResource(0,51,51));
+        String titulo,mensaje;
         
+        String resultado1="",resultado2="";
         //Si la base existe y el submenu
-        ModificarBase m= new ModificarBase();
-        m.show();
+        EstructuraBD.conexion c= new EstructuraBD.conexion();
+        resultado1=c.busquedaespecifica("casos", "*", "nombre='"+base.getText()+"'");
+        if(base.getText().length()!=0&&submenu.getText().length()!=0)
+        {   if (resultado1!=null)
+                {
+                
+                    resultado2=c.busquedaespecifica("menu", "*", "idmenu="+submenu.getText());
+                    if(resultado2!=null)
+                    {
+                    ModificarBase m= new ModificarBase();
+                    m.submenu=Integer.parseInt(submenu.getText());
+                    m.base=base.getText();
+                    m.show();
+                    }
+                    else
+                    {   titulo="Submenu no valido!";
+                        mensaje="<html><font color=#FFFFFF>El submenu indicado no se encontro en la base de informacion.";
+                        JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            
+                else
+                {   titulo="Base no valida!";
+                    mensaje="<html><font color=#FFFFFF>Nombre de base no encontrado.";
+                    JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+                }
+            
+        }
+        else
+        {   titulo="Campos vacios!";
+            mensaje="<html><font color=#FFFFFF>Debe colocar el nombre de la base y el submenu.";
+            JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+        }
         
         //si no
         //mandar mensaje de que no existe x cosa
@@ -126,7 +166,7 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         boton3.setIcon(new ImageIcon(getClass().getResource( "/recursos/continuar1.png" )));
     }//GEN-LAST:event_boton3MouseExited
 
-    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+    private void submenuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_submenuKeyPressed
         // TODO add your handling code here:
         char c; 
 
@@ -136,24 +176,24 @@ public class Contenido43 extends javax.swing.JInternalFrame {
                     evt.consume();//ignora el caracter digitado 
                 } 
         
-    }//GEN-LAST:event_jTextField2KeyPressed
+    }//GEN-LAST:event_submenuKeyPressed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void baseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_baseKeyPressed
         // TODO add your handling code here:
         char c; 
         c=evt.getKeyChar(); 
             if(!(c<'0'||c>'9')) 
                 evt.consume(); 
 
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_baseKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField base;
     private javax.swing.JLabel boton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField submenu;
     // End of variables declaration//GEN-END:variables
 }
