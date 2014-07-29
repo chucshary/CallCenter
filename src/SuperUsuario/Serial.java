@@ -350,13 +350,6 @@ public class Serial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    Clases.Music m = new Music();
-                    m.reproduccion();
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-
-                }
                 new Serial().setVisible(true);
             }
         });

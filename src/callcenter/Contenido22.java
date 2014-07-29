@@ -1,22 +1,36 @@
 package callcenter;
 
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mariana Valencia
  */
 public class Contenido22 extends javax.swing.JInternalFrame {
 
+    DefaultTableModel modelo;
+
     /**
      * Creates new form Contenido11
      */
     public Contenido22() {
         initComponents();
+        tablaContenido();
+    }
+
+    private void tablaContenido() {
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Consultante [IP]");
+        modelo.addColumn("ID Caso");
+        modelo.addColumn("Comentario");
+        this.jTable1.setModel(modelo);
+//        Clases.BandejaCompra t = new BandejaCompra();
+//        t.getDatos(modelo1, tipo);
     }
 
     /**
@@ -29,6 +43,8 @@ public class Contenido22 extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -39,8 +55,24 @@ public class Contenido22 extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("checar ireport");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 200, 80));
+        jLabel1.setText("checar ireport 22");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 200, 80));
+
+        jTable1.setFont(new java.awt.Font("Agency FB", 0, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 570, 290));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -55,5 +87,7 @@ public class Contenido22 extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
