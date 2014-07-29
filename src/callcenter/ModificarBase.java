@@ -16,10 +16,17 @@ public class ModificarBase extends javax.swing.JFrame {
 
     /**
      * Creates new form ModificarBase
-     */
+     */public static int submenu;
+     public static String base;
     public ModificarBase() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        baset.setText(base);
+        submenut.setText(Integer.toString(submenu));
+        EstructuraBD.conexion c= new EstructuraBD.conexion();
+        texto1.setText(c.busquedaespecifica("menu", "descripcion", "idmenu="+submenu));
+        texto2.setFocusable(true);
     }
 
     /**
@@ -32,13 +39,13 @@ public class ModificarBase extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        baset = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        submenut = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        texto2 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        texto1 = new javax.swing.JTextArea();
         boton3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -51,48 +58,48 @@ public class ModificarBase extends javax.swing.JFrame {
         jLabel3.setText("Nombre de la base:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 290, 30));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextField1.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 190, 30));
+        baset.setEditable(false);
+        baset.setBackground(new java.awt.Color(0, 51, 51));
+        baset.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        baset.setForeground(new java.awt.Color(255, 255, 255));
+        baset.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(baset, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 190, 30));
 
         jLabel4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Submenu a modificar:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 290, 30));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(0, 51, 51));
-        jTextField2.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setToolTipText("Submenu a modificar sin puntos. Ejemplo Menu 122 (base 1, menu 2, submenu 3)");
-        jTextField2.setCaretColor(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 180, 30));
+        submenut.setEditable(false);
+        submenut.setBackground(new java.awt.Color(0, 51, 51));
+        submenut.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        submenut.setForeground(new java.awt.Color(255, 255, 255));
+        submenut.setToolTipText("Submenu a modificar sin puntos. Ejemplo Menu 122 (base 1, menu 2, submenu 3)");
+        submenut.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(submenut, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 180, 30));
 
         jScrollPane2.setBackground(new java.awt.Color(0, 51, 51));
         jScrollPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextArea2.setBackground(new java.awt.Color(0, 51, 51));
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Cordia New", 3, 14)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        texto2.setBackground(new java.awt.Color(0, 51, 51));
+        texto2.setColumns(20);
+        texto2.setFont(new java.awt.Font("Cordia New", 3, 14)); // NOI18N
+        texto2.setForeground(new java.awt.Color(255, 255, 255));
+        texto2.setRows(5);
+        jScrollPane2.setViewportView(texto2);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 270, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(0, 51, 51));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Cordia New", 3, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        texto1.setEditable(false);
+        texto1.setBackground(new java.awt.Color(0, 51, 51));
+        texto1.setColumns(20);
+        texto1.setFont(new java.awt.Font("Cordia New", 3, 14)); // NOI18N
+        texto1.setForeground(new java.awt.Color(255, 255, 255));
+        texto1.setRows(5);
+        jScrollPane1.setViewportView(texto1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 250, -1));
 
@@ -184,6 +191,7 @@ public class ModificarBase extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField baset;
     private javax.swing.JLabel boton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -192,9 +200,8 @@ public class ModificarBase extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField submenut;
+    private javax.swing.JTextArea texto1;
+    private javax.swing.JTextArea texto2;
     // End of variables declaration//GEN-END:variables
 }

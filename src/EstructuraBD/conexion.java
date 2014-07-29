@@ -251,5 +251,39 @@ public class conexion {
 
         }
     }
+    
+    
+        public String busquedaespecifica (String tabla, String campo, String clausula) {
+        try {
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + "WHERE "+clausula+";");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            String respuesta= res.toString();
+            res.close();
+            return respuesta;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+
+        }
+    }
+        
+      public ResultSet busquedacasos (String tabla, String campos) {
+        try {
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campos + " FROM " + tabla+";");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            return res;
+
+        } 
+        
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+
+        }
+    }
+
 
 }
