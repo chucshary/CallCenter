@@ -140,7 +140,7 @@ public class ModificarBase extends javax.swing.JFrame {
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         // TODO add your handling code here:
-        //Actualizar y mandar mensaje de confirmacion
+        //Actualizar el submenu al text2 en descripcion y mandar mensaje de confirmacion
         //salir
     }//GEN-LAST:event_boton3MouseClicked
 
