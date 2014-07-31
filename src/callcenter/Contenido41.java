@@ -206,17 +206,16 @@ public class Contenido41 extends javax.swing.JInternalFrame {
             int respuesta = JOptionPane.showConfirmDialog(null, mensaje, titulo, JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE );
             if (respuesta == JOptionPane.YES_OPTION)
             {
-                Clases.VariablesCasos v= new Clases.VariablesCasos();
-                v.base=nombrebase.getText();
-                v.descripcion=descripcion.getText();
-                v.menuprincipal=Integer.parseInt(menusbase.getSelectedItem().toString());
-                int caso=v.altasbase();
+                Clases.VariablesCasos.base=nombrebase.getText();
+                Clases.VariablesCasos.descripcion=descripcion.getText();
+                Clases.VariablesCasos.menuprincipal=Integer.parseInt(menusbase.getSelectedItem().toString());
+                int caso=Clases.VariablesCasos.altasbase();
                 nombrebase.setText("");
                 descripcion.setText("");
                 menusbase.setSelectedIndex(0);
                 AltaBases a= new AltaBases();
-                a.opcion(v.menuprincipal,caso);
-                a.titulo.setText("Opcionnes del menu "+v.base);
+                a.opcion(Clases.VariablesCasos.menuprincipal,caso);
+                a.titulo.setText("Opcionnes del menu "+Clases.VariablesCasos.base);
                 a.show();
                 
             }

@@ -128,8 +128,8 @@ public class Contenido43 extends javax.swing.JInternalFrame {
                     if(resultado2!=null)
                     {
                     
-                    VariablesCasos.base=base.getText();
-                    VariablesCasos.submenu=submenu.getText();
+                    Clases.VariablesCasos.base=base.getText();
+                    Clases.VariablesCasos.submenu=submenu.getText();
                     ModificarBase m= new ModificarBase();
                     m.show();
                     }

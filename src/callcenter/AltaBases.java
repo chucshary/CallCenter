@@ -47,7 +47,6 @@ public class AltaBases extends javax.swing.JFrame {
         
         
         int aux=0;
-        VariablesCasos v= new VariablesCasos();
         String menu="",voz="";
         menu= caso+Integer.toString(i);
         if (i==1)
@@ -102,7 +101,7 @@ public class AltaBases extends javax.swing.JFrame {
             voz=menu10.getText();
         }
 
-        v.altamenu(menu, caso, aux, voz );
+        Clases.VariablesCasos.altamenu(menu, caso, aux, voz );
         return aux;
     }
     
@@ -669,7 +668,6 @@ public class AltaBases extends javax.swing.JFrame {
                 menu[i]=getcomboandalta(i+1);
             }
             Clases.AltaMenus a= new Clases.AltaMenus();
-            Clases.VariablesCasos v= new Clases.VariablesCasos();
             a.altamenus(opciones, menu, Integer.parseInt(caso));
             String aux="Base de informacion registrada con exito!";
             String info = "<html><font color=#FFFFFF>"+aux+"</font>";

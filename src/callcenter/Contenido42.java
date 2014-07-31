@@ -87,10 +87,9 @@ public class Contenido42 extends javax.swing.JInternalFrame {
         
         if(base.getText().length()!=0)
         {
-            Clases.VariablesCasos a= new Clases.VariablesCasos();
-            a.base="";
-            a.base=base.getText();
-            a.bajabases();
+            Clases.VariablesCasos.base="";
+            Clases.VariablesCasos.base=base.getText();
+            Clases.VariablesCasos.bajabases();
             base.setText("");
             base.setFocusable(true);
         }

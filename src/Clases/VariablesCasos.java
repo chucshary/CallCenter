@@ -18,11 +18,11 @@ import javax.swing.plaf.ColorUIResource;
 public class VariablesCasos {
     
    public static String base="", descripcion="", submenu="";
-    public int menuprincipal=0;
-    public int caso=0;
-    public int id=1;
+    public static int menuprincipal=0;
+    public static int caso=0;
+    public static int id=1;
     
-    public int altasbase()
+    public static int altasbase()
     {
         String campos="id_caso,nombre,numeromenus,descripcion";
         String tabla="casos";
@@ -44,7 +44,7 @@ public class VariablesCasos {
         return id;
     }
     
-    public void altamenu(String menu, String casos, int opciones, String vozdescripcion)
+    public static  void altamenu(String menu, String casos, int opciones, String vozdescripcion)
     {
         String campos="idmenu,id_caso,numero_opciones,descripcion";
         String tabla="menu";
@@ -55,7 +55,7 @@ public class VariablesCasos {
     }
     
     
-    public void bajabases()
+    public static void bajabases()
     {
         String tabla="casos";
         EstructuraBD.conexion C= new EstructuraBD.conexion();
