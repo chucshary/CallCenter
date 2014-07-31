@@ -118,12 +118,12 @@ public class Contenido43 extends javax.swing.JInternalFrame {
         String resultado1="",resultado2="";
         //Si la base existe y el submenu
         EstructuraBD.conexion c= new EstructuraBD.conexion();
-        resultado1=c.busquedaespecifica("casos", "*", "nombre='"+base.getText()+"'");
+        resultado1=c.busquedaespecifica("casos", "nombre", "nombre='"+base.getText()+"'");
         if(base.getText().length()!=0&&submenu.getText().length()!=0)
         {   if (resultado1!=null)
                 {
                 
-                    resultado2=c.busquedaespecifica("menu", "*", "idmenu="+submenu.getText());
+                    resultado2=c.busquedaespecifica("menu", "idmenu", "idmenu="+submenu.getText());
                     if(resultado2!=null)
                     {
                     ModificarBase m= new ModificarBase();

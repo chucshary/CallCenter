@@ -255,15 +255,17 @@ public class conexion {
     
         public String busquedaespecifica (String tabla, String campo, String clausula) {
         try {
-            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement("SELECT " + campo + " FROM " + tabla + "WHERE "+clausula+";");
+            String aux;
+            aux = "SELECT " + campo + " FROM " + tabla + " WHERE "+clausula+";";
+            PreparedStatement pstm = (PreparedStatement) conectar().prepareStatement(aux);
             ResultSet res = pstm.executeQuery();
             res.next();
-            String respuesta= res.toString();
+            String respuesta= res.getString(campo);
             res.close();
             return respuesta;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "<html><font color=#FFFFFF>"+e);
             return null;
 
         }
@@ -279,7 +281,7 @@ public class conexion {
         } 
         
         catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "<html><font color=#FFFFFF>"+e);
             return null;
 
         }
