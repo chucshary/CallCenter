@@ -27,7 +27,7 @@ public class Contenido21 extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel();
         modelo.addColumn("Consultante [IP]");
         modelo.addColumn("ID Caso");
-        modelo.addColumn("Comentario");
+        modelo.addColumn("Comentarcio");
         this.jTable1.setModel(modelo);
 //        Clases.BandejaCompra t = new BandejaCompra();
 //        t.getDatos(modelo1, tipo);

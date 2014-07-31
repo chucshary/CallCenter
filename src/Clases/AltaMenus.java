@@ -79,9 +79,9 @@ public class AltaMenus {
         UI.put("OptionPane.background",new ColorUIResource(0,51,51));
         UI.put("Panel.background",new ColorUIResource(0,51,51));
         String voz=JOptionPane.showInputDialog("<html><font color=#FFFFFF> Inserte la descripcion de voz para el menu "+menu2);
+        //esoera, checo mi codigo
         
-        VariablesCasos v= new VariablesCasos();
-        v.altamenu(menu1, caso, opcion, voz);
+        VariablesCasos.altamenu(menu1, caso, opcion, voz);
         
         if(opcion!=0)
         {
