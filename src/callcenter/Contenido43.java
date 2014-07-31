@@ -1,6 +1,7 @@
 package callcenter;
 
 
+import Clases.VariablesCasos;
 import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -126,9 +127,10 @@ public class Contenido43 extends javax.swing.JInternalFrame {
                     resultado2=c.busquedaespecifica("menu", "idmenu", "idmenu="+submenu.getText());
                     if(resultado2!=null)
                     {
+                    
+                    VariablesCasos.base=base.getText();
+                    VariablesCasos.submenu=submenu.getText();
                     ModificarBase m= new ModificarBase();
-                    m.submenu=Integer.parseInt(submenu.getText());
-                    m.base=base.getText();
                     m.show();
                     }
                     else

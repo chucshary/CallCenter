@@ -1,6 +1,10 @@
 package callcenter;
 
+import Clases.VariablesCasos;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,16 +20,16 @@ public class ModificarBase extends javax.swing.JFrame {
 
     /**
      * Creates new form ModificarBase
-     */public static int submenu;
-     public static String base;
+     */
+    
     public ModificarBase() {
         initComponents();
         setLocationRelativeTo(null);
         
-        baset.setText(base);
-        submenut.setText(Integer.toString(submenu));
+        baset.setText(VariablesCasos.base);
+        submenut.setText(VariablesCasos.submenu);
         EstructuraBD.conexion c= new EstructuraBD.conexion();
-        texto1.setText(c.busquedaespecifica("menu", "descripcion", "idmenu="+submenu));
+        texto1.setText(c.busquedaespecifica("menu", "descripcion", "idmenu="+VariablesCasos.submenu));
         texto2.setFocusable(true);
     }
 
@@ -83,7 +87,7 @@ public class ModificarBase extends javax.swing.JFrame {
 
         texto2.setBackground(new java.awt.Color(0, 51, 51));
         texto2.setColumns(20);
-        texto2.setFont(new java.awt.Font("Cordia New", 3, 14)); // NOI18N
+        texto2.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         texto2.setForeground(new java.awt.Color(255, 255, 255));
         texto2.setRows(5);
         jScrollPane2.setViewportView(texto2);
@@ -96,7 +100,7 @@ public class ModificarBase extends javax.swing.JFrame {
         texto1.setEditable(false);
         texto1.setBackground(new java.awt.Color(0, 51, 51));
         texto1.setColumns(20);
-        texto1.setFont(new java.awt.Font("Cordia New", 3, 14)); // NOI18N
+        texto1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
         texto1.setForeground(new java.awt.Color(255, 255, 255));
         texto1.setRows(5);
         jScrollPane1.setViewportView(texto1);
@@ -140,8 +144,38 @@ public class ModificarBase extends javax.swing.JFrame {
 
     private void boton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseClicked
         // TODO add your handling code here:
-        //Actualizar y mandar mensaje de confirmacion
-        //salir
+        
+        UIManager UI=new UIManager();
+        UI.put("OptionPane.background",new ColorUIResource(0,51,51));
+        UI.put("Panel.background",new ColorUIResource(0,51,51));
+        String titulo, mensaje;
+        if(texto2.getText().length()!=0)
+        {
+            EstructuraBD.conexion c= new EstructuraBD.conexion();
+        try
+        {
+            c.actualizar("menu","descripcion","'"+texto2.getText()+"'" , "idmenu="+submenut.getText());
+            titulo="Confirmacion!";
+            mensaje="<html><font color=#FFFFFF>Submenu "+submenut.getText()+" actualizado!.";
+        }
+        catch (Exception e)
+        {
+            titulo="Error!";
+            mensaje="<html><font color=#FFFFFF>No se ha podido realizar la actualizacion!.";
+            
+        }
+        JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+        this.hide();
+        
+        }
+        else
+        {
+             titulo="Campos vacios!";
+            mensaje="<html><font color=#FFFFFF>Debe colocar el nuevo texto del submenu.";
+            texto2.setFocusable(true);
+            JOptionPane.showMessageDialog(null,mensaje,titulo,JOptionPane.INFORMATION_MESSAGE);
+            
+        }
     }//GEN-LAST:event_boton3MouseClicked
 
     private void boton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton3MouseEntered

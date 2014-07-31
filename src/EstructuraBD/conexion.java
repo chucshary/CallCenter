@@ -265,7 +265,6 @@ public class conexion {
             return respuesta;
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "<html><font color=#FFFFFF>"+e);
             return null;
 
         }
@@ -281,7 +280,7 @@ public class conexion {
         } 
         
         catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "<html><font color=#FFFFFF>"+e);
+            
             return null;
 
         }

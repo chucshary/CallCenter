@@ -17,7 +17,7 @@ import javax.swing.plaf.ColorUIResource;
  */
 public class VariablesCasos {
     
-   public String base="", descripcion="";
+   public static String base="", descripcion="", submenu="";
     public int menuprincipal=0;
     public int caso=0;
     public int id=1;
