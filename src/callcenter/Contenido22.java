@@ -1,5 +1,6 @@
 package callcenter;
 
+import Reportes.ReportesClassCons;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -23,14 +24,17 @@ public class Contenido22 extends javax.swing.JInternalFrame {
         tablaContenido();
     }
 
-    private void tablaContenido() {
+  private void tablaContenido() {
+        String res="ATENDIDO";
         modelo = new DefaultTableModel();
-        modelo.addColumn("Consultante [IP]");
+        modelo.addColumn("IP");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Telefono");
         modelo.addColumn("ID Caso");
         modelo.addColumn("Comentario");
         this.jTable1.setModel(modelo);
-//        Clases.BandejaCompra t = new BandejaCompra();
-//        t.getDatos(modelo1, tipo);
+        Reportes.ReportesClassCons rp = new ReportesClassCons();
+        rp.getDatos(modelo, res);
     }
 
     /**
@@ -42,7 +46,6 @@ public class Contenido22 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -53,10 +56,6 @@ public class Contenido22 extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(630, 430));
         setPreferredSize(new java.awt.Dimension(630, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("checar ireport 22");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 200, 80));
 
         jTable1.setFont(new java.awt.Font("Agency FB", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -85,7 +84,6 @@ public class Contenido22 extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

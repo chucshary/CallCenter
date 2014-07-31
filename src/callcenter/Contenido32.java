@@ -1,5 +1,9 @@
 package callcenter;
 
+import Reportes.ReportesClassCons;
+import Reportes.ReportesClassServer;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,12 +15,25 @@ package callcenter;
  * @author Mariana Valencia
  */
 public class Contenido32 extends javax.swing.JInternalFrame {
+DefaultTableModel modelo;
 
     /**
      * Creates new form Contenido11
      */
     public Contenido32() {
         initComponents();
+        tablaContenido();
+    }
+    
+     private void tablaContenido() {
+        String res="1";
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Inicio");
+        modelo.addColumn("Fin");
+        modelo.addColumn("Empleado");
+        this.jTable1.setModel(modelo);
+        Reportes.ReportesClassServer rp = new ReportesClassServer();
+        rp.getDatos(modelo, res);
     }
 
     /**
@@ -28,7 +45,6 @@ public class Contenido32 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -39,10 +55,6 @@ public class Contenido32 extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(630, 430));
         setPreferredSize(new java.awt.Dimension(630, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("checar ireport 32");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 200, 80));
 
         jTable1.setFont(new java.awt.Font("Agency FB", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -58,7 +70,7 @@ public class Contenido32 extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 400, 180));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 540, 280));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -71,7 +83,6 @@ public class Contenido32 extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
