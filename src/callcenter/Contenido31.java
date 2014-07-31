@@ -1,6 +1,7 @@
 package callcenter;
 
 
+import ConexionSocket.Hilo_Socket_Servidor;
 import javax.swing.ImageIcon;
 
 /*
@@ -84,8 +85,10 @@ public class Contenido31 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseClicked
-        // TODO add your handling code here:
-        
+        if(!SuperUsuario.Variables_globales.servidor_status){
+            SuperUsuario.Variables_globales.servidor_status=true;
+            ((Hilo_Socket_Servidor) new Hilo_Socket_Servidor()).start();
+        }
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton1MouseEntered
@@ -99,7 +102,7 @@ public class Contenido31 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_boton1MouseExited
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
-        // TODO add your handling code here:
+        SuperUsuario.Variables_globales.servidor_status=false;
     }//GEN-LAST:event_boton2MouseClicked
 
     private void boton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseEntered

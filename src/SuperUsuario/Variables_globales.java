@@ -32,4 +32,16 @@ public class Variables_globales {
     public static void setSession_tipo(int aSession_tipo) {
         session_tipo = aSession_tipo;
     }
+    public static boolean servidor_status=false;
+    public static boolean isServidor_status() {
+        return servidor_status;
+    }
+
+    /**
+     * @param aServidor_status the servidor_status to set
+     */
+    public static void setServidor_status(boolean aServidor_status) {
+        servidor_status = aServidor_status;
+    }
+    
 }

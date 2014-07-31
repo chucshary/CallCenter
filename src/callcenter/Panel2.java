@@ -159,8 +159,6 @@ public class Panel2 extends javax.swing.JInternalFrame {
         Contenido21 p= new Contenido21();
         PanelContenido.add(p);
         p.setVisible(true);
-        
-        
     }//GEN-LAST:event_boton1MouseClicked
 
     private void boton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton2MouseClicked
