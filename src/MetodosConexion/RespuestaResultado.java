@@ -99,11 +99,11 @@ public class RespuestaResultado {
     
     
     //Donde se ingresan los datos del cliente a la base de datos
-    public void fin(int idmenu, String nombrecliente, String contacto, String resultado, String comentario)
+    public void fin(int idmenu, String ip, String nombrecliente, String contacto, String resultado, String comentario)
     {
         EstructuraBD.conexion c = new EstructuraBD.conexion();
-        String valores="0"+","+"'"+nombrecliente+"','"+contacto+"',"+idmenu+",'"+resultado+"','"+comentario+"'";
-        c.agregar("consultante", "id_consultante, nombre_consultante, telefono_consultante, id_caso, resultado, comentario", valores);
+        String valores="0"+",'"+ip+"','"+nombrecliente+"','"+contacto+"',"+idmenu+",'"+resultado+"','"+comentario+"'";
+        c.agregar("consultante", "id, ip, nombre, telefono, id_caso, resultado, comentario", valores);
     }
     
     

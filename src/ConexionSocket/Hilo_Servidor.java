@@ -60,7 +60,7 @@ public class Hilo_Servidor extends Thread {
                  String contacto = recibo.readUTF();
                  String resultado = recibo.readUTF();
                  String comentario = recibo.readUTF();
-                 metodo.fin(idmenu, nombre_cliente, contacto, resultado, comentario);
+                 metodo.fin(idmenu, socket.getLocalAddress().toString(), nombre_cliente, contacto, resultado, comentario);
                  desconnectar();
             }
         } catch (IOException ex) {
