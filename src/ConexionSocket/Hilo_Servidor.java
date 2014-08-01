@@ -47,22 +47,23 @@ public class Hilo_Servidor extends Thread {
         int tiempo=700;
         try {
             while (!socket.isClosed()) {
-                if(!bandera_datos_clientes){
-                    envio.writeUTF(opciones[0]);
-                    sleep(tiempo);
-                    bandera_datos_clientes=true;
-                }
-                else{
-                    accion=recibo.readUTF();
-                    opciones = metodo.respuesta(Integer.valueOf(accion));
-                    envio.writeUTF(opciones[0]);
-                    envio2.writeUTF(opciones[1]);
-                }
+                 envio.writeUTF(opciones[0]);
+                 envio2.writeUTF(opciones[1]);
+                 opciones = metodo.respuestacaso(Integer.valueOf(recibo.readUTF()));
+                 while(!opciones[1].equals("0")){
+                     envio.writeUTF(opciones[0]);
+                     envio2.writeUTF(opciones[1]);
+                     opciones = metodo.respuesta(Integer.valueOf(recibo.readUTF()));
+                 }
+                 int idmenu=Integer.valueOf(recibo.readUTF());
+                 String nombre_cliente = recibo.readUTF();
+                 String contacto = recibo.readUTF();
+                 String resultado = recibo.readUTF();
+                 String comentario = recibo.readUTF();
+                 metodo.fin(idmenu, nombre_cliente, contacto, resultado, comentario);
+                 desconnectar();
             }
         } catch (IOException ex) {
-            Logger.getLogger(Hilo_Servidor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catch (InterruptedException ex) {
             Logger.getLogger(Hilo_Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
         desconnectar();
