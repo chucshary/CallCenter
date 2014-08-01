@@ -80,6 +80,8 @@ public class RespuestaResultado {
             respuesta=respuesta+"Para "+resultado.getString(1)+"marque"+i;
             resultado.next();
         }
+        i++;
+        respuesta=respuesta+"Para "+resultado.getString(1)+"marque"+i;
         respuestas[0]=respuesta;
         respuestas[1]=Integer.toString(i);
         return respuestas;
