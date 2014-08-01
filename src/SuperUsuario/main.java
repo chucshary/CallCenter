@@ -5,6 +5,7 @@
  */
 package SuperUsuario;
 
+import Clases.Iniciador;
 import Clases.Music;
 
 /**
@@ -26,6 +27,10 @@ public class main {
                     Clases.Music m = new Music();
                     m.reproduccion();
                     Thread.sleep(2000);
+
+                    Clases.Iniciador ini = new Iniciador();
+                    ini.reproduccion();
+                    Thread.sleep(1000);
                 } catch (InterruptedException ex) {
 
                 }
@@ -37,6 +42,10 @@ public class main {
                     Clases.Music m = new Music();
                     m.reproduccion();
                     Thread.sleep(2000);
+
+                    Clases.Iniciador ini = new Iniciador();
+                    ini.reproduccion();
+                    Thread.sleep(1000);
                 } catch (InterruptedException ex) {
 
                 }
