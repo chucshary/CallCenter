@@ -55,12 +55,14 @@ public class Hilo_Servidor extends Thread {
                      envio2.writeUTF(opciones[1]);
                      opciones = metodo.respuesta(Integer.valueOf(recibo.readUTF()));
                  }
+                 envio.writeUTF(opciones[0]);
+                 envio2.writeUTF(opciones[1]);
                  int idmenu=Integer.valueOf(recibo.readUTF());
                  String nombre_cliente = recibo.readUTF();
                  String contacto = recibo.readUTF();
                  String resultado = recibo.readUTF();
                  String comentario = recibo.readUTF();
-                 metodo.fin(idmenu, nombre_cliente, contacto, resultado, comentario);
+                 metodo.fin(idmenu, socket.getInetAddress().toString(), nombre_cliente, contacto, resultado, comentario);
                  desconnectar();
             }
         } catch (IOException ex) {

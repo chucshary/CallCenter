@@ -157,6 +157,9 @@ public final class ServerMain extends javax.swing.JFrame {
         logout.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 logoutMouseEntered(evt);
             }
@@ -297,6 +300,16 @@ public final class ServerMain extends javax.swing.JFrame {
         PanelBotones.add(p4);
         p4.setVisible(true);
     }//GEN-LAST:event_Pestana5MouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        Supervisor.Login h = new Supervisor.Login();
+        h.setLocationRelativeTo(null);
+        SuperUsuario.Variables_globales.sesion=false;
+        SuperUsuario.Variables_globales.sesion_usuario="";
+        SuperUsuario.Variables_globales.session_tipo=0;
+        this.dispose();
+        h.setVisible(true);
+    }//GEN-LAST:event_logoutMouseClicked
 
     /**
      * @param args the command line arguments
