@@ -31,7 +31,7 @@ public final class ServerMain extends javax.swing.JFrame {
     {
         Date dia = new Date();
         fecha.setText(Integer.toString(dia.getDate()) + "/" + Integer.toString(dia.getMonth() + 1) + "/" + Integer.toString(dia.getYear() + 1900));
-        Variables.setHora_reporte(fecha.getText());
+        Variables.setHora_reporte(Integer.toString(dia.getDate()) + "-" + Integer.toString(dia.getMonth() + 1) + "-" + Integer.toString(dia.getYear() + 1900));
         Reloj r = new Reloj(hora);
     }
 

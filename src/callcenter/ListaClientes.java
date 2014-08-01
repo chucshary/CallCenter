@@ -3,25 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Reportes;
+
+package callcenter;
 
 /**
  *
  * @author Shary
  */
-public class listaClientes {
-
+public class ListaClientes {
     private String ip;
     private String nombre;
     private String telefono;
-    private String id_caso;
+    private String caso;
     private String comentario;
 
-    public listaClientes(String ip, String nombre, String telefono, String id_caso, String comentario) {
+    public ListaClientes(String ip, String nombre, String telefono, String caso, String comentario) {
         this.ip = ip;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.id_caso = id_caso;
+        this.caso = caso;
         this.comentario = comentario;
     }
 
@@ -49,12 +49,12 @@ public class listaClientes {
         this.telefono = telefono;
     }
 
-    public String getId_caso() {
-        return id_caso;
+    public String getCaso() {
+        return caso;
     }
 
-    public void setId_caso(String id_caso) {
-        this.id_caso = id_caso;
+    public void setCaso(String caso) {
+        this.caso = caso;
     }
 
     public String getComentario() {
@@ -64,6 +64,4 @@ public class listaClientes {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-    
-
 }

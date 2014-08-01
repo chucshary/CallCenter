@@ -21,9 +21,14 @@ public class ReportesClassCons {
 
     public Object[][] getDatos(DefaultTableModel modelo, String resultado) {
         int registros = 0;
+        PreparedStatement pstm;
 //obtenemos la cantidad de registros existentes en la tabla
         try {
-            PreparedStatement pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT count(1) as total FROM consultante where resultado= '" + resultado + "';");
+            if ("".equals(resultado)) {
+                pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT count(1) as total FROM consultante where resultado!= '" + resultado + "';");
+            } else {
+               pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT count(1) as total FROM consultante where resultado= '" + resultado + "';");
+            }
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -37,10 +42,21 @@ public class ReportesClassCons {
 
 //realizamos la consulta sql y llenamos los datos en "Object"
         try {
-            PreparedStatement pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT "
+            if("".equals(resultado))
+            {
+                 pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT "
+                    + "ip,nombre,telefono,id_caso,comentario"
+                    + " FROM consultante where resultado!= '" + resultado
+                    + "' ORDER BY id;");
+            }
+            else
+            {
+                 pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT "
                     + "ip,nombre,telefono,id_caso,comentario"
                     + " FROM consultante where resultado= '" + resultado
                     + "' ORDER BY id;");
+            }
+            
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {

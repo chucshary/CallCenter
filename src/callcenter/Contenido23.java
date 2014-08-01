@@ -1,7 +1,20 @@
 package callcenter;
 
+import Clases.Variables;
 import Reportes.ReportesClassCons;
+import java.awt.HeadlessException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,7 +38,7 @@ public class Contenido23 extends javax.swing.JInternalFrame {
     }
 
      private void tablaContenido() {
-        String res="NOSOLUCION";
+        String res="NO RESUELTO";
         modelo = new DefaultTableModel();
         modelo.addColumn("IP");
         modelo.addColumn("Nombre");
@@ -47,6 +60,7 @@ public class Contenido23 extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -70,7 +84,18 @@ public class Contenido23 extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 570, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 550, 270));
+
+        jButton1.setBackground(new java.awt.Color(0, 51, 51));
+        jButton1.setFont(new java.awt.Font("Agency FB", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Generar Reporte");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
         jLabel2.setMaximumSize(new java.awt.Dimension(630, 410));
@@ -81,8 +106,29 @@ public class Contenido23 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            List lista1 = new ArrayList();
+            for (int i = 0; i < jTable1.getRowCount(); i++) {
+                ListaClientes client = new ListaClientes(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), jTable1.getValueAt(i, 4).toString());
+                lista1.add(client);
+            }
+            URL in = this.getClass().getResource("Clientes.jasper");
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
+
+            JasperPrint pr = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(lista1));
+            //            JasperViewer.viewReport(pr);
+            JasperExportManager.exportReportToPdfFile(pr, "C:/ReportesClientes/" + Variables.getHora_reporte() + "SN.pdf");
+            JOptionPane.showMessageDialog(null, "Reporte guardada con exito.\nPuede localizarlo en la ruta: C:/ReportesClientes/" + Variables.getHora_reporte() + "SN.pdf");
+        } catch (HeadlessException | JRException e) {
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
