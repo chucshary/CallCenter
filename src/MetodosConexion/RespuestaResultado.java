@@ -38,6 +38,27 @@ public class RespuestaResultado {
         
     }
     
+        public String [] respuestacaso(int opcion)
+    {
+        String [] respuestas= new String [2];
+        EstructuraBD.conexion c = new EstructuraBD.conexion();
+        String respuesta;
+        respuesta = c.busquedaespecifica("caso","descripcion", "idmenu="+opcion);
+        String opciones=c.busquedaespecifica("caso", "numeromenus", "idmenu="+opcion);
+        if(opciones==null||respuesta==null)
+        {
+        respuestas[0]="Estamos presentando problemas con el servidor. intente llamar mas tarde";
+        respuestas[1]="0";
+        }
+        else
+        {
+        respuestas[0]=respuesta;
+        respuestas[1]=opciones;
+        }
+        return respuestas;
+        
+    }
+    
     //Al empezar la comunicacion el servidor envia el primer menu
     
     public String [] inicio () 
@@ -50,7 +71,7 @@ public class RespuestaResultado {
         
         try
         {
-            resultado = c.busquedacasos("menu","id_caso, descripcion ");
+            resultado = c.busquedacasos("caso","nombre");
         
         int i=0;
         while (resultado.next())
