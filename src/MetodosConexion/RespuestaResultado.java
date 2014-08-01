@@ -50,7 +50,7 @@ public class RespuestaResultado {
         
         try
         {
-            resultado = c.busquedacasos("menu","id_caso, descripcion, ");
+            resultado = c.busquedacasos("menu","id_caso, descripcion ");
         
         int i=0;
         while (resultado.next())
