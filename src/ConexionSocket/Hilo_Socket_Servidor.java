@@ -19,7 +19,7 @@ public class Hilo_Socket_Servidor extends Thread {
         ServerSocket ss;
         try {
             int puerto=10578;
-            ss = new ServerSocket(puerto);
+            ss = new ServerSocket(puerto,100,InetAddress.getLocalHost());
             int idSession = 0;
             while (SuperUsuario.Variables_globales.servidor_status) {
                 Socket socket;
