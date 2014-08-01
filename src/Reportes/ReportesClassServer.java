@@ -20,11 +20,11 @@ public class ReportesClassServer {
 
     private conexion con = new conexion();
 
-    public Object[][] getDatos(DefaultTableModel modelo, String resultado) {
+    public Object[][] getDatos(DefaultTableModel modelo) {
         int registros = 0;
 //obtenemos la cantidad de registros existentes en la tabla
         try {
-            PreparedStatement pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT count(1) as total FROM servidor where resultado= '" + resultado + "';");
+            PreparedStatement pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT count(1) as total FROM servidor;");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -40,8 +40,7 @@ public class ReportesClassServer {
         try {
             PreparedStatement pstm = (PreparedStatement) con.conectar().prepareStatement("SELECT "
                     + "inicio,fin,empleado"
-                    + " FROM servidor where idserver= '" + resultado
-                    + "' ORDER BY idserver;");
+                    + " FROM servidor ORDER BY idserver;");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {

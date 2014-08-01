@@ -38,14 +38,13 @@ DefaultTableModel modelo;
     }
     
      private void tablaContenido() {
-        String res="1";
-        modelo = new DefaultTableModel();
+         modelo = new DefaultTableModel();
         modelo.addColumn("Inicio");
         modelo.addColumn("Fin");
         modelo.addColumn("Empleado");
         this.jTable1.setModel(modelo);
         Reportes.ReportesClassServer rp = new ReportesClassServer();
-        rp.getDatos(modelo, res);
+        rp.getDatos(modelo);
     }
 
     /**
@@ -110,16 +109,16 @@ DefaultTableModel modelo;
         try {
             java.util.List lista1 = new ArrayList();
             for (int i = 0; i < jTable1.getRowCount(); i++) {
-                ListaClientes client = new ListaClientes(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), jTable1.getValueAt(i, 4).toString());
+                ListaServer client = new ListaServer(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString());
                 lista1.add(client);
             }
-            URL in = this.getClass().getResource("Clientes.jasper");
+            URL in = this.getClass().getResource("Server.jasper");
             JasperReport reporte = (JasperReport) JRLoader.loadObject(in);
 
             JasperPrint pr = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(lista1));
             //            JasperViewer.viewReport(pr);
             JasperExportManager.exportReportToPdfFile(pr, "C:/ReportesClientes/" + Variables.getHora_reporte() + "Ser.pdf");
-            JOptionPane.showMessageDialog(null, "Reporte guardada con exito.\nPuede localizarlo en la ruta: C:/ReportesClientes/" + Variables.getHora_reporte() + "Ser.pdf");
+            JOptionPane.showMessageDialog(null, "Reporte guardado con exito.\nPuede localizarlo en la ruta: C:/ReportesClientes/" + Variables.getHora_reporte() + "Ser.pdf");
         } catch (HeadlessException | JRException e) {
 
         }
