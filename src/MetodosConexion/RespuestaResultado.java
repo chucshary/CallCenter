@@ -56,7 +56,8 @@ public class RespuestaResultado {
         while (resultado.next())
         {
             i++;
-            respuesta=respuesta+"Para "+resultado.toString()+"marque"+i;
+            respuesta=respuesta+"Para "+resultado.getString(0)+"marque"+i;
+            resultado.next();
         }
         respuestas[0]=respuesta;
         respuestas[1]=Integer.toString(i);
