@@ -43,8 +43,8 @@ public class RespuestaResultado {
         String [] respuestas= new String [2];
         EstructuraBD.conexion c = new EstructuraBD.conexion();
         String respuesta;
-        respuesta = c.busquedaespecifica("caso","descripcion", "idmenu="+opcion);
-        String opciones=c.busquedaespecifica("caso", "numeromenus", "idmenu="+opcion);
+        respuesta = c.busquedaespecifica("casos","descripcion", "id_caso="+opcion);
+        String opciones=c.busquedaespecifica("casos", "numeromenus", "id_caso="+opcion);
         if(opciones==null||respuesta==null)
         {
         respuestas[0]="Estamos presentando problemas con el servidor. intente llamar mas tarde";
@@ -71,13 +71,13 @@ public class RespuestaResultado {
         
         try
         {
-            resultado = c.busquedacasos("caso","nombre");
+            resultado = c.busquedacasos("casos","nombre");
         
         int i=0;
-        while (resultado.next())
+        while (!resultado.isLast())
         {
             i++;
-            respuesta=respuesta+"Para "+resultado.getString(0)+"marque"+i;
+            respuesta=respuesta+"Para "+resultado.getString(1)+"marque"+i;
             resultado.next();
         }
         respuestas[0]=respuesta;
@@ -94,8 +94,6 @@ public class RespuestaResultado {
         }
         
     }
-    
-    
     
     
     //Donde se ingresan los datos del cliente a la base de datos
