@@ -3,6 +3,8 @@ package callcenter;
 import java.util.Date;
 import javax.swing.ImageIcon;
 import Clases.Reloj;
+import Clases.Variables;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,6 +31,7 @@ public final class ServerMain extends javax.swing.JFrame {
     {
         Date dia = new Date();
         fecha.setText(Integer.toString(dia.getDate()) + "/" + Integer.toString(dia.getMonth() + 1) + "/" + Integer.toString(dia.getYear() + 1900));
+        Variables.setHora_reporte(fecha.getText());
         Reloj r = new Reloj(hora);
     }
 
