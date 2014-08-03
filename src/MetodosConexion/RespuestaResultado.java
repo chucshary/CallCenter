@@ -102,7 +102,7 @@ public class RespuestaResultado {
     public void fin(int idmenu, String ip, String nombrecliente, String contacto, String resultado, String comentario)
     {
         EstructuraBD.conexion c = new EstructuraBD.conexion();
-        String valores="0"+",'"+ip+"','"+nombrecliente+"','"+contacto+"',"+idmenu+",'"+resultado+"','"+comentario+"'";
+        String valores="0"+","+ip+","+nombrecliente+","+contacto+","+idmenu+","+resultado+","+comentario;
         c.agregar("consultante", "id, ip, nombre, telefono, id_caso, resultado, comentario", valores);
     }
     
