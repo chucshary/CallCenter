@@ -93,11 +93,8 @@ public class RespuestaResultado {
             respuestas[1]="0";
             return respuestas;
             
-        }
-        
+        }  
     }
-    
-    
     //Donde se ingresan los datos del cliente a la base de datos
     public void fin(int idmenu, String ip, String nombrecliente, String contacto, String resultado, String comentario)
     {

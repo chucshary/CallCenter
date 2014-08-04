@@ -9,6 +9,8 @@ import Supervisor.Login;
 import Administrador.Alta_usuarios_administrador;
 import Clases.Music;
 import java.awt.Dimension;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,10 +77,10 @@ public class Serial extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, 68, 28));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Courier New", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Serial");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 4, -1, -1));
 
         jTextField2.setBackground(new java.awt.Color(0, 51, 51));
         jTextField2.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
@@ -175,16 +177,31 @@ public class Serial extends javax.swing.JFrame {
                 jTextField7FocusLost(evt);
             }
         });
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField7KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 193, 105, -1));
 
         jPasswordField1.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField1.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 243, 105, -1));
 
         jPasswordField2.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField2.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
         jPasswordField2.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField2KeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 294, 105, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 51, 51));
@@ -203,7 +220,7 @@ public class Serial extends javax.swing.JFrame {
         jLabel10.setMaximumSize(new java.awt.Dimension(678, 442));
         jLabel10.setMinimumSize(new java.awt.Dimension(678, 442));
         jLabel10.setPreferredSize(new java.awt.Dimension(678, 442));
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -20, 470, 370));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -20, 480, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -319,6 +336,36 @@ public class Serial extends javax.swing.JFrame {
             jTextField7.grabFocus();
         }
     }//GEN-LAST:event_jTextField7FocusLost
+
+    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jPasswordField1.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jTextField7KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jPasswordField2.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jPasswordField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jButton2.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jPasswordField2KeyPressed
 
     /**
      * @param args the command line arguments

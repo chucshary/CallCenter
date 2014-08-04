@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package SuperUsuario;
 
 import Supervisor.hilo_pogress;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,8 @@ import javax.swing.JOptionPane;
  * @author Lee
  */
 public class login_superusu extends javax.swing.JFrame {
-    Base_de_datos_metodos metodo=new Base_de_datos_metodos();
+
+    Base_de_datos_metodos metodo = new Base_de_datos_metodos();
 
     /**
      * Creates new form login_superusu
@@ -22,6 +24,7 @@ public class login_superusu extends javax.swing.JFrame {
     public login_superusu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField1.requestFocus();
     }
 
     /**
@@ -44,32 +47,42 @@ public class login_superusu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Ingrese su nombre de superusuario");
+        jLabel2.setText("Nombre de Superusuario");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 283, 44));
 
         jTextField1.setBackground(new java.awt.Color(0, 51, 51));
-        jTextField1.setFont(new java.awt.Font("Shonar Bangla", 0, 24)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 283, 40));
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 283, 30));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 19)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Contraseña");
         jLabel1.setToolTipText("");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 276, 44));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 276, 44));
 
         jPasswordField1.setBackground(new java.awt.Color(0, 51, 51));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jPasswordField1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 283, -1));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 283, 30));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +90,7 @@ public class login_superusu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 160, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 160, -1));
         getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 190, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/fondo1v2.jpg"))); // NOI18N
@@ -92,17 +105,36 @@ public class login_superusu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jTextField1.setText(jTextField1.getText().trim());
-        new Thread(new hilo_pogress(this.jProgressBar1 , 100 ) ).start();
-        if(metodo.log(2, jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()).hashCode())){
+        new Thread(new hilo_pogress(this.jProgressBar1, 100)).start();
+        if (metodo.log(2, jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()).hashCode())) {
             this.dispose();
-            Administrador.Alta_usuarios_administrador m= new Administrador.Alta_usuarios_administrador();
+            Administrador.Alta_usuarios_administrador m = new Administrador.Alta_usuarios_administrador();
             m.setLocationRelativeTo(null);
             m.setVisible(true);
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Usuario Incorrecto", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jPasswordField1.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jButton1.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments

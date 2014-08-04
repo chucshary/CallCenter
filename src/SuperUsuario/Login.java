@@ -7,6 +7,8 @@ package SuperUsuario;
 
 import javax.swing.JOptionPane;
 import callcenter.Server;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -22,6 +24,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField1.requestFocus();
     }
 
     /**
@@ -60,6 +63,11 @@ public class Login extends javax.swing.JFrame {
                 jTextField1FocusLost(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 61, 240, 30));
 
         jLabel2.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
@@ -70,6 +78,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBackground(new java.awt.Color(0, 51, 51));
         jPasswordField1.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 240, 30));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
@@ -118,6 +131,26 @@ public class Login extends javax.swing.JFrame {
         }
         new Thread(new hilo_pogress(this.jProgressBar1, 100)).start();
     }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jPasswordField1.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                jComboBox1.requestFocus();
+            } catch (HeadlessException e) {
+            }
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
